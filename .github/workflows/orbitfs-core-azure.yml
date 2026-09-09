@@ -11,6 +11,18 @@ on:
         description: Azure Web App name for OrbitFS Engine
         required: true
         default: OrbitFS-Engine-Azure
+      resource_group:
+        description: Azure resource group for OrbitFS Core apps
+        required: true
+        default: OrbitFS-Azure
+      location:
+        description: Azure region used when creating the Core resource group/apps
+        required: true
+        default: australiaeast
+      app_service_plan:
+        description: Linux App Service plan for OrbitFS Core apps
+        required: true
+        default: OrbitFS-Azure-Plan
       deploy_engine:
         description: Deploy Engine as well as Panel
         type: boolean
@@ -25,6 +37,9 @@ env:
   NODE_VERSION: '22.x'
   PANEL_APP: ${{ inputs.panel_app }}
   ENGINE_APP: ${{ inputs.engine_app }}
+  RESOURCE_GROUP: ${{ inputs.resource_group }}
+  LOCATION: ${{ inputs.location }}
+  APP_SERVICE_PLAN: ${{ inputs.app_service_plan }}
 
 jobs:
   build:
@@ -98,27 +113,41 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C4E4016A7E5F45908DA285905B447B62 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3C0B624FFD0B46E9A6B41FB1DD90F8D5 }}
 
-      - name: Find Azure resource groups
-        id: azure-resources
+      - name: Ensure Azure Core apps exist
         shell: bash
         run: |
-          PANEL_RG=$(az webapp list --query "[?name=='${PANEL_APP}'].resourceGroup | [0]" -o tsv)
-          ENGINE_RG=$(az webapp list --query "[?name=='${ENGINE_APP}'].resourceGroup | [0]" -o tsv)
-          if [ -z "$PANEL_RG" ]; then
-            echo "Could not find Azure Web App '$PANEL_APP'."
-            exit 1
+          set -e
+          az group create --name "$RESOURCE_GROUP" --location "$LOCATION" >/dev/null
+
+          if ! az appservice plan show --name "$APP_SERVICE_PLAN" --resource-group "$RESOURCE_GROUP" >/dev/null 2>&1; then
+            az appservice plan create \
+              --name "$APP_SERVICE_PLAN" \
+              --resource-group "$RESOURCE_GROUP" \
+              --location "$LOCATION" \
+              --is-linux \
+              --sku B1
           fi
-          if [ "${{ inputs.deploy_engine }}" = "true" ] && [ -z "$ENGINE_RG" ]; then
-            echo "Could not find Azure Web App '$ENGINE_APP'."
-            exit 1
+
+          if ! az webapp show --name "$PANEL_APP" --resource-group "$RESOURCE_GROUP" >/dev/null 2>&1; then
+            az webapp create \
+              --name "$PANEL_APP" \
+              --resource-group "$RESOURCE_GROUP" \
+              --plan "$APP_SERVICE_PLAN" \
+              --runtime "NODE:22-lts"
           fi
-          echo "panel_rg=$PANEL_RG" >> "$GITHUB_OUTPUT"
-          echo "engine_rg=$ENGINE_RG" >> "$GITHUB_OUTPUT"
+
+          if [ "${{ inputs.deploy_engine }}" = "true" ] && ! az webapp show --name "$ENGINE_APP" --resource-group "$RESOURCE_GROUP" >/dev/null 2>&1; then
+            az webapp create \
+              --name "$ENGINE_APP" \
+              --resource-group "$RESOURCE_GROUP" \
+              --plan "$APP_SERVICE_PLAN" \
+              --runtime "NODE:22-lts"
+          fi
 
       - name: Configure Panel
         run: |
-          az webapp config set --resource-group "${{ steps.azure-resources.outputs.panel_rg }}" --name "$PANEL_APP" --startup-file "npm start"
-          az webapp config appsettings set --resource-group "${{ steps.azure-resources.outputs.panel_rg }}" --name "$PANEL_APP" --settings WEBSITE_NODE_DEFAULT_VERSION="22-lts" SCM_DO_BUILD_DURING_DEPLOYMENT="false" ORBITFS_PANEL_URL="https://$PANEL_APP.azurewebsites.net" ORBITFS_ENGINE_HOST_URL="https://$ENGINE_APP.azurewebsites.net"
+          az webapp config set --resource-group "$RESOURCE_GROUP" --name "$PANEL_APP" --startup-file "npm start"
+          az webapp config appsettings set --resource-group "$RESOURCE_GROUP" --name "$PANEL_APP" --settings WEBSITE_NODE_DEFAULT_VERSION="22-lts" SCM_DO_BUILD_DURING_DEPLOYMENT="false" ORBITFS_PANEL_URL="https://$PANEL_APP.azurewebsites.net" ORBITFS_ENGINE_HOST_URL="https://$ENGINE_APP.azurewebsites.net"
 
       - name: Deploy Panel
         uses: azure/webapps-deploy@v3
@@ -129,8 +158,8 @@ jobs:
       - name: Configure Engine
         if: ${{ inputs.deploy_engine }}
         run: |
-          az webapp config set --resource-group "${{ steps.azure-resources.outputs.engine_rg }}" --name "$ENGINE_APP" --startup-file "npm start"
-          az webapp config appsettings set --resource-group "${{ steps.azure-resources.outputs.engine_rg }}" --name "$ENGINE_APP" --settings WEBSITE_NODE_DEFAULT_VERSION="22-lts" SCM_DO_BUILD_DURING_DEPLOYMENT="false" ORBITFS_PANEL_URL="https://$PANEL_APP.azurewebsites.net" ORBITFS_ENGINE_HOST_URL="https://$ENGINE_APP.azurewebsites.net"
+          az webapp config set --resource-group "$RESOURCE_GROUP" --name "$ENGINE_APP" --startup-file "npm start"
+          az webapp config appsettings set --resource-group "$RESOURCE_GROUP" --name "$ENGINE_APP" --settings WEBSITE_NODE_DEFAULT_VERSION="22-lts" SCM_DO_BUILD_DURING_DEPLOYMENT="false" ORBITFS_PANEL_URL="https://$PANEL_APP.azurewebsites.net" ORBITFS_ENGINE_HOST_URL="https://$ENGINE_APP.azurewebsites.net"
 
       - name: Deploy Engine
         if: ${{ inputs.deploy_engine }}

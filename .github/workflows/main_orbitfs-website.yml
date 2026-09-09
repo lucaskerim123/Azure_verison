@@ -103,3 +103,20 @@ jobs:
 
       - name: Restart Store
         run: az webapp restart --resource-group "$RESOURCE_GROUP" --name "$APP_NAME"
+
+      - name: Smoke test Store and licence API
+        shell: bash
+        run: |
+          set -euo pipefail
+          HOST=$(az webapp show --resource-group "$RESOURCE_GROUP" --name "$APP_NAME" --query defaultHostName -o tsv)
+          BASE="https://${HOST}"
+          echo "## Azure Store" >> "$GITHUB_STEP_SUMMARY"
+          echo "${BASE}" >> "$GITHUB_STEP_SUMMARY"
+          for path in / /api/license/v1/public-key; do
+            code=$(curl -sS -o /tmp/orbitfs-response -w '%{http_code}' --retry 5 --retry-delay 5 --max-time 30 "${BASE}${path}")
+            echo "${path}: HTTP ${code}"
+            if [ "$path" = "/" ] && [ "$code" != "200" ]; then exit 1; fi
+            if [ "$path" = "/api/license/v1/public-key" ] && [ "$code" = "503" ]; then
+              echo "Licence public signing key is not configured in the Azure Store App Service." >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done

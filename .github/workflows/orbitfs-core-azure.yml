@@ -1,0 +1,148 @@
+name: Build and deploy OrbitFS Core to Azure
+
+on:
+  workflow_dispatch:
+    inputs:
+      panel_app:
+        description: 'Azure Web App name for OrbitFS Panel/Base'
+        required: true
+        default: 'OrbitFS-Panel-Azure'
+      engine_app:
+        description: 'Azure Web App name for OrbitFS Engine'
+        required: true
+        default: 'OrbitFS-Engine-Azure'
+      deploy_engine:
+        description: 'Deploy Engine as well as Panel'
+        type: boolean
+        required: true
+        default: true
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  NODE_VERSION: '24.x'
+  PANEL_APP: ${{ inputs.panel_app }}
+  ENGINE_APP: ${{ inputs.engine_app }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Azure composition repository
+        uses: actions/checkout@v4
+
+      - name: Checkout OrbitFS Base core
+        uses: actions/checkout@v4
+        with:
+          repository: lucaskerim123/V1-vercel-base
+          ref: MASTER_EDIT_SYSTEM
+          token: ${{ secrets.ORBITFS_SOURCE_TOKEN }}
+          path: orbitfs-azure/source/base
+          fetch-depth: 1
+
+      - name: Checkout OrbitFS Engine core
+        uses: actions/checkout@v4
+        with:
+          repository: lucaskerim123/V1-vercel-engine
+          ref: main
+          token: ${{ secrets.ORBITFS_SOURCE_TOKEN }}
+          path: orbitfs-azure/source/engine
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: |
+            orbitfs-azure/source/base/package-lock.json
+            orbitfs-azure/source/engine/package-lock.json
+
+      - name: Convert Vercel adapters to Node adapters
+        run: node orbitfs-azure/scripts/patch-for-azure.mjs
+
+      - name: Build OrbitFS Base
+        working-directory: orbitfs-azure/source/base
+        run: |
+          npm ci
+          npm install --save-dev @sveltejs/adapter-node
+          npm run build
+          npm prune --omit=dev
+
+      - name: Build OrbitFS Engine
+        working-directory: orbitfs-azure/source/engine
+        run: |
+          npm ci
+          npm install --save-dev @sveltejs/adapter-node
+          npm run build
+          npm prune --omit=dev
+
+      - name: Remove development-only source from deployment packages
+        run: |
+          rm -rf orbitfs-azure/source/base/.git orbitfs-azure/source/base/src orbitfs-azure/source/base/static orbitfs-azure/source/base/.github
+          rm -rf orbitfs-azure/source/engine/.git orbitfs-azure/source/engine/src orbitfs-azure/source/engine/static orbitfs-azure/source/engine/.github
+
+      - name: Upload Panel artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: orbitfs-panel-azure
+          path: orbitfs-azure/source/base
+          include-hidden-files: true
+
+      - name: Upload Engine artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: orbitfs-engine-azure
+          path: orbitfs-azure/source/engine
+          include-hidden-files: true
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download Panel artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: orbitfs-panel-azure
+          path: deploy/panel
+
+      - name: Download Engine artifact
+        if: ${{ inputs.deploy_engine }}
+        uses: actions/download-artifact@v4
+        with:
+          name: orbitfs-engine-azure
+          path: deploy/engine
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_7E25F3D3E2EB414EB477CF498EDAC5B9 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C4E4016A7E5F45908DA285905B447B62 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3C0B624FFD0B46E9A6B41FB1DD90F8D5 }}
+
+      - name: Deploy OrbitFS Panel/Base
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.PANEL_APP }}
+          slot-name: Production
+          package: deploy/panel
+
+      - name: Configure Panel startup command
+        run: az webapp config set --name "${{ env.PANEL_APP }}" --startup-file "npm start"
+
+      - name: Deploy OrbitFS Engine
+        if: ${{ inputs.deploy_engine }}
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.ENGINE_APP }}
+          slot-name: Production
+          package: deploy/engine
+
+      - name: Configure Engine startup command
+        if: ${{ inputs.deploy_engine }}
+        run: az webapp config set --name "${{ env.ENGINE_APP }}" --startup-file "npm start"
+
+      - name: Azure logout
+        run: az logout

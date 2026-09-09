@@ -1,0 +1,9 @@
+{
+  "name": "orbitfs-azure-composer",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "prepare:source": "node scripts/prepare-source.mjs"
+  }
+}

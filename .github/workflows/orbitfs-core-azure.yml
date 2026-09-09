@@ -12,11 +12,11 @@ on:
         required: true
         default: OrbitFS-Engine-Azure
       resource_group:
-        description: Azure resource group for OrbitFS Core apps
+        description: Existing Azure resource group for OrbitFS Core apps
         required: true
         default: OrbitFS-Azure
       location:
-        description: Azure region used when creating the Core resource group/apps
+        description: Azure region used only when the resource group/apps are created
         required: true
         default: australiaeast
       app_service_plan:
@@ -113,12 +113,27 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C4E4016A7E5F45908DA285905B447B62 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3C0B624FFD0B46E9A6B41FB1DD90F8D5 }}
 
-      - name: Ensure Azure Core apps exist
+      - name: Validate Azure deployment access
         shell: bash
         run: |
           set -e
-          az group create --name "$RESOURCE_GROUP" --location "$LOCATION" >/dev/null
+          if ! az group show --name "$RESOURCE_GROUP" >/dev/null 2>&1; then
+            echo "Azure resource group '$RESOURCE_GROUP' does not exist or this deployment identity cannot read it. Create the resource group once and grant the GitHub OIDC service principal Contributor access to it."
+            exit 1
+          fi
+          if ! az webapp show --name "$PANEL_APP" --resource-group "$RESOURCE_GROUP" >/dev/null 2>&1; then
+            echo "Azure Web App '$PANEL_APP' does not exist. The GitHub OIDC service principal needs Contributor access to '$RESOURCE_GROUP' so this workflow can create it."
+            exit 1
+          fi
+          if [ "${{ inputs.deploy_engine }}" = "true" ] && ! az webapp show --name "$ENGINE_APP" --resource-group "$RESOURCE_GROUP" >/dev/null 2>&1; then
+            echo "Azure Web App '$ENGINE_APP' does not exist. The GitHub OIDC service principal needs Contributor access to '$RESOURCE_GROUP' so this workflow can create it."
+            exit 1
+          fi
 
+      - name: Ensure App Service plan exists
+        shell: bash
+        run: |
+          set -e
           if ! az appservice plan show --name "$APP_SERVICE_PLAN" --resource-group "$RESOURCE_GROUP" >/dev/null 2>&1; then
             az appservice plan create \
               --name "$APP_SERVICE_PLAN" \
@@ -126,22 +141,6 @@ jobs:
               --location "$LOCATION" \
               --is-linux \
               --sku B1
-          fi
-
-          if ! az webapp show --name "$PANEL_APP" --resource-group "$RESOURCE_GROUP" >/dev/null 2>&1; then
-            az webapp create \
-              --name "$PANEL_APP" \
-              --resource-group "$RESOURCE_GROUP" \
-              --plan "$APP_SERVICE_PLAN" \
-              --runtime "NODE:22-lts"
-          fi
-
-          if [ "${{ inputs.deploy_engine }}" = "true" ] && ! az webapp show --name "$ENGINE_APP" --resource-group "$RESOURCE_GROUP" >/dev/null 2>&1; then
-            az webapp create \
-              --name "$ENGINE_APP" \
-              --resource-group "$RESOURCE_GROUP" \
-              --plan "$APP_SERVICE_PLAN" \
-              --runtime "NODE:22-lts"
           fi
 
       - name: Configure Panel

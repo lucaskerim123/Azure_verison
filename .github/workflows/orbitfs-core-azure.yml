@@ -129,8 +129,14 @@ jobs:
           slot-name: Production
           package: deploy/panel
 
-      - name: Configure Panel startup command
-        run: az webapp config set --name "${{ env.PANEL_APP }}" --startup-file "npm start"
+      - name: Configure Panel startup and URLs
+        run: |
+          az webapp config set --name "${{ env.PANEL_APP }}" --startup-file "npm start"
+          if [ "${{ inputs.deploy_engine }}" = "true" ]; then
+            az webapp config appsettings set --name "${{ env.PANEL_APP }}" --settings "ORBITFS_PANEL_URL=https://${{ env.PANEL_APP }}.azurewebsites.net" "ORBITFS_ENGINE_HOST_URL=https://${{ env.ENGINE_APP }}.azurewebsites.net"
+          else
+            az webapp config appsettings set --name "${{ env.PANEL_APP }}" --settings "ORBITFS_PANEL_URL=https://${{ env.PANEL_APP }}.azurewebsites.net" "ORBITFS_ENGINE_HOST_URL="
+          fi
 
       - name: Deploy OrbitFS Engine
         if: ${{ inputs.deploy_engine }}
@@ -140,9 +146,11 @@ jobs:
           slot-name: Production
           package: deploy/engine
 
-      - name: Configure Engine startup command
+      - name: Configure Engine startup and pairing URLs
         if: ${{ inputs.deploy_engine }}
-        run: az webapp config set --name "${{ env.ENGINE_APP }}" --startup-file "npm start"
+        run: |
+          az webapp config set --name "${{ env.ENGINE_APP }}" --startup-file "npm start"
+          az webapp config appsettings set --name "${{ env.ENGINE_APP }}" --settings "ORBITFS_PANEL_URL=https://${{ env.PANEL_APP }}.azurewebsites.net" "ORBITFS_ENGINE_HOST_URL=https://${{ env.ENGINE_APP }}.azurewebsites.net"
 
       - name: Azure logout
         run: az logout

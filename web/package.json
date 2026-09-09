@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "eslint",
     "theme:pack": "node tools/theme-manager.mjs pack",
     "theme:install": "node tools/theme-manager.mjs install",

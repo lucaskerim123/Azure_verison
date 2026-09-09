@@ -1,0 +1,37 @@
+node_modules
+
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+src/lib/api.ts.bak-20260723-023349
+*.bak-20260723-023349
+
+# OrbitFS local cleanup / assistant patch files
+*.bak
+*.bak-*
+*.backup
+*.tmp
+*~
+tmp-*.cjs
+tmp-*.js
+tmp-*.b64
+tmp-*.json
+.env*

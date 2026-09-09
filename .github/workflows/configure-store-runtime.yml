@@ -59,3 +59,4 @@ jobs:
             if [ "$path" = "/" ] && [ "$code" != "200" ]; then exit 1; fi
             if [ "$path" != "/" ] && [ "$code" = "500" ]; then exit 1; fi
           done
+# runtime configuration trigger

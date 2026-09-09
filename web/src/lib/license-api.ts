@@ -1,6 +1,6 @@
 import {createClient as createSupabaseClient} from "@supabase/supabase-js";
 
-const url=process.env.NEXT_PUBLIC_SUPABASE_URL||"https://zekejuprrsurjmwgzexw.supabase.co";
+const url=(process.env.ORBITFS_SUPABASE_URL||process.env.NEXT_PUBLIC_SUPABASE_URL||"https://adutmcvusqeqonpvfcps.supabase.co").trim();
 const key=process.env.SUPABASE_SERVICE_ROLE_KEY||process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY||"sb_publishable_eRN8I1CeZ6zHu-mxK0Zc7g_yO47io5c";
 
 export const licenseDb=()=>createSupabaseClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}});
@@ -27,7 +27,7 @@ export function publicSigningPem(){
 export function signingConfigured(){return !!privateSigningPem()}
 
 export async function runtimeLicenseSettings(){
-  const {data,error}=await licenseDb().rpc("website_license_runtime_settings");
+  const {data,error}=await licenseDb().from("license_api_settings").select("api_name,base_url,mode,enabled,validation_path,registration_path,activation_path,revision_path,health_path,issuer,audience,entitlement_ttl_seconds,grace_seconds,max_failed_validations,allow_offline_grace").order("updated_at",{ascending:false}).limit(1).maybeSingle();
   if(error)throw error;
   return data||{};
 }
@@ -35,13 +35,7 @@ export async function runtimeLicenseSettings(){
 export async function signEntitlement(payload:Record<string,unknown>){
   const pem=privateSigningPem();
   if(!pem)throw new Error("Website licence entitlement signing key is not configured");
-  const key=await crypto.subtle.importKey(
-    "pkcs8",
-    pemBytes(pem),
-    {name:"RSASSA-PKCS1-v1_5",hash:"SHA-256"},
-    false,
-    ["sign"]
-  );
+  const key=await crypto.subtle.importKey("pkcs8",pemBytes(pem),{name:"RSASSA-PKCS1-v1_5",hash:"SHA-256"},false,["sign"]);
   const header=base64url(encoder.encode(JSON.stringify({alg:"RS256",typ:"JWT"})));
   const body=base64url(encoder.encode(JSON.stringify(payload)));
   const input=`${header}.${body}`;

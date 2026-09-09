@@ -26,10 +26,12 @@ export function publicSigningPem(){
 
 export function signingConfigured(){return !!privateSigningPem()}
 
-export async function runtimeLicenseSettings(){
+export type RuntimeLicenseSettings={enabled?:boolean;mode?:string;api_name?:string;base_url?:string;validation_path?:string;registration_path?:string;activation_path?:string;revision_path?:string;health_path?:string;issuer?:string;audience?:string;entitlement_ttl_seconds?:number;grace_seconds?:number;max_failed_validations?:number;allow_offline_grace?:boolean};
+
+export async function runtimeLicenseSettings():Promise<RuntimeLicenseSettings>{
   const {data,error}=await licenseDb().from("license_api_settings").select("api_name,base_url,mode,enabled,validation_path,registration_path,activation_path,revision_path,health_path,issuer,audience,entitlement_ttl_seconds,grace_seconds,max_failed_validations,allow_offline_grace").order("updated_at",{ascending:false}).limit(1).maybeSingle();
   if(error)throw error;
-  return data||{};
+  return (data||{}) as RuntimeLicenseSettings;
 }
 
 export async function signEntitlement(payload:Record<string,unknown>){

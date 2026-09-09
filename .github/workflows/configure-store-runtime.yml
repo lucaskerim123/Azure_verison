@@ -1,6 +1,10 @@
 name: Configure OrbitFS Store Azure runtime
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/configure-store-runtime.yml'
   workflow_dispatch:
 
 permissions:

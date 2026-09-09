@@ -1,0 +1,188 @@
+/* OrbitFS Admin V3 — permanent dark visual layer.
+   Presentation only: existing routes, permissions, data and controls remain unchanged. */
+html[data-admin-theme="v3"]{
+  color-scheme:dark;
+  --v3-ink:#eef2f6;
+  --v3-muted:#9ca7b5;
+  --v3-faint:#737f8e;
+  --v3-canvas:#0f1115;
+  --v3-surface:#171a21;
+  --v3-surface-soft:#1b1f27;
+  --v3-line:#2b313c;
+  --v3-line-strong:#3a4350;
+  --v3-nav:#090b0f;
+  --v3-nav-hover:#171b22;
+  --v3-shadow:0 10px 30px rgba(0,0,0,.22);
+}
+html[data-admin-theme="v3"] body,
+html[data-admin-theme="v3"] .masterLayout,
+html[data-admin-theme="v3"] .masterContent{background:var(--v3-canvas)!important;color:var(--v3-ink)!important}
+html[data-admin-theme="v3"] .adminV3Layout{
+  --v3-zone:#55b89d;
+  --v3-zone-deep:#76cfb5;
+  --v3-zone-soft:#192a26;
+  --v3-zone-mid:#315b50;
+  --v3-zone-faint:#131b19;
+}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="customers"]{--v3-zone:#6f91b1;--v3-zone-deep:#94b2cf;--v3-zone-soft:#19232d;--v3-zone-mid:#354b60;--v3-zone-faint:#13191f}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"]{--v3-zone:#d5943f;--v3-zone-deep:#e8b66f;--v3-zone-soft:#2a2116;--v3-zone-mid:#654721;--v3-zone-faint:#19150f}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="licensing"]{--v3-zone:#a77ad8;--v3-zone-deep:#c09ae7;--v3-zone-soft:#251d30;--v3-zone-mid:#59426f;--v3-zone-faint:#17131d}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="support"]{--v3-zone:#dc6b76;--v3-zone-deep:#ee9099;--v3-zone-soft:#2c1b1e;--v3-zone-mid:#67363d;--v3-zone-faint:#1b1214}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="content"]{--v3-zone:#c477a0;--v3-zone-deep:#dda0bf;--v3-zone-soft:#2a1d25;--v3-zone-mid:#664055;--v3-zone-faint:#1a1317}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="system"]{--v3-zone:#72ad83;--v3-zone-deep:#94c8a2;--v3-zone-soft:#1b281f;--v3-zone-mid:#405f49;--v3-zone-faint:#131a15}
+
+html[data-admin-theme="v3"] .adminV3Topbar{background:#090b0f!important;border-bottom-color:#262d36!important}
+html[data-admin-theme="v3"] .adminV3Brand small{border-color:#39424d!important;color:#9da8b5!important}
+html[data-admin-theme="v3"] .adminV3Tool,
+html[data-admin-theme="v3"] .adminV3Create>summary{background:#151920!important;border-color:#343c47!important;color:#e5eaf0!important}
+html[data-admin-theme="v3"] .adminV3Tool:hover,
+html[data-admin-theme="v3"] .adminV3Create>summary:hover{background:#202630!important;border-color:var(--v3-zone)!important}
+html[data-admin-theme="v3"] .adminV3CreateMenu{background:#171a21!important;border-color:#343b46!important;box-shadow:0 20px 50px #0009!important}
+html[data-admin-theme="v3"] .adminV3CreateMenu a{color:#e7ebef!important}
+html[data-admin-theme="v3"] .adminV3CreateMenu a:hover{background:var(--v3-zone-soft)!important;color:var(--v3-zone-deep)!important}
+html[data-admin-theme="v3"] .adminV3Context{background:#12151a!important;border-bottom-color:#2a3039!important;box-shadow:none!important}
+html[data-admin-theme="v3"] .adminV3ContextLabel{color:var(--v3-zone-deep)!important}
+html[data-admin-theme="v3"] .adminV3Context a{color:#9da7b3!important}
+html[data-admin-theme="v3"] .adminV3Context a:hover{color:#fff!important}
+html[data-admin-theme="v3"] .adminV3Context a.active{color:var(--v3-zone-deep)!important;border-bottom-color:var(--v3-zone)!important}
+html[data-admin-theme="v3"] .adminV3Layout .masterContent{background:linear-gradient(180deg,var(--v3-zone-faint) 0,#0f1115 190px)!important}
+
+html[data-admin-theme="v3"] .adminShell,
+html[data-admin-theme="v3"] .adminTop h1,
+html[data-admin-theme="v3"] .panelTitle h2,
+html[data-admin-theme="v3"] .v3SectionHead h2{color:#eef2f6!important}
+html[data-admin-theme="v3"] .muted,
+html[data-admin-theme="v3"] .adminTop .muted,
+html[data-admin-theme="v3"] .panelTitle p,
+html[data-admin-theme="v3"] .v3SectionHead p{color:#9ca7b5!important}
+html[data-admin-theme="v3"] .panel,
+html[data-admin-theme="v3"] .v3Section,
+html[data-admin-theme="v3"] .v3Stream{background:#171a21!important;border-color:#303743!important;color:#eef2f6!important;box-shadow:0 8px 22px rgba(0,0,0,.14)!important}
+html[data-admin-theme="v3"] .adminV3Layout .panel{border-top-color:var(--v3-zone)!important}
+html[data-admin-theme="v3"] .panelTitle{border-bottom-color:#303743!important}
+html[data-admin-theme="v3"] .adminItem,
+html[data-admin-theme="v3"] .listrow,
+html[data-admin-theme="v3"] .supportDashRow,
+html[data-admin-theme="v3"] .v3AttentionRow,
+html[data-admin-theme="v3"] .v3StreamRow{border-bottom-color:#292f38!important;color:#e8edf2!important}
+html[data-admin-theme="v3"] .adminItem:hover,
+html[data-admin-theme="v3"] .supportDashRow:hover,
+html[data-admin-theme="v3"] .v3AttentionRow:hover,
+html[data-admin-theme="v3"] .v3StreamRow:hover{background:#20242c!important}
+html[data-admin-theme="v3"] .adminItem b,
+html[data-admin-theme="v3"] .supportDashRow b,
+html[data-admin-theme="v3"] .v3AttentionRow b,
+html[data-admin-theme="v3"] .v3StreamRow b{color:#f2f5f7!important}
+html[data-admin-theme="v3"] .adminItem span,
+html[data-admin-theme="v3"] .supportDashRow span,
+html[data-admin-theme="v3"] .v3AttentionRow small,
+html[data-admin-theme="v3"] .v3StreamRow small{color:#929daa!important}
+
+/* Dashboard: intentionally multicolour instead of one theme accent. */
+html[data-admin-theme="v3"] .v3Dashboard{--dash-red:#e56b78;--dash-amber:#e0a34d;--dash-teal:#4db7b0;--dash-green:#62b77a;--dash-violet:#a982d8}
+html[data-admin-theme="v3"] .v3MetricStrip{background:#15181e!important;border-color:#303743!important;box-shadow:0 10px 26px rgba(0,0,0,.16)!important}
+html[data-admin-theme="v3"] .v3Metric{position:relative;background:#171a21!important;border-right-color:#303743!important;color:#e9edf2!important;overflow:hidden}
+html[data-admin-theme="v3"] .v3Metric:before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:#6e7885}
+html[data-admin-theme="v3"] .v3Metric:hover{background:#1e222a!important}
+html[data-admin-theme="v3"] .v3Metric small{color:#9ba5b1!important}
+html[data-admin-theme="v3"] .v3Metric span{color:#87929f!important}
+html[data-admin-theme="v3"] .v3Metric strong{color:#e5e9ed!important}
+html[data-admin-theme="v3"] .v3Metric.urgent{background:linear-gradient(180deg,#27181c,#171a21 72%)!important}
+html[data-admin-theme="v3"] .v3Metric.urgent:before{background:var(--dash-red)}
+html[data-admin-theme="v3"] .v3Metric.urgent strong{color:#f0808c!important}
+html[data-admin-theme="v3"] .v3Metric.money{background:linear-gradient(180deg,#281f14,#171a21 72%)!important}
+html[data-admin-theme="v3"] .v3Metric.money:before{background:var(--dash-amber)}
+html[data-admin-theme="v3"] .v3Metric.money strong{color:#e7b35f!important}
+html[data-admin-theme="v3"] .v3Metric.support{background:linear-gradient(180deg,#142426,#171a21 72%)!important}
+html[data-admin-theme="v3"] .v3Metric.support:before{background:var(--dash-teal)}
+html[data-admin-theme="v3"] .v3Metric.support strong{color:#65c7c0!important}
+html[data-admin-theme="v3"] .v3Metric.good{background:linear-gradient(180deg,#17251b,#171a21 72%)!important}
+html[data-admin-theme="v3"] .v3Metric.good:before{background:var(--dash-green)}
+html[data-admin-theme="v3"] .v3Metric.good strong{color:#7acb8e!important}
+html[data-admin-theme="v3"] .v3Metric:not(.urgent):not(.money):not(.support):not(.good){background:linear-gradient(180deg,#221a2a,#171a21 72%)!important}
+html[data-admin-theme="v3"] .v3Metric:not(.urgent):not(.money):not(.support):not(.good):before{background:var(--dash-violet)}
+html[data-admin-theme="v3"] .v3Metric:not(.urgent):not(.money):not(.support):not(.good) strong{color:#bd9ae2!important}
+
+html[data-admin-theme="v3"] .v3Dashboard #attention{border-color:#5a343b!important}
+html[data-admin-theme="v3"] .v3Dashboard #attention .v3SectionHead{background:#26181b!important;box-shadow:inset 4px 0 var(--dash-red)!important;border-bottom-color:#573038!important}
+html[data-admin-theme="v3"] .v3Dashboard #attention .v3TableHead{background:#1c1719!important;color:#c99ca2!important;border-bottom-color:#44292f!important}
+html[data-admin-theme="v3"] .v3DashboardColumns{gap:14px!important}
+html[data-admin-theme="v3"] .v3DashboardColumns .v3Stream:nth-child(1){border-color:#5b4728!important}
+html[data-admin-theme="v3"] .v3DashboardColumns .v3Stream:nth-child(1) .v3SectionHead{background:#271f15!important;box-shadow:inset 4px 0 var(--dash-amber)!important;border-bottom-color:#594424!important}
+html[data-admin-theme="v3"] .v3DashboardColumns .v3Stream:nth-child(2){border-color:#275153!important}
+html[data-admin-theme="v3"] .v3DashboardColumns .v3Stream:nth-child(2) .v3SectionHead{background:#142426!important;box-shadow:inset 4px 0 var(--dash-teal)!important;border-bottom-color:#285052!important}
+html[data-admin-theme="v3"] .v3Dashboard .dashboardCustomers,
+html[data-admin-theme="v3"] .v3Dashboard .v3Customers{border-color:#503c65!important}
+html[data-admin-theme="v3"] .v3Dashboard .dashboardCustomers .panelTitle,
+html[data-admin-theme="v3"] .v3Dashboard .v3Customers .v3SectionHead{background:#211a29!important;box-shadow:inset 4px 0 var(--dash-violet)!important;border-bottom-color:#4c3a5e!important}
+html[data-admin-theme="v3"] .v3Type{background:#242a33!important;color:#c9d0d8!important}
+html[data-admin-theme="v3"] .v3Type.invoice{background:#342713!important;color:#e6b866!important}
+html[data-admin-theme="v3"] .v3Type.ticket{background:#142c2b!important;color:#68c8c1!important}
+html[data-admin-theme="v3"] .v3Type.order{background:#182b1e!important;color:#7ac98b!important}
+html[data-admin-theme="v3"] .v3Type.cancel{background:#2b2037!important;color:#c2a1e6!important}
+html[data-admin-theme="v3"] .v3StateUrgent{color:#f0808c!important}
+html[data-admin-theme="v3"] .v3QuickActions .secondary{background:#1b1f27!important;color:#dfe5eb!important;border-color:#3a424e!important}
+
+/* Settings: dark, readable and still large enough to tap. */
+html[data-admin-theme="v3"] .settingsHubV2,
+html[data-admin-theme="v3"] .settingsEditorV3,
+html[data-admin-theme="v3"] .settingsHubHeader h1,
+html[data-admin-theme="v3"] .settingsEditorHeader h1{color:#edf1f5!important}
+html[data-admin-theme="v3"] .settingsHubIntro,
+html[data-admin-theme="v3"] .settingsEditorHeader p,
+html[data-admin-theme="v3"] .settingsSectionSummary p,
+html[data-admin-theme="v3"] .settingsAreaCopy p,
+html[data-admin-theme="v3"] .settingsGroupHeadV3 p,
+html[data-admin-theme="v3"] .settingInfoV3 p,
+html[data-admin-theme="v3"] .settingKeyV3 code,
+html[data-admin-theme="v3"] .settingVisibilityState,
+html[data-admin-theme="v3"] .settingsToolsV3 span{color:#929daa!important}
+html[data-admin-theme="v3"] .settingsSectionV2,
+html[data-admin-theme="v3"] .settingsAreaCard,
+html[data-admin-theme="v3"] .settingsSummaryV3 article,
+html[data-admin-theme="v3"] .settingsToolsV3,
+html[data-admin-theme="v3"] .settingsGroupV3,
+html[data-admin-theme="v3"] .settingV3,
+html[data-admin-theme="v3"] .settingsNoResults{background:#171a21!important;color:#edf1f5!important;border-color:#303743!important}
+html[data-admin-theme="v3"] .settingsSectionSummary,
+html[data-admin-theme="v3"] .settingsGroupHeadV3{background:var(--v3-zone-soft)!important;color:#edf1f5!important;border-color:var(--v3-zone-mid)!important}
+html[data-admin-theme="v3"] .settingsSectionSummary:hover,
+html[data-admin-theme="v3"] .settingsGroupHeadV3:hover{background:#22272f!important}
+html[data-admin-theme="v3"] .settingsSectionSummary h2,
+html[data-admin-theme="v3"] .settingsAreaTitle b,
+html[data-admin-theme="v3"] .settingsGroupHeadV3 h2,
+html[data-admin-theme="v3"] .settingTitleV3 b,
+html[data-admin-theme="v3"] .settingsSummaryV3 strong{color:#edf1f5!important}
+html[data-admin-theme="v3"] .settingsAreaGrid{background:#11141a!important;border-top-color:#2d343e!important}
+html[data-admin-theme="v3"] .settingsAreaCard{border-left-color:var(--v3-zone)!important}
+html[data-admin-theme="v3"] .settingsAreaCard:hover{background:#1e232b!important;border-color:var(--v3-zone)!important}
+html[data-admin-theme="v3"] .settingsAreaBadge,
+html[data-admin-theme="v3"] .settingsAreaTags span,
+html[data-admin-theme="v3"] .settingTypeBadge{background:#232831!important;border-color:#3b434e!important;color:#adb7c3!important}
+html[data-admin-theme="v3"] .settingV3:nth-child(even){background:#15181e!important}
+html[data-admin-theme="v3"] .settingV3:hover{background:#20242c!important}
+html[data-admin-theme="v3"] .settingControlV3 input:not([type=checkbox]):not([type=color]),
+html[data-admin-theme="v3"] .settingControlV3 select,
+html[data-admin-theme="v3"] .settingControlV3 textarea,
+html[data-admin-theme="v3"] .settingsToolsV3 input{background:#101319!important;border-color:#3a424e!important;color:#edf1f5!important}
+html[data-admin-theme="v3"] .settingUnitRow span,
+html[data-admin-theme="v3"] .settingBooleanV3{background:#20242c!important;border-color:#3b434e!important;color:#b7c0ca!important}
+html[data-admin-theme="v3"] .settingBooleanV3 button{color:#aeb8c3!important}
+html[data-admin-theme="v3"] .settingBooleanV3 button.active{background:var(--v3-zone)!important;color:#0b1110!important;border-color:var(--v3-zone)!important}
+html[data-admin-theme="v3"] .settingsSaveV3{background:#151920f5!important;border-color:#343c47!important;box-shadow:0 12px 35px #0007!important}
+html[data-admin-theme="v3"] .settingsSaveV3 b{color:#edf1f5!important}
+html[data-admin-theme="v3"] .settingsSaveV3 span{color:#929daa!important}
+html[data-admin-theme="v3"] .settingsLiveNote{background:#1b1f27!important;border-color:#3b434e!important;color:#fff!important}
+
+/* Notification centre stays dark as part of Admin V3. */
+html[data-admin-theme="v3"] [data-surface="admin"]>section{background:#171a21!important;border-color:#343c47!important;color:#edf1f5!important;box-shadow:0 20px 60px #000b!important}
+html[data-admin-theme="v3"] [data-surface="admin"]>section>header{background:#1e222a!important;border-bottom-color:#343c47!important;color:#edf1f5!important}
+html[data-admin-theme="v3"] [data-surface="admin"]>section>div>button{color:#dfe5eb!important;border-bottom-color:#292f38!important}
+html[data-admin-theme="v3"] [data-surface="admin"]>section>div>button:hover{background:#22272f!important}
+
+@media(max-width:760px){
+ html[data-admin-theme="v3"] .adminV3Context{background:#12151a!important}
+ html[data-admin-theme="v3"] .v3MetricStrip{grid-template-columns:repeat(2,minmax(0,1fr))!important;background:transparent!important;border:0!important;gap:7px!important;overflow:visible!important;box-shadow:none!important}
+ html[data-admin-theme="v3"] .v3Metric{border:1px solid #303743!important;border-radius:9px!important;min-height:82px!important}
+ html[data-admin-theme="v3"] .v3Metric:last-child{grid-column:span 2}
+}

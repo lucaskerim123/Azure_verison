@@ -1,0 +1,1693 @@
+/* OrbitFS V3C mobile authority layer.
+   Loaded LAST so phone layouts cannot be undone by desktop/theme compatibility rules. */
+
+html[data-customer-theme="V3C"],
+html[data-customer-theme="V3C"] body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+html[data-customer-theme="V3C"] .portalLayout,
+html[data-customer-theme="V3C"] .portalMain,
+html[data-customer-theme="V3C"] .portalPage,
+html[data-customer-theme="V3C"] .portalOverviewV2,
+html[data-customer-theme="V3C"] .accountSettingsV2{
+  min-width:0!important;
+  max-width:100%!important;
+}
+
+html[data-customer-theme="V3C"] .portalLayout *,
+html[data-customer-theme="V3C"] .portalLayout *::before,
+html[data-customer-theme="V3C"] .portalLayout *::after{
+  box-sizing:border-box;
+}
+
+html[data-customer-theme="V3C"] .portalLayout img,
+html[data-customer-theme="V3C"] .portalLayout svg,
+html[data-customer-theme="V3C"] .portalLayout video,
+html[data-customer-theme="V3C"] .portalLayout canvas{
+  max-width:100%;
+}
+
+html[data-customer-theme="V3C"] .portalLayout p,
+html[data-customer-theme="V3C"] .portalLayout span,
+html[data-customer-theme="V3C"] .portalLayout small,
+html[data-customer-theme="V3C"] .portalLayout b,
+html[data-customer-theme="V3C"] .portalLayout strong,
+html[data-customer-theme="V3C"] .portalLayout a{
+  overflow-wrap:anywhere;
+}
+
+@media(max-width:900px){
+  html[data-customer-theme="V3C"] .portalTopbar{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-areas:"brand tools" "nav nav"!important;
+    gap:4px 8px!important;
+    min-height:auto!important;
+    padding:calc(6px + env(safe-area-inset-top)) 10px 0!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopBrand{
+    grid-area:brand!important;
+    min-width:0!important;
+    min-height:38px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopBrand>span:nth-child(2){
+    display:block!important;
+    max-width:min(42vw,180px)!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    white-space:nowrap!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopTools{
+    grid-area:tools!important;
+    min-width:0!important;
+    gap:5px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav{
+    grid-area:nav!important;
+    width:calc(100% + 20px)!important;
+    margin:0 -10px!important;
+    padding:0 8px!important;
+    border-top:1px solid #202936!important;
+    overscroll-behavior-x:contain!important;
+    scroll-snap-type:x proximity!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav a{
+    scroll-snap-align:start!important;
+    min-height:43px!important;
+    padding:0 11px!important;
+    font-size:10px!important;
+  }
+  html[data-customer-theme="V3C"] .portalMain{
+    padding:12px 12px calc(28px + env(safe-area-inset-bottom))!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalOverviewGrid,
+  html[data-customer-theme="V3C"] .portalOverviewBottom,
+  html[data-customer-theme="V3C"] .recordsSplit,
+  html[data-customer-theme="V3C"] .recordDetailGrid,
+  html[data-customer-theme="V3C"] .purchaseLayout,
+  html[data-customer-theme="V3C"] .storeCheckout,
+  html[data-customer-theme="V3C"] .walletSettingsActions,
+  html[data-customer-theme="V3C"] .settingsPreferenceGrid{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalLayout .two{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+
+  html[data-customer-theme="V3C"] .recordTabs,
+  html[data-customer-theme="V3C"] .accountSettingsNav,
+  html[data-customer-theme="V3C"] .portalActivityTabs{
+    display:flex!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scrollbar-width:none!important;
+    overscroll-behavior-x:contain!important;
+    scroll-snap-type:x proximity!important;
+  }
+  html[data-customer-theme="V3C"] .recordTabs::-webkit-scrollbar,
+  html[data-customer-theme="V3C"] .accountSettingsNav::-webkit-scrollbar,
+  html[data-customer-theme="V3C"] .portalActivityTabs::-webkit-scrollbar{
+    display:none!important;
+  }
+  html[data-customer-theme="V3C"] .recordTabs button,
+  html[data-customer-theme="V3C"] .accountSettingsNav button,
+  html[data-customer-theme="V3C"] .portalActivityTabs button{
+    flex:0 0 auto!important;
+    scroll-snap-align:start!important;
+    min-height:44px!important;
+    white-space:nowrap!important;
+  }
+
+  html[data-customer-theme="V3C"] .storeBaseFeature,
+  html[data-customer-theme="V3C"] .storeAddonCard{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .storeCheckoutPanel{
+    position:static!important;
+    top:auto!important;
+  }
+
+  html[data-customer-theme="V3C"] .recordSummaryGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+
+@media(max-width:700px){
+  html[data-customer-theme="V3C"] .portalTopbar{
+    padding-left:8px!important;
+    padding-right:8px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopBrandMark{
+    width:30px!important;
+    height:30px!important;
+    border-radius:8px!important;
+    font-size:11px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopBrand{
+    font-size:12px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopTools{
+    gap:4px!important;
+  }
+  html[data-customer-theme="V3C"] .portalAdminLink{
+    display:none!important;
+  }
+  html[data-customer-theme="V3C"] .portalAccountLink,
+  html[data-customer-theme="V3C"] .portalLogoutButton{
+    min-height:38px!important;
+    height:38px!important;
+    padding:0 10px!important;
+    font-size:9px!important;
+    border-radius:8px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav{
+    width:calc(100% + 16px)!important;
+    margin:0 -8px!important;
+    padding:0 6px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav a{
+    min-height:42px!important;
+    padding:0 10px!important;
+    font-size:9.5px!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalMain{
+    padding:10px 9px calc(24px + env(safe-area-inset-bottom))!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .panel,
+  html[data-customer-theme="V3C"] .portalLayout .accountSettingsCard,
+  html[data-customer-theme="V3C"] .portalLayout .walletSettingsCard{
+    width:100%!important;
+    min-width:0!important;
+    padding:12px!important;
+    border-radius:10px!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .panelTitle{
+    margin:-12px -12px 10px!important;
+    padding:10px 12px!important;
+    gap:8px!important;
+    align-items:flex-start!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .panelTitle,
+  html[data-customer-theme="V3C"] .portalTop,
+  html[data-customer-theme="V3C"] .recordDetailHero,
+  html[data-customer-theme="V3C"] .portalOverviewHero,
+  html[data-customer-theme="V3C"] .accountSettingsHero,
+  html[data-customer-theme="V3C"] .storeHero{
+    flex-direction:column!important;
+    align-items:stretch!important;
+  }
+  html[data-customer-theme="V3C"] .portalTop>a,
+  html[data-customer-theme="V3C"] .recordDetailHero>a,
+  html[data-customer-theme="V3C"] .portalOverviewHero>.buttonlink,
+  html[data-customer-theme="V3C"] .storeCartJump{
+    align-self:flex-start!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalOverviewHero h1,
+  html[data-customer-theme="V3C"] .accountSettingsHero h1,
+  html[data-customer-theme="V3C"] .recordsHeader h1,
+  html[data-customer-theme="V3C"] .recordDetailHero h1,
+  html[data-customer-theme="V3C"] .portalTop h1{
+    font-size:clamp(21px,7vw,28px)!important;
+    line-height:1.08!important;
+  }
+  html[data-customer-theme="V3C"] .storeHero h1{
+    font-size:clamp(27px,9vw,36px)!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalOverviewStats{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:7px!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard{
+    min-height:82px!important;
+    padding:10px!important;
+    gap:8px!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard strong{
+    font-size:15px!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalQuickActions>a{
+    min-height:58px!important;
+    padding:11px!important;
+  }
+  html[data-customer-theme="V3C"] .portalActivityHeader{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:8px!important;
+    padding:12px!important;
+  }
+  html[data-customer-theme="V3C"] .portalActivityHeader a{
+    justify-self:start!important;
+    white-space:normal!important;
+  }
+  html[data-customer-theme="V3C"] .portalActivityBody{
+    padding:4px 12px 10px!important;
+  }
+  html[data-customer-theme="V3C"] .portalActivityBody .listrow{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:4px!important;
+    align-items:start!important;
+  }
+  html[data-customer-theme="V3C"] .portalActivityBody .listrow b{
+    white-space:normal!important;
+  }
+  html[data-customer-theme="V3C"] .portalActivityBody .listrow span{
+    text-align:left!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalLayout input,
+  html[data-customer-theme="V3C"] .portalLayout select,
+  html[data-customer-theme="V3C"] .portalLayout textarea{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    font-size:16px!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout input,
+  html[data-customer-theme="V3C"] .portalLayout select{
+    min-height:44px!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout textarea{
+    min-height:104px!important;
+    resize:vertical!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout button,
+  html[data-customer-theme="V3C"] .portalLayout .buttonlink,
+  html[data-customer-theme="V3C"] .portalLayout .ghostbtn{
+    min-height:44px!important;
+    max-width:100%!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout label{
+    min-width:0!important;
+  }
+
+  html[data-customer-theme="V3C"] .editorToolbar{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:6px!important;
+  }
+  html[data-customer-theme="V3C"] .editorToolbar button{
+    flex:1 1 auto!important;
+    min-width:72px!important;
+  }
+  html[data-customer-theme="V3C"] .attachmentDrafts{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+
+  html[data-customer-theme="V3C"] .ticketCard,
+  html[data-customer-theme="V3C"] .licenseCard,
+  html[data-customer-theme="V3C"] .downloadCard,
+  html[data-customer-theme="V3C"] .supportCard{
+    width:100%!important;
+    min-width:0!important;
+    gap:8px!important;
+  }
+  html[data-customer-theme="V3C"] .ticketCard{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    align-items:start!important;
+  }
+  html[data-customer-theme="V3C"] .ticketCard>span:last-child{
+    justify-self:start!important;
+  }
+
+  html[data-customer-theme="V3C"] .recordsSectionHead{
+    padding:13px!important;
+    gap:10px!important;
+  }
+  html[data-customer-theme="V3C"] .recordsCompactHead{
+    display:none!important;
+  }
+  html[data-customer-theme="V3C"] .recordCompactRow{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:8px!important;
+    padding:13px!important;
+  }
+  html[data-customer-theme="V3C"] .recordPrimary,
+  html[data-customer-theme="V3C"] .recordStatus,
+  html[data-customer-theme="V3C"] .recordAmount{
+    grid-column:auto!important;
+    justify-items:start!important;
+    text-align:left!important;
+  }
+  html[data-customer-theme="V3C"] .recordAmount{
+    padding-top:7px!important;
+    border-top:1px solid var(--line)!important;
+  }
+
+  html[data-customer-theme="V3C"] .recordSummaryGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:7px!important;
+  }
+  html[data-customer-theme="V3C"] .recordSummaryGrid article{
+    padding:11px!important;
+    min-height:78px!important;
+  }
+  html[data-customer-theme="V3C"] .recordSummaryGrid strong{
+    font-size:16px!important;
+  }
+  html[data-customer-theme="V3C"] .recordProductRow,
+  html[data-customer-theme="V3C"] .paymentHistoryRow,
+  html[data-customer-theme="V3C"] .linkedRecordCard{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:7px!important;
+    align-items:start!important;
+  }
+  html[data-customer-theme="V3C"] .recordProductRow>strong,
+  html[data-customer-theme="V3C"] .paymentHistoryRow>div:last-child,
+  html[data-customer-theme="V3C"] .linkedRecordCard>div:last-child{
+    justify-self:start!important;
+    text-align:left!important;
+  }
+
+  html[data-customer-theme="V3C"] .storePage{
+    display:grid!important;
+    gap:12px!important;
+  }
+  html[data-customer-theme="V3C"] .storeBaseFeature{
+    padding:14px!important;
+    gap:12px!important;
+    border-radius:13px!important;
+  }
+  html[data-customer-theme="V3C"] .storeBaseCopy h2{
+    font-size:24px!important;
+    margin:9px 0 7px!important;
+  }
+  html[data-customer-theme="V3C"] .storeBaseCopy>p{
+    font-size:13px!important;
+  }
+  html[data-customer-theme="V3C"] .storeBaseAction{
+    width:100%!important;
+    padding:12px!important;
+    border-radius:10px!important;
+  }
+  html[data-customer-theme="V3C"] .storeBaseAction strong{
+    font-size:23px!important;
+  }
+  html[data-customer-theme="V3C"] .storeBaseAction .buttonlink,
+  html[data-customer-theme="V3C"] .storeBaseAction button,
+  html[data-customer-theme="V3C"] .storeAddonMeta .buttonlink,
+  html[data-customer-theme="V3C"] .storeAddonMeta button{
+    width:100%!important;
+    justify-content:center!important;
+    text-align:center!important;
+  }
+  html[data-customer-theme="V3C"] .storeAddonCard{
+    padding:13px!important;
+    gap:10px!important;
+    border-radius:11px!important;
+  }
+  html[data-customer-theme="V3C"] .storeAddonCard h3{
+    font-size:19px!important;
+  }
+  html[data-customer-theme="V3C"] .storeAddonMeta{
+    justify-items:stretch!important;
+    text-align:left!important;
+  }
+  html[data-customer-theme="V3C"] .storeBasketPanel,
+  html[data-customer-theme="V3C"] .storeCheckoutPanel{
+    padding:12px!important;
+  }
+  html[data-customer-theme="V3C"] .storeBasketRow{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:7px!important;
+  }
+  html[data-customer-theme="V3C"] .storeBasketRow>strong{
+    justify-self:start!important;
+  }
+  html[data-customer-theme="V3C"] .storeBasketRow button{
+    grid-column:auto!important;
+    width:100%!important;
+  }
+  html[data-customer-theme="V3C"] .storeCheckoutBlock .couponApply{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .storeCheckoutBlock .couponApply button{
+    width:100%!important;
+  }
+  html[data-customer-theme="V3C"] .storeTotals>div{
+    gap:10px!important;
+  }
+  html[data-customer-theme="V3C"] .storeTotals .storeTotal strong{
+    font-size:24px!important;
+  }
+
+  html[data-customer-theme="V3C"] .buybox{
+    width:100%!important;
+    min-width:0!important;
+    position:static!important;
+  }
+  html[data-customer-theme="V3C"] .configField{
+    width:100%!important;
+    min-width:0!important;
+  }
+
+  html[data-customer-theme="V3C"] .accountSettingsHero{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .accountIdentity{
+    width:100%!important;
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .settingsSaveBar{
+    position:sticky!important;
+    bottom:calc(6px + env(safe-area-inset-bottom))!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:7px!important;
+  }
+  html[data-customer-theme="V3C"] .settingsSaveBar button{
+    width:100%!important;
+  }
+  html[data-customer-theme="V3C"] .walletBalanceBadge{
+    width:100%!important;
+  }
+  html[data-customer-theme="V3C"] .walletRechargeRow{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:7px!important;
+    align-items:start!important;
+  }
+  html[data-customer-theme="V3C"] .walletRechargeRow>*{
+    justify-self:start!important;
+  }
+  html[data-customer-theme="V3C"] .walletRechargeRow button{
+    width:100%!important;
+  }
+  html[data-customer-theme="V3C"] .walletReceiptGrid{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:3px!important;
+  }
+  html[data-customer-theme="V3C"] .walletReceiptGrid b{
+    margin-bottom:8px!important;
+  }
+  html[data-customer-theme="V3C"] .receiptReference{
+    word-break:break-all!important;
+  }
+  html[data-customer-theme="V3C"] .walletActivityRow{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:5px!important;
+  }
+
+  /* Keep every invoice value visible on a phone. */
+  html[data-customer-theme="V3C"] .invoiceDocument{
+    width:100%!important;
+    border-radius:8px!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocHeader{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:15px!important;
+    padding:16px!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocBusiness strong,
+  html[data-customer-theme="V3C"] .invoiceDocMeta h2{
+    font-size:20px!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocMeta{
+    justify-items:start!important;
+    text-align:left!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocBillTo,
+  html[data-customer-theme="V3C"] .invoiceDocPaymentDetails,
+  html[data-customer-theme="V3C"] .invoiceDocFooter{
+    padding:14px 16px!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocItemHead{
+    display:none!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocItemRow{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:8px 10px!important;
+    padding:13px 16px!important;
+    align-items:start!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>div:first-child{
+    grid-column:1/-1!important;
+    margin-bottom:2px!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>span,
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>strong{
+    display:grid!important;
+    gap:2px!important;
+    text-align:left!important;
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>span:nth-child(2)::before{
+    content:"Qty";
+  }
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>span:nth-child(3)::before{
+    content:"Unit price";
+  }
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>strong:nth-child(4)::before{
+    content:"Total";
+  }
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>span:nth-child(2)::before,
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>span:nth-child(3)::before,
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>strong:nth-child(4)::before{
+    color:#697586!important;
+    font-size:9px!important;
+    font-weight:800!important;
+    text-transform:uppercase!important;
+    letter-spacing:.05em!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocTotals{
+    justify-content:stretch!important;
+    padding:13px 16px!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocTotals>div{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:12px!important;
+    width:100%!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocPaymentDetails>div{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:3px!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalLayout table{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:auto!important;
+    -webkit-overflow-scrolling:touch!important;
+    white-space:nowrap!important;
+  }
+}
+
+@media(max-width:480px){
+  html[data-customer-theme="V3C"] .portalTopBrand>span:nth-child(2){
+    max-width:28vw!important;
+  }
+  html[data-customer-theme="V3C"] .portalAccountLink{
+    display:none!important;
+  }
+  html[data-customer-theme="V3C"] .portalLogoutButton{
+    min-width:56px!important;
+    padding:0 8px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav a{
+    padding:0 9px!important;
+    font-size:9px!important;
+  }
+  html[data-customer-theme="V3C"] .portalMain{
+    padding-left:7px!important;
+    padding-right:7px!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalOverviewStats{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard{
+    min-height:68px!important;
+  }
+  html[data-customer-theme="V3C"] .recordSummaryGrid{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .recordSummaryGrid article{
+    min-height:0!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalLayout .inlineActions{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%!important;
+    gap:7px!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .inlineActions>*{
+    width:100%!important;
+  }
+
+  html[data-customer-theme="V3C"] .invoiceDocItemRow{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>div:first-child{
+    grid-column:1/-1!important;
+  }
+  html[data-customer-theme="V3C"] .invoiceDocItemRow>strong:nth-child(4){
+    grid-column:1/-1!important;
+  }
+}
+
+
+/* 2026-09 customer portal phone hardening.
+   This file is loaded last and is the mobile authority for V3C. */
+@media(max-width:700px){
+  html[data-customer-theme="V3C"] body{
+    min-width:0!important;
+    width:100%!important;
+    -webkit-text-size-adjust:100%;
+  }
+
+  html[data-customer-theme="V3C"] .portalTopbar{
+    width:100%!important;
+    max-width:100vw!important;
+    overflow:visible!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopTools{
+    max-width:100%!important;
+    flex-wrap:nowrap!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopTools>*{
+    flex:0 0 auto!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav{
+    -webkit-overflow-scrolling:touch!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalPage,
+  html[data-customer-theme="V3C"] .recordDetailPage,
+  html[data-customer-theme="V3C"] .recordsPage,
+  html[data-customer-theme="V3C"] .storePage{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow:visible!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalTop{
+    display:flex!important;
+    width:100%!important;
+    gap:10px!important;
+    margin-bottom:10px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTop>div,
+  html[data-customer-theme="V3C"] .portalTop>div:first-child{
+    width:100%!important;
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .portalTop p,
+  html[data-customer-theme="V3C"] .portalTop h1{
+    max-width:100%!important;
+  }
+
+  html[data-customer-theme="V3C"] .recordTabs{
+    gap:4px!important;
+    padding:5px!important;
+    border-radius:10px!important;
+  }
+  html[data-customer-theme="V3C"] .recordTabs button{
+    padding:8px 11px!important;
+    font-size:11px!important;
+  }
+
+  html[data-customer-theme="V3C"] .supportCreate .panelTitle{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .supportCreate .panelTitle .buttonlink{
+    width:100%!important;
+    text-align:center!important;
+    justify-content:center!important;
+  }
+  html[data-customer-theme="V3C"] .supportCreate input[type="file"],
+  html[data-customer-theme="V3C"] .supportReplyBox input[type="file"]{
+    padding:8px!important;
+    height:auto!important;
+    min-height:48px!important;
+  }
+
+  html[data-customer-theme="V3C"] .thread{
+    width:100%!important;
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .thread .message{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    padding:11px!important;
+    border-radius:9px!important;
+  }
+  html[data-customer-theme="V3C"] .thread .message>div{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:3px!important;
+  }
+  html[data-customer-theme="V3C"] .thread .message p{
+    margin-top:8px!important;
+    white-space:pre-wrap!important;
+    word-break:break-word!important;
+  }
+  html[data-customer-theme="V3C"] .attachmentList{
+    width:100%!important;
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .attachmentItem{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    width:100%!important;
+    gap:8px!important;
+    text-align:left!important;
+  }
+
+  html[data-customer-theme="V3C"] .licenseMeta{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  html[data-customer-theme="V3C"] .licenseMeta>div{
+    min-width:0!important;
+    padding:9px!important;
+  }
+  html[data-customer-theme="V3C"] .componentChips{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:6px!important;
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .componentChips>*{
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+  }
+  html[data-customer-theme="V3C"] .controllerActions{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:7px!important;
+    width:100%!important;
+  }
+  html[data-customer-theme="V3C"] .controllerActions button{
+    width:100%!important;
+  }
+  html[data-customer-theme="V3C"] .licenseCard .listrow{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:7px!important;
+    align-items:start!important;
+  }
+  html[data-customer-theme="V3C"] .licenseCard .listrow button{
+    width:100%!important;
+  }
+
+  html[data-customer-theme="V3C"] .downloadRow{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:8px!important;
+    align-items:start!important;
+    width:100%!important;
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .downloadRow>div{
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .downloadRow small{
+    display:block!important;
+    word-break:break-all!important;
+  }
+  html[data-customer-theme="V3C"] .downloadRow button,
+  html[data-customer-theme="V3C"] .downloadRow .buttonlink{
+    width:100%!important;
+  }
+
+  html[data-customer-theme="V3C"] .purchaseLayout{
+    width:100%!important;
+    gap:10px!important;
+  }
+  html[data-customer-theme="V3C"] .purchaseLayout>.panel,
+  html[data-customer-theme="V3C"] .purchaseLayout>.buybox{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .buybox{
+    padding:12px!important;
+    border-radius:10px!important;
+  }
+  html[data-customer-theme="V3C"] .buybox>button,
+  html[data-customer-theme="V3C"] .buybox>.buttonlink{
+    width:100%!important;
+    justify-content:center!important;
+    text-align:center!important;
+  }
+
+  html[data-customer-theme="V3C"] .settingsSectionHead{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:7px!important;
+  }
+  html[data-customer-theme="V3C"] .accountIdentity{
+    justify-items:start!important;
+    text-align:left!important;
+    padding:9px 10px!important;
+    border:1px solid var(--c-border)!important;
+    border-radius:9px!important;
+    background:var(--c-surface)!important;
+  }
+  html[data-customer-theme="V3C"] .settingsReadOnlyRow{
+    grid-template-columns:minmax(0,1fr)!important;
+    align-items:start!important;
+  }
+  html[data-customer-theme="V3C"] .settingsReadOnlyRow b{
+    text-align:left!important;
+  }
+  html[data-customer-theme="V3C"] .toggle{
+    min-width:0!important;
+    width:100%!important;
+  }
+
+  html[data-customer-theme="V3C"] .walletActionBox{
+    width:100%!important;
+    min-width:0!important;
+    padding:12px!important;
+  }
+  html[data-customer-theme="V3C"] .walletRechargeEntry,
+  html[data-customer-theme="V3C"] .walletMiniReceipt{
+    width:100%!important;
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .walletReceiptHead{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:6px!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalLayout .notice{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .notice span,
+  html[data-customer-theme="V3C"] .portalLayout .notice b{
+    max-width:100%!important;
+  }
+
+  html[data-customer-theme="V3C"] .orderModalBackdrop{
+    padding:8px!important;
+    align-items:flex-end!important;
+  }
+  html[data-customer-theme="V3C"] .orderModal{
+    width:100%!important;
+    max-width:100%!important;
+    max-height:calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important;
+    overflow:auto!important;
+    border-radius:14px 14px 8px 8px!important;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom))!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalLayout .state,
+  html[data-customer-theme="V3C"] .portalLayout .recordBadge,
+  html[data-customer-theme="V3C"] .portalLayout .customerStatus{
+    max-width:100%!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalLayout a,
+  html[data-customer-theme="V3C"] .portalLayout button{
+    touch-action:manipulation!important;
+  }
+}
+
+@media(max-width:420px){
+  html[data-customer-theme="V3C"] .portalTopbar{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    column-gap:4px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopBrand{
+    gap:5px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopBrandMark{
+    width:28px!important;
+    height:28px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopBrand>span:nth-child(2){
+    max-width:26vw!important;
+  }
+  html[data-customer-theme="V3C"] .portalLogoutButton{
+    min-width:50px!important;
+    width:auto!important;
+    padding:0 6px!important;
+    font-size:8.5px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav a{
+    min-height:44px!important;
+    padding:0 10px!important;
+    font-size:9px!important;
+  }
+  html[data-customer-theme="V3C"] .portalMain{
+    padding-left:6px!important;
+    padding-right:6px!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalLayout .panel,
+  html[data-customer-theme="V3C"] .portalLayout .accountSettingsCard,
+  html[data-customer-theme="V3C"] .portalLayout .walletSettingsCard{
+    padding:10px!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .panelTitle{
+    margin:-10px -10px 9px!important;
+    padding:9px 10px!important;
+  }
+
+  html[data-customer-theme="V3C"] .licenseMeta{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .attachmentItem{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .attachmentItem small{
+    justify-self:start!important;
+  }
+
+  html[data-customer-theme="V3C"] .invoiceDocHeader,
+  html[data-customer-theme="V3C"] .invoiceDocBillTo,
+  html[data-customer-theme="V3C"] .invoiceDocItemRow,
+  html[data-customer-theme="V3C"] .invoiceDocTotals,
+  html[data-customer-theme="V3C"] .invoiceDocPaymentDetails,
+  html[data-customer-theme="V3C"] .invoiceDocFooter{
+    padding-left:12px!important;
+    padding-right:12px!important;
+  }
+}
+
+@media(max-width:360px){
+  html[data-customer-theme="V3C"] .portalTopBrand>span:nth-child(2){
+    display:none!important;
+  }
+  html[data-customer-theme="V3C"] .portalMain{
+    padding-left:5px!important;
+    padding-right:5px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav a{
+    padding-left:9px!important;
+    padding-right:9px!important;
+  }
+}
+
+
+/* Customer portal adaptive phone shell. Desktop is intentionally untouched. */
+.portalMobileMenuButton,
+.portalMobileOnly{display:none!important}
+
+@media(max-width:700px){
+  html[data-customer-theme="V3C"] .portalTopbar{
+    grid-template-columns:minmax(0,1fr) auto auto!important;
+    grid-template-areas:"brand menu tools" "nav nav nav"!important;
+    align-items:center!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopBrand{grid-area:brand!important}
+  html[data-customer-theme="V3C"] .portalMobileMenuButton{
+    grid-area:menu!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-width:58px!important;
+    width:auto!important;
+    height:38px!important;
+    min-height:38px!important;
+    padding:0 10px!important;
+    border:1px solid #323d4b!important;
+    border-radius:8px!important;
+    background:#171e28!important;
+    color:#eef2f6!important;
+    font-size:9px!important;
+    font-weight:800!important;
+    white-space:nowrap!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopTools{
+    grid-area:tools!important;
+    max-width:none!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav{
+    grid-area:nav!important;
+    display:none!important;
+    width:calc(100% + 16px)!important;
+    margin:0 -8px!important;
+    padding:6px 8px 9px!important;
+    border-top:1px solid #202936!important;
+    background:#0f151d!important;
+    grid-template-columns:repeat(auto-fit,minmax(112px,1fr))!important;
+    gap:6px!important;
+    overflow:visible!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav.mobileOpen{
+    display:grid!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav a{
+    min-width:0!important;
+    min-height:42px!important;
+    padding:8px 10px!important;
+    border:1px solid #2b3543!important;
+    border-radius:8px!important;
+    background:#141b24!important;
+    justify-content:center!important;
+    text-align:center!important;
+    white-space:normal!important;
+    line-height:1.2!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav a.active{
+    border-color:#5e64c8!important;
+    background:#20244b!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav .portalMobileOnly{
+    display:flex!important;
+  }
+
+  /* Auto-size common grids instead of relying on fixed phone columns. */
+  html[data-customer-theme="V3C"] .portalOverviewStats,
+  html[data-customer-theme="V3C"] .recordSummaryGrid,
+  html[data-customer-theme="V3C"] .licenseMeta,
+  html[data-customer-theme="V3C"] .settingsPreferenceGrid,
+  html[data-customer-theme="V3C"] .walletSettingsActions{
+    grid-template-columns:repeat(auto-fit,minmax(min(145px,100%),1fr))!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalOverviewGrid,
+  html[data-customer-theme="V3C"] .portalOverviewBottom,
+  html[data-customer-theme="V3C"] .recordsSplit,
+  html[data-customer-theme="V3C"] .recordDetailGrid,
+  html[data-customer-theme="V3C"] .storeCheckout,
+  html[data-customer-theme="V3C"] .purchaseLayout{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalLayout .form,
+  html[data-customer-theme="V3C"] .portalLayout .two,
+  html[data-customer-theme="V3C"] .cancelTimingOptions{
+    grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr))!important;
+  }
+
+  html[data-customer-theme="V3C"] .portalLayout .listrow,
+  html[data-customer-theme="V3C"] .downloadRow,
+  html[data-customer-theme="V3C"] .recordProductRow,
+  html[data-customer-theme="V3C"] .paymentHistoryRow,
+  html[data-customer-theme="V3C"] .linkedRecordCard,
+  html[data-customer-theme="V3C"] .walletActivityRow,
+  html[data-customer-theme="V3C"] .walletRechargeRow{
+    min-width:0!important;
+  }
+
+  /* Action clusters wrap naturally and collapse to full-width on very narrow phones. */
+  html[data-customer-theme="V3C"] .controllerActions,
+  html[data-customer-theme="V3C"] .inlineActions,
+  html[data-customer-theme="V3C"] .editorToolbar{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:7px!important;
+  }
+  html[data-customer-theme="V3C"] .controllerActions>*,
+  html[data-customer-theme="V3C"] .inlineActions>*{
+    flex:1 1 150px!important;
+    min-width:0!important;
+  }
+
+  /* Keep content compact until it actually needs to stack. */
+  html[data-customer-theme="V3C"] .portalLayout .panel,
+  html[data-customer-theme="V3C"] .portalLayout .accountSettingsCard,
+  html[data-customer-theme="V3C"] .portalLayout .walletSettingsCard{
+    padding:clamp(9px,3vw,12px)!important;
+  }
+  html[data-customer-theme="V3C"] .portalMain{
+    padding-inline:clamp(6px,2.8vw,12px)!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout h1{
+    font-size:clamp(21px,7vw,29px)!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout h2{
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  /* Long identifiers never stretch cards. */
+  html[data-customer-theme="V3C"] .receiptReference,
+  html[data-customer-theme="V3C"] .downloadRow small,
+  html[data-customer-theme="V3C"] .licenseCard span,
+  html[data-customer-theme="V3C"] .licenseCard b,
+  html[data-customer-theme="V3C"] .ticketCard span,
+  html[data-customer-theme="V3C"] .thread .message p{
+    word-break:break-word!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  /* Prevent sticky elements from covering content on short phones. */
+  html[data-customer-theme="V3C"] .settingsSaveBar{
+    position:static!important;
+    margin-top:8px!important;
+  }
+
+  /* Bottom-sheet style modals that size to the actual viewport. */
+  html[data-customer-theme="V3C"] .orderModalBackdrop{
+    padding:clamp(4px,2vw,8px)!important;
+  }
+  html[data-customer-theme="V3C"] .orderModal{
+    width:min(100%,560px)!important;
+    max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 12px)!important;
+  }
+}
+
+@media(max-width:420px){
+  html[data-customer-theme="V3C"] .portalTopbar{
+    grid-template-columns:minmax(0,1fr) auto auto!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopBrand>span:nth-child(2){
+    max-width:24vw!important;
+  }
+  html[data-customer-theme="V3C"] .portalMobileMenuButton{
+    min-width:52px!important;
+    padding-inline:7px!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .stats,
+  html[data-customer-theme="V3C"] .portalOverviewStats,
+  html[data-customer-theme="V3C"] .recordSummaryGrid,
+  html[data-customer-theme="V3C"] .licenseMeta{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .controllerActions,
+  html[data-customer-theme="V3C"] .inlineActions{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .controllerActions>*,
+  html[data-customer-theme="V3C"] .inlineActions>*{
+    width:100%!important;
+  }
+}
+
+
+/* V3C customer portal mobile refinement — compact dropdown shell + dense content.
+   MOBILE ONLY. Desktop layout is intentionally untouched. */
+@media(max-width:700px){
+  /* Remove legacy mobile spacer from portal.css. Sticky V3C header lives in normal flow. */
+  html[data-customer-theme="V3C"] .portalLayout{
+    padding-top:0!important;
+  }
+
+  /* Header stays one compact row. Menu opens as an overlay dropdown and never pushes content. */
+  html[data-customer-theme="V3C"] .portalTopbar{
+    position:sticky!important;
+    grid-template-columns:minmax(0,1fr) auto auto!important;
+    grid-template-areas:"brand menu tools"!important;
+    min-height:48px!important;
+    padding:calc(5px + env(safe-area-inset-top)) 8px 5px!important;
+    row-gap:0!important;
+    overflow:visible!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopBrand{
+    min-height:38px!important;
+  }
+  html[data-customer-theme="V3C"] .portalMobileMenuButton{
+    position:relative!important;
+    z-index:72!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav{
+    position:absolute!important;
+    z-index:71!important;
+    top:calc(100% + 5px)!important;
+    left:50%!important;
+    right:auto!important;
+    transform:translateX(-50%)!important;
+    width:min(270px,calc(100vw - 16px))!important;
+    margin:0!important;
+    padding:7px!important;
+    border:1px solid #303a49!important;
+    border-radius:10px!important;
+    background:#111821f7!important;
+    box-shadow:0 14px 36px #0009!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:5px!important;
+    max-height:min(70dvh,430px)!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+  }
+  html[data-customer-theme="V3C"] .portalTopNav a{
+    min-height:38px!important;
+    padding:7px 8px!important;
+    font-size:9px!important;
+    border-radius:7px!important;
+  }
+
+  /* Dashboard summary becomes one dense horizontal status bar. */
+  html[data-customer-theme="V3C"] .portalOverviewStats{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:0!important;
+    overflow:hidden!important;
+    border:1px solid var(--c-border)!important;
+    border-radius:10px!important;
+    background:#141a23!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    align-content:center!important;
+    gap:2px!important;
+    min-width:0!important;
+    min-height:58px!important;
+    padding:7px 6px!important;
+    border:0!important;
+    border-right:1px solid #2b3543!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:inset 0 2px #5662d8!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard:last-child{
+    border-right:0!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard:nth-child(2){box-shadow:inset 0 2px var(--c-cyan)!important}
+  html[data-customer-theme="V3C"] .portalStatCard:nth-child(3){box-shadow:inset 0 2px var(--c-amber)!important}
+  html[data-customer-theme="V3C"] .portalStatCard:nth-child(4){box-shadow:inset 0 2px var(--c-violet)!important}
+  html[data-customer-theme="V3C"] .portalStatIcon{
+    display:none!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard>div{
+    display:grid!important;
+    gap:2px!important;
+    min-width:0!important;
+    text-align:center!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard small{
+    font-size:7px!important;
+    line-height:1.1!important;
+    letter-spacing:.05em!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard strong{
+    font-size:13px!important;
+    line-height:1.1!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard span:last-child{
+    display:none!important;
+  }
+
+  /* Dashboard header/action area: compact instead of giant full-width blocks. */
+  html[data-customer-theme="V3C"] .portalOverviewHero{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:8px!important;
+    align-items:end!important;
+  }
+  html[data-customer-theme="V3C"] .portalOverviewHero>.buttonlink{
+    width:auto!important;
+    min-height:36px!important;
+    padding:6px 9px!important;
+    font-size:9px!important;
+    align-self:end!important;
+  }
+  html[data-customer-theme="V3C"] .portalOverviewHero h1{
+    font-size:clamp(21px,6.5vw,27px)!important;
+    margin:2px 0 2px!important;
+  }
+  html[data-customer-theme="V3C"] .portalOverviewHero p{
+    margin:0!important;
+    font-size:9px!important;
+  }
+
+  /* Global mobile density: smaller panels, headers and rows across customer portal. */
+  html[data-customer-theme="V3C"] .portalMain{
+    padding-top:8px!important;
+  }
+  html[data-customer-theme="V3C"] .portalPage,
+  html[data-customer-theme="V3C"] .portalOverviewV2,
+  html[data-customer-theme="V3C"] .accountSettingsV2,
+  html[data-customer-theme="V3C"] .recordDetailPage,
+  html[data-customer-theme="V3C"] .recordsPage,
+  html[data-customer-theme="V3C"] .storePage{
+    gap:8px!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .panel,
+  html[data-customer-theme="V3C"] .portalLayout .accountSettingsCard,
+  html[data-customer-theme="V3C"] .portalLayout .walletSettingsCard{
+    padding:9px!important;
+    border-radius:8px!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .panelTitle{
+    margin:-9px -9px 7px!important;
+    padding:8px 9px!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .panelTitle h2{
+    margin:0 0 2px!important;
+    font-size:13px!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .panelTitle p,
+  html[data-customer-theme="V3C"] .portalLayout .panelTitle span{
+    font-size:8px!important;
+    line-height:1.3!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout .listrow{
+    padding:7px 0!important;
+  }
+
+  /* Overview activity/action panels become compact rows. */
+  html[data-customer-theme="V3C"] .portalQuickActions{
+    gap:5px!important;
+  }
+  html[data-customer-theme="V3C"] .portalQuickActions>a{
+    min-height:42px!important;
+    padding:8px 9px!important;
+    border-radius:7px!important;
+  }
+  html[data-customer-theme="V3C"] .portalQuickActions>a>span{
+    font-size:8px!important;
+  }
+  html[data-customer-theme="V3C"] .portalActivityHeader{
+    padding:9px!important;
+    gap:5px!important;
+  }
+  html[data-customer-theme="V3C"] .portalActivityHeader h2{
+    font-size:14px!important;
+    margin:0!important;
+  }
+  html[data-customer-theme="V3C"] .portalActivityTabs button{
+    min-height:36px!important;
+    padding:6px 9px!important;
+    font-size:9px!important;
+  }
+  html[data-customer-theme="V3C"] .portalActivityBody{
+    padding:2px 9px 7px!important;
+  }
+
+  /* Record and support screens: tighter but touch-safe. */
+  html[data-customer-theme="V3C"] .recordTabs button,
+  html[data-customer-theme="V3C"] .accountSettingsNav button{
+    min-height:38px!important;
+    padding:7px 9px!important;
+    font-size:9px!important;
+  }
+  html[data-customer-theme="V3C"] .recordSummaryGrid article{
+    min-height:60px!important;
+    padding:8px!important;
+  }
+  html[data-customer-theme="V3C"] .recordSummaryGrid article small{
+    font-size:7px!important;
+  }
+  html[data-customer-theme="V3C"] .recordSummaryGrid article strong{
+    font-size:13px!important;
+  }
+  html[data-customer-theme="V3C"] .ticketCard,
+  html[data-customer-theme="V3C"] .downloadRow,
+  html[data-customer-theme="V3C"] .recordProductRow,
+  html[data-customer-theme="V3C"] .paymentHistoryRow{
+    padding:8px!important;
+  }
+
+  /* Licence control cards stop becoming huge vertical blocks. */
+  html[data-customer-theme="V3C"] .licenseMeta{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:5px!important;
+  }
+  html[data-customer-theme="V3C"] .licenseMeta>div{
+    padding:7px!important;
+  }
+  html[data-customer-theme="V3C"] .licenseMeta small{font-size:7px!important}
+  html[data-customer-theme="V3C"] .licenseMeta b{font-size:10px!important}
+  html[data-customer-theme="V3C"] .controllerActions{
+    display:grid!important;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr))!important;
+    gap:5px!important;
+  }
+  html[data-customer-theme="V3C"] .controllerActions button{
+    min-height:38px!important;
+    padding:6px 8px!important;
+    font-size:8.5px!important;
+  }
+
+  /* Inputs remain usable, but not comically tall. */
+  html[data-customer-theme="V3C"] .portalLayout input,
+  html[data-customer-theme="V3C"] .portalLayout select{
+    min-height:40px!important;
+  }
+  html[data-customer-theme="V3C"] .portalLayout button,
+  html[data-customer-theme="V3C"] .portalLayout .buttonlink,
+  html[data-customer-theme="V3C"] .portalLayout .ghostbtn{
+    min-height:38px!important;
+  }
+}
+
+@media(max-width:420px){
+  html[data-customer-theme="V3C"] .portalOverviewHero{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-customer-theme="V3C"] .portalOverviewHero>.buttonlink{
+    width:100%!important;
+  }
+  html[data-customer-theme="V3C"] .portalOverviewStats{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard{
+    min-height:54px!important;
+    padding:6px 4px!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard small{
+    font-size:6.5px!important;
+  }
+  html[data-customer-theme="V3C"] .portalStatCard strong{
+    font-size:11.5px!important;
+  }
+  html[data-customer-theme="V3C"] .licenseMeta{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+}
+
+
+/* Compact invoice/order summary strip on phones. */
+@media(max-width:700px){
+  html[data-customer-theme="V3C"] .invoicePresentation .recordSummaryGrid{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:0!important;
+    overflow:hidden!important;
+    border:1px solid var(--c-border)!important;
+    border-radius:9px!important;
+    background:#141a23!important;
+  }
+  html[data-customer-theme="V3C"] .invoicePresentation .recordSummaryGrid article{
+    min-width:0!important;
+    min-height:56px!important;
+    padding:7px 5px!important;
+    border:0!important;
+    border-right:1px solid #2b3543!important;
+    border-radius:0!important;
+    background:transparent!important;
+    display:grid!important;
+    align-content:center!important;
+    gap:2px!important;
+    text-align:center!important;
+  }
+  html[data-customer-theme="V3C"] .invoicePresentation .recordSummaryGrid article:last-child{
+    border-right:0!important;
+  }
+  html[data-customer-theme="V3C"] .invoicePresentation .recordSummaryGrid article small{
+    font-size:6.5px!important;
+    line-height:1.1!important;
+    letter-spacing:.04em!important;
+    text-transform:uppercase!important;
+    white-space:normal!important;
+  }
+  html[data-customer-theme="V3C"] .invoicePresentation .recordSummaryGrid article strong{
+    font-size:12px!important;
+    line-height:1.1!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  html[data-customer-theme="V3C"] .invoicePresentation .recordSummaryGrid article .muted{
+    display:none!important;
+  }
+}
+@media(max-width:380px){
+  html[data-customer-theme="V3C"] .invoicePresentation .recordSummaryGrid article{
+    min-height:52px!important;
+    padding:6px 3px!important;
+  }
+  html[data-customer-theme="V3C"] .invoicePresentation .recordSummaryGrid article small{
+    font-size:6px!important;
+  }
+  html[data-customer-theme="V3C"] .invoicePresentation .recordSummaryGrid article strong{
+    font-size:10.5px!important;
+  }
+}
+
+
+/* Order detail summary uses the same dense phone strip as invoices. */
+@media(max-width:700px){
+  html[data-customer-theme="V3C"] .recordDetailPage:not(.invoicePresentation) .recordSummaryGrid{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:0!important;
+    overflow:hidden!important;
+    border:1px solid var(--c-border)!important;
+    border-radius:9px!important;
+    background:#141a23!important;
+  }
+  html[data-customer-theme="V3C"] .recordDetailPage:not(.invoicePresentation) .recordSummaryGrid article{
+    min-width:0!important;
+    min-height:56px!important;
+    padding:7px 5px!important;
+    border:0!important;
+    border-right:1px solid #2b3543!important;
+    border-radius:0!important;
+    background:transparent!important;
+    display:grid!important;
+    align-content:center!important;
+    gap:2px!important;
+    text-align:center!important;
+  }
+  html[data-customer-theme="V3C"] .recordDetailPage:not(.invoicePresentation) .recordSummaryGrid article:last-child{
+    border-right:0!important;
+  }
+  html[data-customer-theme="V3C"] .recordDetailPage:not(.invoicePresentation) .recordSummaryGrid small{
+    font-size:6.5px!important;
+    line-height:1.1!important;
+    letter-spacing:.04em!important;
+    text-transform:uppercase!important;
+  }
+  html[data-customer-theme="V3C"] .recordDetailPage:not(.invoicePresentation) .recordSummaryGrid strong{
+    font-size:11.5px!important;
+    line-height:1.1!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+
+  /* Orders & Invoices list page: denser single-line cards instead of tall stacked records. */
+  html[data-customer-theme="V3C"] .recordsPage .recordsSectionHead{
+    padding:9px!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordsSectionHead h2{
+    margin:1px 0!important;
+    font-size:14px!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordsSectionHead p{
+    font-size:8px!important;
+    margin:0!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordsCount{
+    min-width:28px!important;
+    height:28px!important;
+    padding:0 7px!important;
+    font-size:9px!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordCompactRow{
+    display:grid!important;
+    grid-template-columns:minmax(0,1.45fr) minmax(0,.8fr) minmax(70px,.7fr)!important;
+    gap:6px!important;
+    align-items:center!important;
+    padding:8px 9px!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordPrimary,
+  html[data-customer-theme="V3C"] .recordsPage .recordStatus,
+  html[data-customer-theme="V3C"] .recordsPage .recordAmount{
+    display:grid!important;
+    gap:2px!important;
+    min-width:0!important;
+    padding:0!important;
+    border:0!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordPrimary b,
+  html[data-customer-theme="V3C"] .recordsPage .recordAmount b{
+    font-size:10px!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordPrimary span,
+  html[data-customer-theme="V3C"] .recordsPage .recordStatus small,
+  html[data-customer-theme="V3C"] .recordsPage .recordAmount span{
+    font-size:7px!important;
+    line-height:1.15!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordStatus{
+    justify-items:start!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordAmount{
+    justify-items:end!important;
+    text-align:right!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordBadge{
+    font-size:7px!important;
+    padding:3px 5px!important;
+    white-space:nowrap!important;
+  }
+}
+@media(max-width:380px){
+  html[data-customer-theme="V3C"] .recordDetailPage:not(.invoicePresentation) .recordSummaryGrid article{
+    min-height:52px!important;
+    padding:6px 3px!important;
+  }
+  html[data-customer-theme="V3C"] .recordDetailPage:not(.invoicePresentation) .recordSummaryGrid small{
+    font-size:6px!important;
+  }
+  html[data-customer-theme="V3C"] .recordDetailPage:not(.invoicePresentation) .recordSummaryGrid strong{
+    font-size:10px!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordCompactRow{
+    grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(62px,.65fr)!important;
+    padding:7px!important;
+  }
+}
+
+
+/* Separate records visually without turning them into full standalone cards. */
+@media(max-width:700px){
+  html[data-customer-theme="V3C"] .recordsPage .recordsCompactList{
+    display:grid!important;
+    gap:6px!important;
+    padding:6px!important;
+    background:#10161e!important;
+    border-radius:0 0 8px 8px!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordCompactRow{
+    position:relative!important;
+    margin:0!important;
+    border:1px solid #2a3442!important;
+    border-left:3px solid #4657a8!important;
+    border-radius:7px!important;
+    background:#151c26!important;
+    box-shadow:0 1px 0 #ffffff08 inset!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordCompactRow:nth-child(even){
+    background:#131a23!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordCompactRow:hover,
+  html[data-customer-theme="V3C"] .recordsPage .recordCompactRow:focus-visible{
+    border-color:#46566c!important;
+    background:#18212c!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordStatus{
+    background:transparent!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordAmount{
+    border-left:1px solid #293342!important;
+    padding-left:7px!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordCompactRow + .recordCompactRow{
+    border-top-width:1px!important;
+  }
+
+  /* Keep Orders and Invoices as grouped panels, but clearly distinguish their records. */
+  html[data-customer-theme="V3C"] .recordsPage .recordsSection{
+    overflow:hidden!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordsSectionHead{
+    border-bottom:1px solid #2f3947!important;
+    background:#1a212c!important;
+  }
+}
+
+@media(max-width:420px){
+  html[data-customer-theme="V3C"] .recordsPage .recordsCompactList{
+    gap:5px!important;
+    padding:5px!important;
+  }
+  html[data-customer-theme="V3C"] .recordsPage .recordCompactRow{
+    border-radius:6px!important;
+    border-left-width:2px!important;
+  }
+}

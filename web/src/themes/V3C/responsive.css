@@ -1,0 +1,45 @@
+@media(max-width:1050px){
+ html[data-customer-theme="V3C"] .portalTopbar{grid-template-columns:auto minmax(0,1fr)!important;grid-template-areas:"brand tools" "nav nav"!important;gap:0 8px!important;padding:6px 10px 0!important}
+ html[data-customer-theme="V3C"] .portalTopBrand{grid-area:brand!important;min-height:36px!important}
+ html[data-customer-theme="V3C"] .portalTopTools{grid-area:tools!important}
+ html[data-customer-theme="V3C"] .portalTopNav{grid-area:nav!important;margin:0 -10px!important;padding:0 8px!important;border-top:1px solid #202936!important}
+ html[data-customer-theme="V3C"] .portalTopNav a{min-height:40px!important;padding:0 9px!important}
+ html[data-customer-theme="V3C"] .portalContext{top:83px!important;padding:0 10px!important}
+ html[data-customer-theme="V3C"] .portalOverviewStats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ html[data-customer-theme="V3C"] .portalOverviewGrid,html[data-customer-theme="V3C"] .portalOverviewBottom{grid-template-columns:1fr!important}
+}
+@media(max-width:760px){
+ html[data-customer-theme="V3C"] .portalTopbar{position:sticky!important;grid-template-columns:1fr auto!important;min-height:auto!important;padding:5px 8px 0!important}
+ html[data-customer-theme="V3C"] .portalTopBrand{min-width:0!important}.portalTopBrand>span:nth-child(2){max-width:120px!important;overflow:hidden!important;text-overflow:ellipsis!important}
+ html[data-customer-theme="V3C"] .portalTopBrand small{display:none!important}
+ html[data-customer-theme="V3C"] .portalTopTools{gap:4px!important}
+ html[data-customer-theme="V3C"] .portalAdminLink{display:none!important}
+ html[data-customer-theme="V3C"] .portalAccountLink,html[data-customer-theme="V3C"] .portalLogoutButton{min-height:34px!important;padding:0 8px!important;font-size:8.5px!important}
+ html[data-customer-theme="V3C"] .portalTopNav{margin:0 -8px!important;padding:0 6px!important}
+ html[data-customer-theme="V3C"] .portalTopNav a{min-height:39px!important;padding:0 8px!important;font-size:9px!important}
+ html[data-customer-theme="V3C"] .portalContext{top:79px!important;min-height:33px!important;padding:0 8px!important}
+ html[data-customer-theme="V3C"] .portalContext a{min-height:32px!important;font-size:8.5px!important}
+ html[data-customer-theme="V3C"] .portalIdentityBar{padding:6px 10px 0!important}.portalIdentityBar small{display:none!important}
+ html[data-customer-theme="V3C"] .portalMain{padding:8px 10px 24px!important}
+ html[data-customer-theme="V3C"] .portalOverviewV2,html[data-customer-theme="V3C"] .accountSettingsV2{gap:9px!important}
+ html[data-customer-theme="V3C"] .portalOverviewHero,html[data-customer-theme="V3C"] .accountSettingsHero{align-items:flex-start!important;gap:8px!important;padding:2px 0!important}
+ html[data-customer-theme="V3C"] .portalOverviewHero h1,html[data-customer-theme="V3C"] .accountSettingsHero h1{font-size:19px!important;margin:2px 0 3px!important}
+ html[data-customer-theme="V3C"] .portalOverviewStats{grid-template-columns:1fr 1fr!important;gap:6px!important}
+ html[data-customer-theme="V3C"] .portalStatCard{padding:9px!important;min-height:72px!important}
+ html[data-customer-theme="V3C"] .portalLayout .panel{padding:10px!important;border-radius:9px!important}
+ html[data-customer-theme="V3C"] .portalLayout .panelTitle{margin:-10px -10px 8px!important;padding:9px 10px!important}
+ html[data-customer-theme="V3C"] .portalQuickActions>a{padding:10px!important}
+ html[data-customer-theme="V3C"] .walletSettingsActions,html[data-customer-theme="V3C"] .settingsPreferenceGrid{grid-template-columns:1fr!important}
+ html[data-customer-theme="V3C"] .portalLayout button,html[data-customer-theme="V3C"] .portalLayout .buttonlink,html[data-customer-theme="V3C"] .portalLayout input,html[data-customer-theme="V3C"] .portalLayout select{min-height:40px!important}
+}
+@media(max-width:460px){
+ html[data-customer-theme="V3C"] .portalOverviewStats{grid-template-columns:1fr!important}
+ html[data-customer-theme="V3C"] .portalAccountLink{display:none!important}
+ html[data-customer-theme="V3C"] .portalTopNav a{padding:0 7px!important;font-size:8.5px!important}
+ html[data-customer-theme="V3C"] .portalContext>b{display:none!important}
+ html[data-customer-theme="V3C"] .portalOverviewHero .buttonlink{width:100%!important}
+ html[data-customer-theme="V3C"] .accountSettingsNav{margin:0 -1px!important}
+ html[data-customer-theme="V3C"] .accountSettingsNav button{min-height:38px!important}
+ html[data-customer-theme="V3C"] .walletActivityRow{grid-template-columns:1fr!important}
+ html[data-customer-theme="V3C"] .portalLayout table{display:block!important;overflow-x:auto!important;white-space:nowrap!important}
+}

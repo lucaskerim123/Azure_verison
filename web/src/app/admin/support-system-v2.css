@@ -1,0 +1,124 @@
+.supportDeskV2,.supportSettingsV2,.supportKbAdmin,.supportCreateAdmin{max-width:1240px}.supportDeskSummary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:8px 0}.supportDeskSummary span{border:1px solid var(--line);border-radius:8px;padding:7px 9px;background:var(--panel);font-size:10px;color:var(--muted)}.supportDeskSummary b{display:block;color:var(--text);font-size:14px}.statusBadge.escalation{margin-left:5px;font-size:9px;padding:2px 6px;border-radius:999px;border:1px solid #4d6f9a;background:#0c2138}.statusBadge.escalation-2,.statusBadge.escalation-3{border-color:#91624d;background:#2a1812}.statusBadge.claimRequired{margin-left:5px;font-size:8px;padding:2px 6px;border-radius:999px;border:1px solid #b67a42;background:#2a1d0f;color:#ffd39a}.claimRequiredText{color:#e7b46f!important;font-weight:600}.supportHierarchy{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.supportHierarchy article{position:relative;border:1px solid var(--line);border-radius:8px;padding:8px;background:#091726;display:grid;gap:2px;min-height:70px}.supportHierarchy small{font-size:8px;letter-spacing:.1em;color:#7da9e9}.supportHierarchy b{font-size:12px}.supportHierarchy span,.supportHierarchy em{font-size:9px;color:var(--muted);font-style:normal}.supportDepartmentList,.supportKbCategoryList{display:grid;gap:6px}.supportDepartmentCard,.supportTemplateCard,.supportKbCategoryList details{border:1px solid var(--line);border-radius:8px;background:#091522}.supportDepartmentCard>summary,.supportTemplateCard>summary,.supportKbCategoryList details>summary{cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px 10px;list-style:none}.supportDepartmentCard>summary span:first-child,.supportTemplateCard>summary span:first-child,.supportKbCategoryList details>summary span:first-child{display:grid;gap:1px}.supportDepartmentCard summary b,.supportTemplateCard summary b,.supportKbCategoryList summary b{font-size:11px}.supportDepartmentCard summary small,.supportTemplateCard summary small,.supportDepartmentCard summary>span:last-child,.supportTemplateCard summary>span:last-child,.supportKbCategoryList summary small,.supportKbCategoryList summary>span:last-child{font-size:9px;color:var(--muted)}.supportDepartmentEditor,.supportTemplateCard>.form,.supportKbCategoryEditor{border-top:1px solid var(--line);padding:9px}.compactForm{gap:7px}.compactForm label{gap:3px;font-size:10px}.compactForm input,.compactForm select,.compactForm textarea{min-height:30px;padding:6px 8px;font-size:11px}.supportDepartmentMembers{display:grid;gap:6px;margin:8px 0}.supportDepartmentMembers>div:first-child{display:grid;gap:2px}.supportDepartmentMembers b{font-size:10px}.supportDepartmentMembers span{font-size:9px;color:var(--muted)}.supportMemberGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.supportMemberGrid label{display:flex;gap:7px;border:1px solid var(--line);border-radius:7px;padding:6px;background:#07131f}.supportMemberGrid label.active{border-color:#3c6fab;background:#0b2036}.supportMemberGrid label span{display:grid}.supportMemberGrid label b{color:var(--text)}.supportDeptToggles{display:grid;align-content:center;gap:5px}.supportCreateGrid{display:grid;grid-template-columns:minmax(260px,.75fr) minmax(0,1.25fr);gap:9px}.supportCustomerPicker{max-height:470px;overflow:auto;display:grid;gap:4px;margin-top:7px}.supportCustomerPicker button{display:flex;justify-content:space-between;text-align:left;gap:8px;border:1px solid var(--line);background:#081522;border-radius:7px;padding:7px 8px}.supportCustomerPicker button.active{border-color:#5289cf;background:#0d2440}.supportCustomerPicker span{display:grid;gap:1px}.supportCustomerPicker b{font-size:10px}.supportCustomerPicker small,.supportCustomerPicker em{font-size:9px;color:var(--muted);font-style:normal}.supportKbGrid{display:grid;grid-template-columns:minmax(260px,.7fr) minmax(0,1.3fr);gap:9px;margin-bottom:9px}.supportKbRail{align-self:start}.supportKbFilters{display:grid;grid-template-columns:1fr 120px;gap:5px}.supportKbFilters input,.supportKbFilters select{min-height:30px}.supportKbArticleList{display:grid;gap:4px;max-height:620px;overflow:auto;margin-top:6px}.supportKbArticleList button{display:flex;justify-content:space-between;gap:8px;text-align:left;border:1px solid var(--line);border-radius:7px;background:#081522;padding:7px}.supportKbArticleList button.active{border-color:#5289cf;background:#0c2138}.supportKbArticleList span{display:grid}.supportKbArticleList b{font-size:10px}.supportKbArticleList small,.supportKbArticleList em{font-size:9px;color:var(--muted);font-style:normal}.supportKbEditor textarea{resize:vertical}.supportKbOptions{display:grid;grid-template-columns:1fr 1fr 120px;gap:6px;align-items:end}.supportEscalationPanel{margin:8px 12px;padding:10px;max-width:1200px}.supportTier{font-size:9px;border:1px solid var(--line);padding:3px 7px;border-radius:999px}.supportEscalationAlert{display:grid;gap:2px;margin:7px 0;padding:7px 9px;border:1px solid #8d6337;border-radius:8px;background:#251a0f}.supportEscalationAlert.success,.supportEscalationAlert.claimed{border-color:#3f7458;background:#10251a}.supportEscalationAlert b{font-size:10px}.supportEscalationAlert span{font-size:9px;color:var(--muted)}.supportClaimWait{display:grid;gap:2px;margin:6px 0;padding:6px 8px;border-left:2px solid #8d6337;background:#1a140d}.supportClaimWait b{font-size:9px}.supportClaimWait span{font-size:9px;color:var(--muted)}.supportRoutingGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:7px 0}.supportRoutingGrid>div{display:grid;gap:3px}.supportRoutingGrid small{font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.supportRoutingGrid select{min-height:29px;padding:4px 6px}.supportRoutingGrid strong{font-size:10px}.supportEscalationReason{display:grid;gap:2px;border-left:2px solid #557daa;padding:5px 7px;margin:6px 0}.supportEscalationReason b{font-size:9px}.supportEscalationReason span{font-size:10px;color:var(--muted)}.supportEscalationAction{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:7px;margin-top:7px}.supportEscalationAction label{font-size:9px}.supportEscalationAction textarea{min-height:48px}.supportEscalationError{margin:8px 12px;padding:7px;border:1px solid #744;border-radius:7px;font-size:10px}.queueTabs{flex-wrap:wrap}.queueTabs button{min-height:28px;padding:4px 8px}.supportQueueRow small{display:block;margin-top:2px;color:var(--muted)}
+@media(max-width:900px){.supportDeskSummary,.supportHierarchy{grid-template-columns:repeat(2,minmax(0,1fr))}.supportMemberGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.supportCreateGrid,.supportKbGrid{grid-template-columns:1fr}.supportEscalationPanel{margin:7px}.supportRoutingGrid{grid-template-columns:1fr 1fr}.supportEscalationAction{grid-template-columns:1fr}}
+@media(max-width:560px){.supportDeskSummary,.supportHierarchy,.supportMemberGrid,.supportRoutingGrid,.supportKbOptions{grid-template-columns:1fr}.supportDepartmentCard>summary,.supportTemplateCard>summary{align-items:flex-start}.supportKbFilters{grid-template-columns:1fr}.supportEscalationPanel{padding:8px}}
+
+
+/* V3A support ticket workspace — compact, direct operational flow */
+.supportTicketV3{max-width:1220px!important;margin:0 auto!important;padding-bottom:28px!important}
+.supportTicketV3>.adminTop{margin-bottom:6px!important;padding:8px 12px!important;align-items:end!important}
+.supportTicketV3>.adminTop h1{font-size:20px!important;line-height:1.1!important;margin:1px 0 2px!important}
+.supportTicketV3>.adminTop .muted{font-size:10px!important}
+.supportTicketV3>.stats.four{margin:5px 12px 7px!important;gap:5px!important}
+.supportTicketV3>.stats.four article{min-height:54px!important;padding:7px 9px!important;border-radius:7px!important}
+.supportTicketV3>.stats.four small{font-size:8px!important}
+.supportTicketV3>.stats.four strong{font-size:14px!important}
+
+.supportCommandPanel{margin:0 12px 8px!important;padding:0!important;overflow:hidden!important;border-radius:9px!important;background:#0c131d!important;border:1px solid #243140!important}
+.supportCommandHead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 10px;border-bottom:1px solid #202c39;background:#101822}
+.supportCommandHead h2{font-size:13px!important;margin:0!important}
+.supportCommandHead .muted{font-size:9px!important;margin-top:1px!important}
+.supportCommandHeadBadges{display:flex;gap:5px;align-items:center;flex:0 0 auto}
+.supportState,.supportTier{font-size:8px!important;line-height:1!important;padding:4px 6px!important;border-radius:999px!important;border:1px solid #334253!important;text-transform:uppercase!important;letter-spacing:.06em!important}
+.supportState.open{color:#9bd5ff;background:#0d2030;border-color:#28516f}
+.supportState.closed{color:#d5d9df;background:#15191f;border-color:#303741}
+.supportCommandPanel .supportEscalationAlert.compact{margin:0!important;border-radius:0!important;border-width:0 0 1px!important;padding:6px 10px!important;background:#21170e!important}
+.supportCommandPanel .supportEscalationAlert.compact b{font-size:9px!important}
+.supportCommandPanel .supportEscalationAlert.compact span{font-size:8px!important}
+
+.supportCommandGrid{display:grid;grid-template-columns:1.05fr 1.2fr .8fr .85fr;gap:0;border-bottom:1px solid #202c39}
+.supportCommandGrid>label,.supportCommandMeta{display:grid;align-content:center;gap:3px;min-width:0;padding:8px 10px;border-right:1px solid #202c39}
+.supportCommandGrid>*:last-child{border-right:0}
+.supportCommandGrid span{font-size:8px!important;color:#8290a0!important;text-transform:uppercase;letter-spacing:.07em}
+.supportCommandGrid select{min-height:30px!important;height:30px!important;padding:4px 24px 4px 7px!important;font-size:10px!important;border-radius:6px!important}
+.supportCommandGrid strong{font-size:10px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.supportCommandGrid small{font-size:8px!important;color:#6f7d8c!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.supportCommandActions{display:flex;align-items:center;gap:5px;padding:7px 10px;border-bottom:1px solid #202c39;background:#0f161f}
+.supportCommandActions button{min-height:29px!important;height:29px!important;padding:4px 9px!important;font-size:9px!important;border-radius:6px!important}
+.supportEscalationCompact{display:grid;grid-template-columns:minmax(220px,1fr) auto;gap:6px;align-items:center;padding:7px 10px}
+.supportEscalationCompact input{min-height:30px!important;height:30px!important;padding:5px 8px!important;font-size:10px!important}
+.supportEscalationCompact .inlineActions{display:flex!important;gap:5px!important}
+.supportEscalationCompact button{min-height:29px!important;height:29px!important;padding:4px 9px!important;font-size:9px!important}
+.supportCommandPanel .supportEscalationReason{margin:0 10px 7px!important;padding:5px 7px!important}
+.supportCommandPanel .inlineStatus{margin:0!important;padding:0 10px 7px!important;font-size:9px!important}
+
+.supportTicketV3>.supportEscalationAlert{margin:0 12px 6px!important;padding:6px 8px!important}
+.supportTicketV3>.supportEscalationAlert+ .stats{margin-top:5px!important}
+
+.supportTicketV3 .ticketWorkspace{margin:0 12px 8px!important;border-radius:9px!important;overflow:hidden!important;border:1px solid #263443!important;background:#0b121b!important}
+.supportTicketV3 .ticketWorkspaceTabs{display:flex!important;gap:3px!important;padding:6px!important;border-bottom:1px solid #243140!important;background:#101721!important;overflow:auto!important;white-space:nowrap!important}
+.supportTicketV3 .ticketWorkspaceTabs button{min-height:28px!important;height:28px!important;padding:4px 8px!important;font-size:9px!important;border-radius:6px!important}
+.supportTicketV3 .ticketWorkspaceBody{padding:7px!important}
+.supportTicketV3 .workspaceGrid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important;gap:7px!important}
+.supportTicketV3 .workspaceBlock{padding:9px!important;border-radius:8px!important;background:#0c1622!important;border-color:#26384a!important}
+.supportTicketV3 .workspaceBlock h2{font-size:14px!important;margin-bottom:6px!important}
+.supportTicketV3 .panelTitle{margin-bottom:5px!important}
+.supportTicketV3 .panelTitle h2{font-size:13px!important}
+.supportTicketV3 .panelTitle .muted{font-size:8px!important}
+.supportTicketV3 .listrow{min-height:31px!important;padding:5px 6px!important}
+.supportTicketV3 .listrow b,.supportTicketV3 .listrow span{font-size:9px!important}
+.supportTicketV3 .form{gap:5px!important}
+.supportTicketV3 .form label{font-size:9px!important;gap:2px!important}
+.supportTicketV3 .form input,.supportTicketV3 .form select,.supportTicketV3 .form textarea{min-height:30px!important;padding:5px 7px!important;font-size:10px!important}
+.supportTicketV3 .form button{min-height:29px!important;padding:4px 8px!important;font-size:9px!important}
+
+.supportTicketV3 .supportConversation{margin:0 12px!important;padding:0!important;border-radius:9px!important;overflow:hidden!important}
+.supportTicketV3 .supportConversation>.panelTitle{padding:8px 10px!important;margin:0!important;border-bottom:1px solid #263341!important;background:#111822!important}
+.supportTicketV3 .supportConversation>.panelTitle h2{font-size:13px!important}
+.supportTicketV3 .thread{display:grid!important;gap:6px!important;padding:9px 10px!important;max-height:680px!important;overflow:auto!important;background:#0b1119!important}
+.supportTicketV3 .message{max-width:82%!important;padding:8px 10px!important;border-radius:8px!important;margin:0!important}
+.supportTicketV3 .message>div{gap:6px!important}
+.supportTicketV3 .message b{font-size:10px!important}
+.supportTicketV3 .message span{font-size:8px!important}
+.supportTicketV3 .message p{font-size:10px!important;line-height:1.35!important;margin-top:3px!important}
+.supportTicketV3 .systemMessage{max-width:68%!important}
+.supportTicketV3 .conversationComposer{padding:8px 10px!important;border-top:1px solid #263341!important;background:#101721!important}
+.supportTicketV3 .conversationComposer .panelTitle{margin-bottom:5px!important}
+.supportTicketV3 .replyUtilities{gap:5px!important;margin-bottom:5px!important}
+.supportTicketV3 .premadeStrip{gap:4px!important}
+.supportTicketV3 .premadeStrip button,.supportTicketV3 .replyUtilities button,.supportTicketV3 .editorToolbar button,.supportTicketV3 .replyMode button{min-height:27px!important;height:27px!important;padding:3px 7px!important;font-size:8px!important}
+.supportTicketV3 .editorToolbar{gap:4px!important;margin:5px 0!important}
+.supportTicketV3 .conversationComposer textarea{min-height:105px!important;padding:7px!important;font-size:10px!important}
+.supportTicketV3 .inlineActions{gap:5px!important}
+.supportTicketV3 .inlineActions button{min-height:29px!important;height:29px!important;padding:4px 9px!important;font-size:9px!important}
+
+@media(max-width:900px){
+ .supportCommandGrid{grid-template-columns:1fr 1fr}
+ .supportCommandGrid>*{border-bottom:1px solid #202c39}
+ .supportCommandGrid>*:nth-child(2n){border-right:0}
+ .supportEscalationCompact{grid-template-columns:1fr}
+ .supportTicketV3 .workspaceGrid{grid-template-columns:1fr!important}
+}
+
+.supportCommandPanel.collapsed{padding:0!important}
+.supportCommandPanel.collapsed .supportCommandHead{border-bottom:0!important;padding:6px 8px!important}
+.supportCommandToggle{all:unset;display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;flex:1;cursor:pointer}
+.supportCommandToggle>div{min-width:0;display:grid;gap:1px}
+.supportCommandToggle h2{font-size:11px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.supportCommandToggle .muted{font-size:8px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.supportCommandToggleLabel{font-size:8px!important;color:#9aa8b7!important;white-space:nowrap}
+.supportCommandQuick{display:flex;gap:4px;padding:0 8px 6px}
+.supportCommandQuick button{min-height:26px!important;height:26px!important;padding:3px 7px!important;font-size:8px!important;border-radius:6px!important}
+.supportCommandCollapsedStatus{padding:0 8px 6px!important}
+
+
+/* Compact collapsed routing bar */
+.supportCommandPanel.collapsed{margin:0 12px 7px!important;padding:0!important;min-height:0!important}
+.supportCommandPanel.collapsed .supportCommandHead{min-height:42px!important;padding:5px 7px!important;gap:7px!important}
+.supportCommandToggle{appearance:none!important;background:transparent!important;border:0!important;box-shadow:none!important;color:inherit!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;min-width:0!important;flex:1 1 auto!important;text-align:left!important;padding:0!important;min-height:30px!important}
+.supportCommandToggle>div{min-width:0!important;display:flex!important;align-items:center!important;gap:7px!important;flex-wrap:wrap!important}
+.supportCommandToggle .eyebrow{margin:0!important;font-size:7px!important;line-height:1!important}
+.supportCommandToggle h2{margin:0!important;font-size:10px!important;line-height:1.1!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;max-width:420px!important}
+.supportCommandToggle .muted{margin:0!important;font-size:8px!important;white-space:nowrap!important}
+.supportCommandToggleLabel{font-size:8px!important;color:#9eabc0!important;white-space:nowrap!important;text-transform:none!important;letter-spacing:0!important}
+.supportCommandPanel.collapsed .supportCommandHeadBadges{gap:4px!important}
+.supportCommandPanel.collapsed .supportState,.supportCommandPanel.collapsed .supportTier{padding:3px 5px!important;font-size:7px!important}
+.supportCommandQuick{display:flex!important;gap:4px!important;align-items:center!important;padding:4px 7px!important;border-top:1px solid #202c39!important;background:#0d141d!important}
+.supportCommandQuick:empty{display:none!important}
+.supportCommandQuick button{min-height:25px!important;height:25px!important;padding:2px 7px!important;font-size:8px!important;border-radius:5px!important}
+.supportCommandCollapsedStatus{padding:3px 7px 5px!important;margin:0!important;font-size:8px!important}
+.supportCommandPanel.expanded .supportCommandToggleLabel{color:#b9c6d8!important}
+@media(max-width:900px){
+ .supportCommandToggle h2{max-width:260px!important}
+ .supportCommandToggle .muted{display:none!important}
+}

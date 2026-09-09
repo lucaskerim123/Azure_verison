@@ -1,0 +1,78 @@
+/* OrbitFS auth authority layer.
+   Loaded after V3C/V3A theme packages so generic portal/admin styles cannot override auth UI. */
+.orbitAuthPage .orbitAuthBrand{color:#f7fbff!important}
+.orbitAuthPage .orbitAuthBrand>span:last-child{color:#f7fbff!important}
+.orbitAuthPage .orbitAuthNav>a{color:#bccbdb!important}
+.orbitAuthPage .orbitAuthNav>a:hover{color:#fff!important}
+.orbitAuthPage .orbitAuthNav .orbitAuthNavCta{color:#fff!important}
+.orbitAuthPage .orbitAuthFormMeta>a{color:#39d9ff!important}
+.orbitAuthPage.orbitAuthRegister .orbitAuthFormMeta>a,
+.orbitAuthPage.orbitAuthRegister .orbitAuthSwitch a{color:#c86dff!important}
+.orbitAuthPage .orbitAuthSwitch a{color:#44ddff!important}
+.orbitAuthPage .orbitAuthSupport a{color:#8da1b8!important}
+.orbitAuthPage .orbitAuthField{position:relative!important;display:flex!important;align-items:center!important;min-width:0!important}
+.orbitAuthPage .orbitAuthFieldIcon{position:absolute!important;left:14px!important;top:50%!important;transform:translateY(-50%)!important;z-index:2!important;width:18px!important;margin:0!important;line-height:1!important;text-align:center!important;color:#8198b2!important;pointer-events:none!important}
+.orbitAuthPage .orbitAuthField input{position:relative!important;width:100%!important;min-width:0!important;height:52px!important;margin:0!important;padding:0 15px 0 44px!important;border:1px solid rgba(128,157,191,.34)!important;border-radius:11px!important;color:#f3f8ff!important;background:rgba(7,18,31,.9)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;font:inherit!important;line-height:normal!important}
+.orbitAuthPage .orbitAuthField input::placeholder{color:#6f839a!important;opacity:1!important}
+.orbitAuthPage .orbitAuthField input:focus{outline:0!important;border-color:rgba(56,211,255,.72)!important;box-shadow:0 0 0 3px rgba(39,216,255,.08),0 0 22px rgba(39,216,255,.08)!important}
+.orbitAuthPage.orbitAuthRegister .orbitAuthField input:focus{border-color:rgba(168,74,255,.76)!important;box-shadow:0 0 0 3px rgba(155,70,255,.09),0 0 22px rgba(155,70,255,.08)!important}
+.orbitAuthPage .orbitAuthSubmit{width:100%!important}
+.orbitAuthPage .orbitAuthCard{min-width:0!important;overflow:hidden}
+.orbitAuthPage .orbitAuthCard h1{overflow-wrap:normal;word-break:normal}
+
+@media(max-width:800px){
+  .orbitAuthPage{overflow-x:clip!important;overflow-y:visible!important}
+  .orbitAuthPage .orbitAuthTop{
+    position:sticky!important;
+    top:0!important;
+    z-index:30!important;
+    width:100%!important;
+    min-height:68px!important;
+    padding:max(8px,env(safe-area-inset-top)) 16px 8px!important;
+    border-bottom:1px solid rgba(128,164,205,.15)!important;
+    background:linear-gradient(180deg,rgba(4,12,22,.96),rgba(5,15,27,.88))!important;
+    backdrop-filter:blur(16px)!important;
+    -webkit-backdrop-filter:blur(16px)!important;
+  }
+  .orbitAuthPage .orbitAuthStage{
+    width:min(calc(100% - 24px),540px)!important;
+    padding:14px 0 max(28px,env(safe-area-inset-bottom))!important;
+  }
+  .orbitAuthPage .orbitAuthCard{
+    width:100%!important;
+    padding:24px 20px 20px!important;
+    border-radius:20px!important;
+  }
+  .orbitAuthPage .orbitAuthCard h1{
+    max-width:100%!important;
+    margin:0!important;
+    font-size:clamp(30px,8.4vw,36px)!important;
+    line-height:1.08!important;
+    letter-spacing:-.04em!important;
+  }
+  .orbitAuthPage.orbitAuthRegister .orbitAuthCard h1{font-size:clamp(29px,8vw,34px)!important}
+  .orbitAuthPage .orbitAuthDescription{margin:12px 0 20px!important;font-size:13px!important;line-height:1.55!important}
+  .orbitAuthPage .orbitAuthForm{gap:12px!important}
+  .orbitAuthPage .orbitAuthFieldLabel{gap:7px!important;font-size:11px!important}
+  .orbitAuthPage .orbitAuthFieldIcon{display:none!important}
+  .orbitAuthPage .orbitAuthField input{height:52px!important;padding:0 15px!important;font-size:16px!important}
+  .orbitAuthPage .orbitAuthFormMeta{min-height:22px!important;margin-top:-1px!important}
+  .orbitAuthPage .orbitAuthDivider{margin:20px 0 15px!important}
+  .orbitAuthPage .orbitAuthSwitch{line-height:1.55!important}
+  .orbitAuthPage .orbitAuthTrust{margin-top:22px!important;padding-top:18px!important}
+}
+
+@media(max-width:520px){
+  .orbitAuthPage .orbitAuthTop{min-height:64px!important;padding-left:13px!important;padding-right:13px!important}
+  .orbitAuthPage .orbitAuthBrand{font-size:19px!important;gap:8px!important}
+  .orbitAuthPage .orbitAuthMark{width:31px!important;height:31px!important}
+  .orbitAuthPage .orbitAuthStage{width:calc(100% - 20px)!important;padding-top:10px!important}
+  .orbitAuthPage .orbitAuthCard{padding:21px 17px 18px!important;border-radius:18px!important}
+  .orbitAuthPage .orbitAuthEyebrow{margin-bottom:10px!important;font-size:9px!important;letter-spacing:.22em!important}
+  .orbitAuthPage .orbitAuthCard h1{font-size:clamp(29px,9vw,34px)!important}
+  .orbitAuthPage.orbitAuthRegister .orbitAuthCard h1{font-size:clamp(28px,8.6vw,33px)!important}
+  .orbitAuthPage .orbitAuthDescription{margin-top:10px!important;margin-bottom:18px!important}
+  .orbitAuthPage .orbitAuthSubmit{min-height:50px!important}
+  .orbitAuthPage .orbitAuthTrust{gap:3px!important;margin-left:0!important;margin-right:0!important}
+  .orbitAuthPage .orbitAuthTrust small{font-size:7.5px!important;letter-spacing:.02em!important}
+}

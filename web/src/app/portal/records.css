@@ -1,0 +1,83 @@
+/* Customer Orders + Invoices */
+.recordsPage,.recordDetailPage{display:grid;gap:18px;min-width:0}.recordsHeader h1,.recordDetailHero h1{margin:5px 0;font-size:clamp(30px,3.2vw,42px);letter-spacing:-.03em}.recordsHeader .muted,.recordDetailHero .muted{max-width:760px;line-height:1.55}.recordsSplit{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}.recordsSection{margin:0;padding:0;overflow:hidden;min-width:0}.recordsSectionHead{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;padding:18px;border-bottom:1px solid var(--line)}.recordsSectionHead h2{margin:4px 0 5px;font-size:22px}.recordsSectionHead .muted{margin:0;font-size:12px;line-height:1.45}.recordsCount{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;padding:0 9px;border:1px solid #315177;border-radius:99px;background:#0d2037;color:#a8c7ff;font-size:12px;font-weight:800}.recordsCompactHead,.recordCompactRow{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(130px,.75fr) minmax(105px,.5fr);gap:14px;align-items:center}.recordsCompactHead{padding:10px 16px;border-bottom:1px solid var(--line);color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.recordCompactRow{padding:15px 16px;border-bottom:1px solid var(--line);color:var(--text);transition:.16s}.recordCompactRow:last-child{border-bottom:0}.recordCompactRow:hover{background:#ffffff05}.recordPrimary,.recordStatus,.recordAmount{display:grid;gap:4px;min-width:0}.recordPrimary span,.recordStatus small,.recordAmount span{font-size:11px;color:var(--muted)}.recordPrimary b{font-size:14px}.recordBadge{width:max-content;max-width:100%;padding:5px 9px;border:1px solid #315177;border-radius:99px;background:#0d2037;color:#a8c7ff;font-size:10px;text-transform:capitalize}.recordAmount{text-align:right;justify-items:end}.recordAmount b{font-size:14px}.recordsEmpty{padding:18px}.recordDetailHero{display:flex;align-items:center;justify-content:space-between;gap:18px}.recordSummaryGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.recordSummaryGrid article{display:grid;gap:7px;padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:13px;min-width:0}.recordSummaryGrid strong{font-size:20px;text-transform:capitalize;overflow-wrap:anywhere}.recordDetailGrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:16px;align-items:start}.recordDetailGrid>.panel{margin:0}.recordWide{grid-column:1/-1}.recordProductsPanel .panelTitle h2,.recordLinkedPanel h2,.recordPaymentPanel h2,.recordWide h2{margin:4px 0 12px}.recordProductList{display:grid}.recordProductRow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}.recordProductRow:last-child{border-bottom:0}.recordProductRow>div{display:grid;gap:4px;min-width:0}.recordProductRow small{font-size:11px}.recordProductRow strong{font-size:15px}.discountRow strong{color:#9bc4ff}.linkedRecordCard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:15px;border:1px solid var(--line);border-radius:11px;background:#091626;color:var(--text)}.linkedRecordCard:hover{border-color:#416b9e;background:#102036}.linkedRecordCard>div{display:grid;gap:4px}.linkedRecordCard>div:last-child{text-align:right}.linkedRecordCard span{font-size:12px;color:var(--muted)}.recordPaymentPanel .form{gap:14px}.recordPaymentPanel .couponApply{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.recordCancelForm textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;background:#081423;color:white;resize:vertical}.recordCancelForm button{justify-self:start}.paymentHistoryRow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.paymentHistoryRow:last-child{border-bottom:0}.paymentHistoryRow>div{display:grid;gap:4px}.paymentHistoryRow>div:last-child{text-align:right}.paymentHistoryRow span{font-size:12px;color:var(--muted)}.successNotice{border-color:#315177}
+
+@media(max-width:1100px){.recordsSplit{grid-template-columns:1fr}.recordSummaryGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.recordDetailGrid{grid-template-columns:1fr}.recordWide{grid-column:auto}}
+@media(max-width:700px){.recordsPage,.recordDetailPage{gap:13px}.recordDetailHero{align-items:flex-start;flex-direction:column}.recordDetailHero .ghostbtn{padding:8px 11px;font-size:12px}.recordsCompactHead{display:none}.recordCompactRow{grid-template-columns:1fr auto;gap:10px 14px;padding:15px}.recordPrimary{grid-column:1/-1}.recordStatus{align-self:end}.recordAmount{align-self:end}.recordSummaryGrid{grid-template-columns:1fr 1fr;gap:8px}.recordSummaryGrid article{padding:13px}.recordSummaryGrid strong{font-size:17px}.recordProductRow,.paymentHistoryRow{gap:10px}.linkedRecordCard{grid-template-columns:1fr}.linkedRecordCard>div:last-child{text-align:left}.recordPaymentPanel .couponApply{grid-template-columns:1fr}.recordPaymentPanel .couponApply button{width:100%}}
+
+/* Per-invoice presentation from admin */
+.invoicePresentation{--invoice-accent:#3b82f6}.invoicePresentation .recordSummaryGrid article,.invoicePresentation .panel{border-color:color-mix(in srgb,var(--invoice-accent) 22%,var(--line))}.invoiceCustomerBrand{width:max-content;padding:5px 10px;margin-bottom:8px;border-radius:999px;background:color-mix(in srgb,var(--invoice-accent) 18%,#091626);border:1px solid color-mix(in srgb,var(--invoice-accent) 48%,var(--line));color:#fff;font-size:12px;font-weight:800;letter-spacing:.04em}.invoiceCustomerFooter{grid-column:1/-1;border-top:3px solid var(--invoice-accent)!important}.invoiceCustomerFooter p{margin:0;color:var(--muted);text-align:center}.invoiceTemplate-compact .recordSummaryGrid article{padding:12px}.invoiceTemplate-compact .recordDetailGrid{gap:10px}.invoiceTemplate-compact .panel{padding:14px}.invoiceTemplate-classic .recordDetailHero{padding-bottom:14px;border-bottom:2px solid var(--invoice-accent)}.invoiceTemplate-classic .recordSummaryGrid article{border-radius:4px}.invoiceTemplate-classic .panel{border-radius:6px}
+
+/* Structured invoice document */
+.invoiceDocumentPanel{padding:0!important;overflow:hidden}.invoiceDocument{background:#fff;color:#18212f;border-radius:12px;overflow:hidden;box-shadow:0 12px 34px #00000020}.invoiceDocHeader{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;padding:26px 28px;border-bottom:1px solid #dfe4ea}.invoiceDocBusiness,.invoiceDocMeta{display:grid;gap:5px;align-content:start}.invoiceDocBusiness strong{font-size:24px;letter-spacing:-.02em}.invoiceDocBusiness span,.invoiceDocMeta span,.invoiceDocBillTo span,.invoiceDocPaymentDetails span,.invoiceDocFooter span{font-size:12px;color:#5e6877;line-height:1.45}.invoiceDocMeta{text-align:right;justify-items:end}.invoiceDocMeta h2{margin:0 0 5px;font-size:24px;letter-spacing:.08em}.invoiceDocMeta span b{color:#253144}.invoiceDocBillTo{display:grid;gap:4px;padding:20px 28px;border-bottom:1px solid #e5e9ef}.invoiceDocBillTo strong{font-size:15px}.invoiceDocLabel{margin:0 0 4px;font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--invoice-accent);text-transform:uppercase}.invoiceDocItems{display:grid}.invoiceDocItemHead,.invoiceDocItemRow{display:grid;grid-template-columns:minmax(0,1fr) 60px 110px 110px;gap:14px;align-items:center;padding:12px 28px}.invoiceDocItemHead{background:#f3f5f8;border-bottom:1px solid #dfe4ea;font-size:10px;font-weight:800;letter-spacing:.06em;color:#586273}.invoiceDocItemHead span:not(:first-child),.invoiceDocItemRow>span,.invoiceDocItemRow>strong{text-align:right}.invoiceDocItemRow{border-bottom:1px solid #edf0f4;font-size:13px}.invoiceDocItemRow b{font-size:13px}.invoiceDocTotals{display:grid;justify-content:end;padding:18px 28px;border-bottom:1px solid #e2e7ed}.invoiceDocTotals>div{display:grid;grid-template-columns:120px 110px;gap:22px;align-items:center;padding:5px 0}.invoiceDocTotals span{text-align:right;color:#5f6977;font-size:12px}.invoiceDocTotals strong{text-align:right}.invoiceDocTotalMain{margin:3px 0;padding:9px 0!important;border-top:1px solid #cfd6de;border-bottom:1px solid #cfd6de}.invoiceDocTotalMain span,.invoiceDocTotalMain strong{font-size:15px;color:#18212f;font-weight:800}.invoiceDocPaymentDetails{display:grid;gap:8px;padding:18px 28px;border-bottom:1px solid #e2e7ed}.invoiceDocPaymentDetails>div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px}.invoiceDocPaymentDetails strong{font-size:12px;color:#2d3746;overflow-wrap:anywhere}.invoiceDocFooter{display:grid;gap:4px;padding:18px 28px;text-align:center;background:#fafbfc}.invoiceDocFooter strong{font-size:13px}
+
+@media(max-width:760px){.invoiceDocHeader{grid-template-columns:1fr;padding:20px}.invoiceDocMeta{text-align:left;justify-items:start}.invoiceDocBillTo,.invoiceDocItemHead,.invoiceDocItemRow,.invoiceDocTotals,.invoiceDocPaymentDetails,.invoiceDocFooter{padding-left:20px;padding-right:20px}.invoiceDocItemHead,.invoiceDocItemRow{grid-template-columns:minmax(0,1fr) 42px 84px}.invoiceDocItemHead span:nth-child(3),.invoiceDocItemRow>span:nth-child(3){display:none}.invoiceDocTotals>div{grid-template-columns:100px 100px}.invoiceDocPaymentDetails>div{grid-template-columns:120px minmax(0,1fr)}}
+
+/* Service cancellation controls */
+.cancelTimingOptions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:4px 0}
+.cancelTimingOptions label{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:var(--panel)}
+.cancelTimingOptions input{margin-top:3px}.cancelTimingOptions span{display:grid;gap:3px}.cancelTimingOptions small{color:var(--muted);line-height:1.4}
+@media(max-width:680px){.cancelTimingOptions{grid-template-columns:1fr}}
+
+
+/* Invoice document must stay print-light and readable inside dark customer themes. */
+.invoicePresentation .invoiceDocument,
+.invoicePresentation .invoiceDocument *{
+  text-shadow:none!important;
+}
+.invoicePresentation .invoiceDocument{
+  background:#fff!important;
+  color:#18212f!important;
+}
+.invoicePresentation .invoiceDocument strong,
+.invoicePresentation .invoiceDocument b,
+.invoicePresentation .invoiceDocument h1,
+.invoicePresentation .invoiceDocument h2,
+.invoicePresentation .invoiceDocument h3{
+  color:#18212f!important;
+  opacity:1!important;
+}
+.invoicePresentation .invoiceDocBusiness span,
+.invoicePresentation .invoiceDocMeta span,
+.invoicePresentation .invoiceDocBillTo span,
+.invoicePresentation .invoiceDocPaymentDetails span,
+.invoicePresentation .invoiceDocFooter span,
+.invoicePresentation .invoiceDocTotals span{
+  color:#4b5563!important;
+  opacity:1!important;
+}
+.invoicePresentation .invoiceDocMeta span b,
+.invoicePresentation .invoiceDocBillTo span b,
+.invoicePresentation .invoiceDocPaymentDetails strong{
+  color:#253144!important;
+}
+.invoicePresentation .invoiceDocLabel{
+  color:var(--invoice-accent)!important;
+  opacity:1!important;
+}
+.invoicePresentation .invoiceDocItemHead{
+  background:#eef2f6!important;
+  color:#3f4a59!important;
+}
+.invoicePresentation .invoiceDocItemHead span{
+  color:#3f4a59!important;
+  opacity:1!important;
+}
+.invoicePresentation .invoiceDocItemRow,
+.invoicePresentation .invoiceDocItemRow div,
+.invoicePresentation .invoiceDocItemRow span,
+.invoicePresentation .invoiceDocItemRow strong,
+.invoicePresentation .invoiceDocItemRow b{
+  color:#18212f!important;
+  opacity:1!important;
+}
+.invoicePresentation .invoiceDocTotals strong{
+  color:#18212f!important;
+  opacity:1!important;
+}
+.invoicePresentation .invoiceDocTotalMain span,
+.invoicePresentation .invoiceDocTotalMain strong{
+  color:#111827!important;
+}
+.invoicePresentation .invoiceDocFooter{
+  background:#f8fafc!important;
+}

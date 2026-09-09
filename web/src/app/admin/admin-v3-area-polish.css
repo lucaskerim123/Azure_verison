@@ -1,0 +1,73 @@
+/* Page-family refinements for OrbitFS Admin V3. Loaded after the base dark page layer. */
+html[data-admin-theme="v3"] .filterBar{display:grid;grid-template-columns:minmax(220px,1fr) auto auto;gap:8px;align-items:center;margin-bottom:10px;padding:8px;background:#151a21;border:1px solid #303844;border-radius:8px}
+html[data-admin-theme="v3"] .filterBar input,html[data-admin-theme="v3"] .filterBar select{min-height:38px}
+html[data-admin-theme="v3"] .inlineActions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+html[data-admin-theme="v3"] .adminGrid{gap:12px}
+html[data-admin-theme="v3"] .form label{color:#c6ced7;font-size:10px;font-weight:700}
+html[data-admin-theme="v3"] .form label>small,html[data-admin-theme="v3"] .form>small{display:block;margin-top:3px;color:#93a0ad!important;font-weight:500;line-height:1.45}
+html[data-admin-theme="v3"] .toggle{min-height:36px;padding:7px 8px;border:1px solid #353e49;border-radius:7px;background:#171d25;color:#d9e0e7!important}
+html[data-admin-theme="v3"] .toggle input{accent-color:var(--page-accent)}
+html[data-admin-theme="v3"] .inlineStatus{padding:8px 10px;border:1px solid #3b4653;border-left:3px solid var(--page-accent);border-radius:7px;background:#171d24;color:#d9e1e8}
+
+/* Billing list records */
+html[data-admin-theme="v3"] .billingRecordList{display:grid;gap:5px}
+html[data-admin-theme="v3"] .billingRecord{display:grid;grid-template-columns:minmax(210px,1.2fr) 130px 130px minmax(145px,.8fr) auto;gap:11px;align-items:center;min-height:59px;padding:9px 11px;background:#191f27;border:1px solid #323b47;border-radius:8px}
+html[data-admin-theme="v3"] .billingRecord:hover{background:#202731;border-color:#4a5563}
+html[data-admin-theme="v3"] .billingRecord.isOverdue{border-left:4px solid #fb7185;background:#231b22}
+html[data-admin-theme="v3"] .billingRecordMain b{display:block;color:#fff;font-size:11.5px}
+html[data-admin-theme="v3"] .billingRecordMain span,html[data-admin-theme="v3"] .billingRecord>div>span{display:block;margin-top:2px;color:#9da9b5;font-size:9px}
+html[data-admin-theme="v3"] .billingRecord>div>small{display:block;margin-bottom:3px;color:#7f8b98!important;font-size:8px;text-transform:uppercase;letter-spacing:.07em}
+html[data-admin-theme="v3"] .billingRecord>div>strong{font-size:10.5px;color:#f2f5f7}
+html[data-admin-theme="v3"] .billingState{display:inline-flex;width:max-content;padding:3px 7px;border-radius:999px;background:#2a323d;color:#c7d1db!important;font-size:8px!important;font-weight:850;text-transform:uppercase;letter-spacing:.04em}
+html[data-admin-theme="v3"] .billingState.overdue,html[data-admin-theme="v3"] .billingState.cancelled{background:#4b2029;color:#ff9dab!important}
+html[data-admin-theme="v3"] .billingState.unpaid,html[data-admin-theme="v3"] .billingState.pending_payment{background:#493618;color:#ffd27a!important}
+html[data-admin-theme="v3"] .billingState.partial,html[data-admin-theme="v3"] .billingState.pending_approval{background:#3d3219;color:#f6d365!important}
+html[data-admin-theme="v3"] .billingState.paid,html[data-admin-theme="v3"] .billingState.active{background:#153a31;color:#6de1ba!important}
+html[data-admin-theme="v3"] .billingState.refunded{background:#302443;color:#cdb4ff!important}
+
+/* Support desk */
+html[data-admin-theme="v3"] .supportDeskSummary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:0 0 10px}
+html[data-admin-theme="v3"] .supportDeskSummary span{padding:9px 10px;border:1px solid #393e49;border-radius:8px;background:#1c2028;color:#aab4bf;font-size:9.5px}
+html[data-admin-theme="v3"] .supportDeskSummary span:nth-child(1){border-top:3px solid #fb7185}
+html[data-admin-theme="v3"] .supportDeskSummary span:nth-child(2){border-top:3px solid #f59e0b}
+html[data-admin-theme="v3"] .supportDeskSummary span:nth-child(3){border-top:3px solid #a78bfa}
+html[data-admin-theme="v3"] .supportDeskSummary span:nth-child(4){border-top:3px solid #22d3ee}
+html[data-admin-theme="v3"] .supportDeskSummary b{font-size:13px;margin-right:3px}
+html[data-admin-theme="v3"] .queueTabs{display:flex;gap:5px;overflow-x:auto;margin:0 0 10px;padding:6px;background:#151a21;border:1px solid #303844;border-radius:8px;scrollbar-width:none}
+html[data-admin-theme="v3"] .queueTabs::-webkit-scrollbar{display:none}
+html[data-admin-theme="v3"] .queueTabs button{flex:0 0 auto;min-height:36px!important;padding:7px 9px!important;background:#202631!important;border-color:#3a4451!important;color:#b6c0cb!important}
+html[data-admin-theme="v3"] .queueTabs button.active{background:#4b2029!important;border-color:#a34e5d!important;color:#ffdbe1!important}
+html[data-admin-theme="v3"] .queueTabs button span{margin-left:5px;padding:1px 5px;border-radius:999px;background:#11161d;color:#cbd4dd}
+html[data-admin-theme="v3"] .supportEscalationAlert{border-color:#6e4c1f!important;background:#2a2117!important;color:#ffd994!important}
+html[data-admin-theme="v3"] .supportEscalationAlert.success{border-color:#245b4b!important;background:#172820!important;color:#82e4bf!important}
+html[data-admin-theme="v3"] .supportQueueRow.newTicket{background:#231b22!important;border-left:3px solid #fb7185!important}
+html[data-admin-theme="v3"] .statusBadge.new{background:#4b2029!important;color:#ff9dab!important}
+html[data-admin-theme="v3"] .statusBadge.claimRequired{background:#493618!important;color:#ffd27a!important}
+html[data-admin-theme="v3"] .claimRequiredText{color:#e8be69!important}
+
+/* Licensing */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="licensing"] .adminGrid>.panel:first-child{border-top-color:#a78bfa!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="licensing"] .adminGrid>.panel:nth-child(2){border-top-color:#c084fc!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="licensing"] .adminItem{background:#191d25!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="licensing"] .adminItem:hover{background:#24202e!important}
+
+/* Product/content editor */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="content"] .productSection:nth-of-type(1){border-top-color:#e879b2!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="content"] .productSection:nth-of-type(2){border-top-color:#a78bfa!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="content"] .productSection:nth-of-type(3){border-top-color:#22d3ee!important}
+html[data-admin-theme="v3"] .productApiCard{background:#161c24!important;border:1px solid #3a4450!important;border-left:4px solid #a78bfa!important;color:#eef2f5!important}
+html[data-admin-theme="v3"] .productApiHead p,html[data-admin-theme="v3"] .productApiHint{color:#9eabb8!important}
+html[data-admin-theme="v3"] .productApiStatus{background:#3c252f!important;color:#f3b2c8!important;border-color:#6b394d!important}
+html[data-admin-theme="v3"] .productApiStatus.on{background:#173a31!important;color:#70e0bd!important;border-color:#2b6e59!important}
+
+/* System/analytics/audit/config */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="system"] table{background:#1a2028;color:#eef2f5;border-color:#343e4a}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="system"] th{background:#202730!important;color:#aeb9c4!important;border-color:#343e4a!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="system"] td{border-color:#303945!important;color:#dce3e9!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="system"] tr:hover td{background:#20272f!important}
+
+/* Keep destructive actions visually separate from normal accent colours. */
+html[data-admin-theme="v3"] .superadminDeleteBar{background:#2b171d!important;border-color:#76333f!important;color:#ffb9c4!important}
+
+@media(max-width:980px){html[data-admin-theme="v3"] .billingRecord{grid-template-columns:minmax(0,1fr) 115px minmax(130px,.8fr) auto}.billingRecord>div:nth-of-type(2){display:none}}
+@media(max-width:760px){html[data-admin-theme="v3"] .filterBar{grid-template-columns:1fr 1fr}.filterBar .searchInput{grid-column:1/-1}.supportDeskSummary{grid-template-columns:1fr 1fr}.billingRecord{grid-template-columns:minmax(0,1fr) auto}.billingRecord>div:not(.inlineActions){display:none}.billingRecordMain span{white-space:normal}.queueTabs button{min-height:42px!important}}

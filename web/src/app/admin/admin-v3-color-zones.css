@@ -1,0 +1,75 @@
+/* OrbitFS Admin V3 contextual colour system.
+   Keeps the light workspace while giving each admin area its own restrained identity. */
+html[data-admin-theme="v3"] .adminV3Layout{
+  --v3-zone:#2f7668;
+  --v3-zone-deep:#20584e;
+  --v3-zone-soft:#edf7f4;
+  --v3-zone-mid:#c8e3dc;
+  --v3-zone-faint:#f7fbfa;
+  --v3-blue:var(--v3-zone);
+  --v3-blue-soft:var(--v3-zone-soft);
+}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="customers"]{--v3-zone:#4e7391;--v3-zone-deep:#36566f;--v3-zone-soft:#eef4f8;--v3-zone-mid:#cbdce7;--v3-zone-faint:#f8fafc}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"]{--v3-zone:#b66a1d;--v3-zone-deep:#824811;--v3-zone-soft:#fff4e7;--v3-zone-mid:#edd0a9;--v3-zone-faint:#fffaf3}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="licensing"]{--v3-zone:#7658ac;--v3-zone-deep:#553b83;--v3-zone-soft:#f4effb;--v3-zone-mid:#d9cbed;--v3-zone-faint:#fbf9fd}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="support"]{--v3-zone:#b7535e;--v3-zone-deep:#823941;--v3-zone-soft:#fff0f2;--v3-zone-mid:#edc9cd;--v3-zone-faint:#fff9fa}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="content"]{--v3-zone:#9b5c7b;--v3-zone-deep:#704058;--v3-zone-soft:#faeff5;--v3-zone-mid:#e7ccda;--v3-zone-faint:#fdf9fb}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="system"]{--v3-zone:#4f755f;--v3-zone-deep:#365441;--v3-zone-soft:#eef6f1;--v3-zone-mid:#cddfd3;--v3-zone-faint:#f8fbf9}
+
+html[data-admin-theme="v3"] .adminV3Layout .adminV3BrandMark{background:var(--v3-zone)}
+html[data-admin-theme="v3"] .adminV3Layout .adminV3Primary>a.active{border-bottom-color:var(--v3-zone);color:#fff}
+html[data-admin-theme="v3"] .adminV3Layout .adminV3Context{background:linear-gradient(90deg,var(--v3-zone-soft),#fff 42%)}
+html[data-admin-theme="v3"] .adminV3Layout .adminV3ContextLabel{color:var(--v3-zone-deep)}
+html[data-admin-theme="v3"] .adminV3Layout .adminV3Context a.active{color:var(--v3-zone-deep);border-bottom-color:var(--v3-zone)}
+html[data-admin-theme="v3"] .adminV3Layout .masterContent{background:linear-gradient(180deg,var(--v3-zone-faint) 0,#f4f6f8 165px)}
+html[data-admin-theme="v3"] .adminV3Layout .adminTop .eyebrow,
+html[data-admin-theme="v3"] .adminV3Layout .settingsEditorBreadcrumbs a,
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaGo{color:var(--v3-zone-deep)}
+
+/* Give working sections a visible edge without turning the UI back into heavy cards. */
+html[data-admin-theme="v3"] .adminV3Layout .panel,
+html[data-admin-theme="v3"] .adminV3Layout .v3Section,
+html[data-admin-theme="v3"] .adminV3Layout .settingsSectionV2,
+html[data-admin-theme="v3"] .adminV3Layout .settingsGroupV3{
+  border-color:var(--v3-zone-mid);
+  box-shadow:0 1px 2px rgba(24,32,42,.05),0 7px 20px rgba(24,32,42,.035);
+}
+html[data-admin-theme="v3"] .adminV3Layout .panel{border-top:3px solid var(--v3-zone)}
+html[data-admin-theme="v3"] .adminV3Layout .panelTitle{padding-bottom:9px;border-bottom:1px solid var(--v3-zone-mid)}
+html[data-admin-theme="v3"] .adminV3Layout .v3SectionHead,
+html[data-admin-theme="v3"] .adminV3Layout .settingsSectionSummary,
+html[data-admin-theme="v3"] .adminV3Layout .settingsGroupHeadV3{background:var(--v3-zone-soft)}
+html[data-admin-theme="v3"] .adminV3Layout .v3SectionHead{border-bottom-color:var(--v3-zone-mid);box-shadow:inset 3px 0 var(--v3-zone)}
+html[data-admin-theme="v3"] .adminV3Layout .settingsSectionV2[open]>.settingsSectionSummary,
+html[data-admin-theme="v3"] .adminV3Layout .settingsGroupV3[open]>.settingsGroupHeadV3{box-shadow:inset 4px 0 var(--v3-zone)}
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaGrid{background:linear-gradient(180deg,var(--v3-zone-faint),#f8f9fa)}
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaCard{border-color:var(--v3-zone-mid);border-left:3px solid var(--v3-zone)}
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaCard:hover{border-color:var(--v3-zone);background:var(--v3-zone-faint)}
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaBadge,
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaTags span{border-color:var(--v3-zone-mid);background:var(--v3-zone-soft);color:var(--v3-zone-deep)}
+html[data-admin-theme="v3"] .adminV3Layout .settingsSummaryV3 article{border-color:var(--v3-zone-mid);border-top:3px solid var(--v3-zone);background:#fff}
+html[data-admin-theme="v3"] .adminV3Layout .settingV3{background:#fff}
+html[data-admin-theme="v3"] .adminV3Layout .settingV3:nth-child(even){background:#fcfcfb}
+html[data-admin-theme="v3"] .adminV3Layout .settingControlV3 input:focus,
+html[data-admin-theme="v3"] .adminV3Layout .settingControlV3 select:focus,
+html[data-admin-theme="v3"] .adminV3Layout .settingControlV3 textarea:focus,
+html[data-admin-theme="v3"] .adminV3Layout .settingsToolsV3 input:focus{border-color:var(--v3-zone);box-shadow:0 0 0 3px color-mix(in srgb,var(--v3-zone) 14%,transparent)}
+html[data-admin-theme="v3"] .adminV3Layout .settingBooleanV3 button.active,
+html[data-admin-theme="v3"] .adminV3Layout .settingsSaveV3 button:not(:disabled){background:var(--v3-zone)!important;border-color:var(--v3-zone-deep)!important}
+
+/* Tables/lists get a faint contextual header so rows are easier to scan. */
+html[data-admin-theme="v3"] .adminV3Layout .v3TableHead{background:var(--v3-zone-soft);border-bottom-color:var(--v3-zone-mid);color:var(--v3-zone-deep)}
+html[data-admin-theme="v3"] .adminV3Layout .v3AttentionRow:hover,
+html[data-admin-theme="v3"] .adminV3Layout .adminItem:hover,
+html[data-admin-theme="v3"] .adminV3Layout .supportDashRow:hover{background:var(--v3-zone-faint)}
+html[data-admin-theme="v3"] .adminV3Layout .masterContent button:not(.secondary):not(.adminV3Tool),
+html[data-admin-theme="v3"] .adminV3Layout .masterContent .buttonlink,
+html[data-admin-theme="v3"] .adminV3Layout .masterContent .navcta{background:var(--v3-zone);border-color:var(--v3-zone-deep)}
+html[data-admin-theme="v3"] .adminV3Layout .masterContent button:not(.secondary):not(.adminV3Tool):hover,
+html[data-admin-theme="v3"] .adminV3Layout .masterContent .buttonlink:hover{background:var(--v3-zone-deep)}
+
+@media(max-width:760px){
+ html[data-admin-theme="v3"] .adminV3Layout .adminV3Context{background:var(--v3-zone-soft)}
+ html[data-admin-theme="v3"] .adminV3Layout .panel{border-top-width:3px}
+ html[data-admin-theme="v3"] .adminV3Layout .settingsAreaCard{border-left-width:4px}
+}

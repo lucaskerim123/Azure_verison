@@ -1,0 +1,61 @@
+{
+  "result": {
+    "placement": {},
+    "compatibility_date": "2026-07-22",
+    "compatibility_flags": [],
+    "usage_model": "standard",
+    "tags": [],
+    "tail_consumers": [],
+    "logpush": false,
+    "annotations": {
+      "workers/triggered_by": "version_upload"
+    },
+    "bindings": [
+      {
+        "name": "ADMIN_API_TOKEN",
+        "type": "secret_text"
+      },
+      {
+        "name": "ADMIN_SESSION_SECRET",
+        "type": "secret_text"
+      },
+      {
+        "name": "BILLING_API_TOKEN",
+        "type": "secret_text"
+      },
+      {
+        "database_id": "241ea4a6-5dff-40f2-8ada-05e7d13221af",
+        "id": "241ea4a6-5dff-40f2-8ada-05e7d13221af",
+        "name": "DB",
+        "type": "d1"
+      },
+      {
+        "name": "ENTITLEMENT_AUDIENCE",
+        "text": "orbitfs-runtime",
+        "type": "plain_text"
+      },
+      {
+        "name": "ENTITLEMENT_GRACE_SECONDS",
+        "text": "604800",
+        "type": "plain_text"
+      },
+      {
+        "name": "ENTITLEMENT_ISSUER",
+        "text": "license.incendiarynetworks.cc",
+        "type": "plain_text"
+      },
+      {
+        "name": "ENTITLEMENT_PRIVATE_KEY_B64",
+        "type": "secret_text"
+      },
+      {
+        "name": "ENTITLEMENT_TTL_SECONDS",
+        "text": "10800",
+        "type": "plain_text"
+      }
+    ]
+  },
+  "success": true,
+  "errors": [],
+  "messages": []
+}

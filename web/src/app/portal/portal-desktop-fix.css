@@ -1,0 +1,41 @@
+/* Desktop browser mode must stay desktop even on a touch device. */
+@media (min-width:761px) and (hover:none) and (pointer:coarse){
+  .portalLayout{width:100%;display:grid;grid-template-columns:210px minmax(0,1fr);align-items:start;padding-top:0;overflow-x:hidden}
+  .portalMobileBar,.portalScrim{display:none!important}
+  .portalSidebar{width:210px;max-width:none;min-height:0!important;height:max-content!important;max-height:100dvh;position:sticky;top:0;bottom:auto;left:auto;transform:none!important;transition:none;padding:20px 14px;box-shadow:none;overflow-y:auto;justify-content:flex-start}
+  .portalBrandBlock{display:grid}
+  .portalSidebar nav{display:grid;gap:4px;margin-top:14px;overflow:visible;flex:0 0 auto}
+  .portalSidebar nav>*{font-size:13px;padding:9px 10px}
+  .portalSidebar .sideUser{display:grid;margin:14px 0 0!important;flex:0 0 auto}
+  .portalMain{width:100%;max-width:1500px;margin:0 auto;padding:22px 28px 30px;overflow-x:hidden;align-self:start}
+
+  .storePage{display:grid;gap:24px;width:100%;min-width:0}
+  .storePage>*+*{margin-top:0}
+  .storeHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:8px 0 4px}
+  .storeHero>div{grid-column:auto}
+  .storeHero h1{font-size:clamp(34px,4vw,52px);line-height:1.05;margin:7px 0 12px}
+  .storeLead{font-size:16px;line-height:1.6}
+  .storeCartJump{justify-self:auto;width:auto}
+  .storeBaseFeature{display:grid;grid-template-columns:minmax(0,1fr) 250px;width:100%;padding:26px;gap:24px;border-radius:20px}
+  .storeBaseCopy h2{font-size:30px}
+  .storeBaseCopy>p{font-size:15px}
+  .storeBaseAction{padding:20px;width:auto}
+  .storeBaseAction .buttonlink{width:auto;text-align:center}
+  .storeAddonList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .storeAddonCard{display:flex;flex-direction:column;width:100%;padding:18px;gap:18px}
+  .storeAddonMeta{justify-items:start;text-align:left;border-top:1px solid var(--line);padding-top:12px;width:100%}
+  .storeCheckout{display:grid;grid-template-columns:1fr;width:100%;gap:16px}
+  .storeBasketPanel,.storeCheckoutPanel{width:100%;min-width:0;padding:20px}
+  .storeBasketRow{grid-template-columns:minmax(0,1fr) auto auto;width:100%;gap:14px}
+  .storeBasketRow button{grid-column:auto;justify-self:auto}
+  .storeCheckoutPanel{position:static}
+  .storeCheckoutBlock .couponApply{grid-template-columns:minmax(0,1fr) auto}
+}
+
+@media (min-width:1051px) and (hover:none) and (pointer:coarse){
+  .portalLayout{grid-template-columns:210px minmax(0,1fr)}
+  .storeBaseFeature{grid-template-columns:minmax(0,1fr) 270px}
+  .storeAddonList{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .storeCheckout{grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr)}
+  .storeCheckoutPanel{position:sticky;top:20px}
+}

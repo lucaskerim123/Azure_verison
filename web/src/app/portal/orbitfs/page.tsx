@@ -1,0 +1,119 @@
+"use client";
+
+import Link from "next/link";
+import {useEffect,useMemo,useRef,useState} from "react";
+import {createClient} from "@/lib/supabase";
+import {trackCustomerActivity} from "@/lib/customer-activity";
+
+const hasBase=(b:any)=>b?.license_product_key==="orbitfs_base"||!!b?.components?.orbitfs_base||!!b?.components?.orbitfs_panel;
+const label=(state:any)=>String(state||"waiting").replaceAll("_"," ");
+const sectionGap={display:"grid",gap:12} as const;
+const summaryStyle={cursor:"pointer"} as const;
+const workingStates=new Set(["configuring","deploying","updating"]);
+
+export default function MyOrbitFS(){
+  const sb=useMemo(()=>createClient(),[]),pollCount=useRef(0);
+  const [d,setD]=useState<any>();
+  const [msg,setMsg]=useState("");
+  const [busy,setBusy]=useState("");
+  const [resources,setResources]=useState<any>();
+  const [selectedProject,setSelectedProject]=useState("");
+  const [newProject,setNewProject]=useState({organizationSlug:"",name:"",region:"ap-southeast-2"});
+  const [vercelToken,setVercelToken]=useState("");
+  const [vercelTeamId,setVercelTeamId]=useState("");
+
+  async function authHeaders():Promise<Record<string,string>>{const {data:{session}}=await sb.auth.getSession();return session?.access_token?{Authorization:`Bearer ${session.access_token}`}:{}}
+  async function load(){const r=await fetch("/api/orbitfs/status",{headers:await authHeaders(),cache:"no-store"}),j=await r.json().catch(()=>({}));if(r.ok){setD(j);setMsg("")}else setMsg(j.error||"Could not load My OrbitFS.")}
+  useEffect(()=>{void load()},[]);
+
+  const bases=(d?.bindings||[]).filter(hasBase),binding=bases[0],install=(d?.installations||[]).find((x:any)=>x.license_binding_id===binding?.id),supabase=(d?.connections||[]).find((x:any)=>x.provider==="supabase"&&x.status==="connected"),vercelConnection=(d?.connections||[]).find((x:any)=>x.provider==="vercel"&&x.status==="connected"),vercelApiReady=vercelConnection?.metadata?.api_ready===true,vercelTeams=Array.isArray(vercelConnection?.metadata?.teams)?vercelConnection.metadata.teams:[],settings=d?.settings||{},history=(d?.releases||[]).filter((x:any)=>x.installation_id===install?.id),events=(d?.events||[]).filter((x:any)=>x.installation_id===install?.id);
+  const supabaseReady=!!install?.supabase_project_ref,databaseReady=!!install?.database_initialized_at,panelProjectReady=!!install?.vercel_project_id,panelReady=!!(install?.release_version&&install?.vercel_project_id&&install?.state==="ready"),working=!!install&&workingStates.has(String(install.state));
+  const latestBase=d?.latestBase?.version,latestUpdate=d?.latestUpdate?.version,updateAvailable=!!(install?.release_version&&latestUpdate&&install.release_version!==latestUpdate),components=binding?Object.entries(binding.components||{}).filter(([,v])=>v).map(([k])=>k):[];
+
+  useEffect(()=>{if(vercelConnection?.team_id!==undefined&&vercelConnection?.team_id!==null&&!vercelTeamId)setVercelTeamId(String(vercelConnection.team_id))},[vercelConnection?.team_id]);
+  useEffect(()=>{
+    if(!install||!working){pollCount.current=0;return}
+    if(pollCount.current>=18)return;
+    const timer=setTimeout(()=>{pollCount.current+=1;void sync(true)},20000);
+    return()=>clearTimeout(timer);
+  },[install?.id,install?.state,install?.vercel_deployment_id]);
+
+  async function start(){if(!binding)return;setBusy("start");const {data,error}=await sb.rpc("ensure_orbitfs_installation",{p_binding_id:binding.id});setMsg(error?.message||"OrbitFS setup started.");if(!error)await trackCustomerActivity("orbitfs.installation.create",{entityType:"license",entityId:binding.id,detail:{installation_id:data?.installation_id}});setBusy("");if(!error)await load()}
+  async function connectSupabase(){if(!install)return;setBusy("supabase");const r=await fetch("/api/orbitfs/oauth/supabase/start",{method:"POST",headers:{...(await authHeaders()),"content-type":"application/json"},body:JSON.stringify({installationId:install.id})}),j=await r.json().catch(()=>({}));setBusy("");if(!r.ok)return setMsg(j.error||"Could not connect Supabase.");location.href=j.url}
+  async function loadSupabase(){setBusy("resources");const r=await fetch("/api/orbitfs/providers/supabase",{headers:await authHeaders(),cache:"no-store"}),j=await r.json().catch(()=>({}));setBusy("");if(!r.ok)return setMsg(j.error||"Could not load your Supabase projects.");setResources(j);const first=j.organizations?.[0];if(!newProject.organizationSlug&&first)setNewProject(current=>({...current,organizationSlug:first.slug||first.id||""}))}
+  async function supabaseAction(action:"select"|"create"){if(!install)return;setBusy(action);const body=action==="select"?{action,installationId:install.id,projectRef:selectedProject}:{action,installationId:install.id,...newProject},r=await fetch("/api/orbitfs/providers/supabase",{method:"POST",headers:{...(await authHeaders()),"content-type":"application/json"},body:JSON.stringify(body)}),j=await r.json().catch(()=>({}));setBusy("");setMsg(r.ok?`Your Supabase project was ${action==="select"?"selected":"created"}.`:j.error||"Supabase project action failed.");if(r.ok){setResources(undefined);await load()}}
+  async function initialize(){if(!install)return;setBusy("init");const r=await fetch(`/api/orbitfs/installations/${install.id}/initialize`,{method:"POST",headers:await authHeaders()}),j=await r.json().catch(()=>({}));setBusy("");setMsg(r.ok?"OrbitFS database initialized in your Supabase project.":j.error||"Database initialization failed.");if(r.ok)await load()}
+  async function connectVercelToken(){const token=vercelToken.trim();if(!token)return setMsg("Enter your Vercel Full Account Access token.");setBusy("vercel");const r=await fetch("/api/orbitfs/providers/vercel",{method:"POST",headers:{...(await authHeaders()),"content-type":"application/json"},body:JSON.stringify({action:"connect",token})}),j=await r.json().catch(()=>({}));setBusy("");if(!r.ok)return setMsg(j.error||"Could not validate Vercel access.");setVercelToken("");setVercelTeamId(String(j.account?.teamId||""));setMsg("Vercel API access connected.");await load()}
+  async function selectVercelTeam(){setBusy("vercel-team");const r=await fetch("/api/orbitfs/providers/vercel",{method:"POST",headers:{...(await authHeaders()),"content-type":"application/json"},body:JSON.stringify({action:"select_team",teamId:vercelTeamId||null})}),j=await r.json().catch(()=>({}));setBusy("");setMsg(r.ok?"Vercel deployment account updated.":j.error||"Could not select that Vercel team.");if(r.ok)await load()}
+  async function deploy(action:"deploy"|"update"|"rollback"|"redeploy",version?:string){if(!install)return;if(action==="rollback"&&!version){version=prompt("Panel release version to roll back to:",install.previous_release_version||history.find((x:any)=>x.release_version!==install.release_version)?.release_version||"")||undefined;if(!version)return}if(!confirm(`${action} OrbitFS${version?` to ${version}`:""}?`))return;setBusy(action);const r=await fetch(`/api/orbitfs/installations/${install.id}/deploy`,{method:"POST",headers:{...(await authHeaders()),"content-type":"application/json"},body:JSON.stringify({action,version})}),j=await r.json().catch(()=>({}));setBusy("");setMsg(r.ok?`OrbitFS ${action} started in your Vercel project.`:j.error||`${action} failed.`);if(r.ok){pollCount.current=0;await load()}}
+  async function sync(auto=false){if(!install)return;const r=await fetch(`/api/orbitfs/installations/${install.id}/status`,{headers:await authHeaders(),cache:"no-store"}),j=await r.json().catch(()=>({}));if(!r.ok){if(!auto)setMsg(j.error||"Could not refresh Panel status.");return}const updated=j.installation;if(updated)setD((current:any)=>current?({...current,installations:(current.installations||[]).map((x:any)=>x.id===updated.id?updated:x)}):current);if(updated&&!workingStates.has(String(updated.state)))await load()}
+  async function lifecycle(action:"undeploy"|"deregister"){if(!install)return;const question=action==="undeploy"?"Undeploy OrbitFS? This deletes the OrbitFS Vercel project but keeps your Supabase project, database and installation registration.":"Deregister this OrbitFS installation? Any Vercel Panel project will be removed first. Your Supabase project and its data will NOT be deleted.";if(!confirm(question))return;setBusy(action);const r=await fetch(`/api/orbitfs/installations/${install.id}/lifecycle`,{method:"POST",headers:{...(await authHeaders()),"content-type":"application/json"},body:JSON.stringify({action,removePanel:true})}),j=await r.json().catch(()=>({}));setBusy("");if(!r.ok)return setMsg(j.error||`${action} failed.`);await trackCustomerActivity(action==="undeploy"?"orbitfs.panel.undeploy":"orbitfs.installation.deregister",{entityType:"license",entityId:binding?.id,detail:{installation_id:install.installation_id}});setMsg(action==="undeploy"?"OrbitFS Panel undeployed. Your Supabase database was kept.":"OrbitFS installation deregistered. Your Supabase project/data was kept.");await load()}
+
+  if(!d)return <main className="portalOverviewV2"><section className="panel">Loading My OrbitFS…</section></main>;
+
+  const flow=[
+    {n:"1",title:"Supabase",detail:supabaseReady?(install.supabase_project_name||"Project selected"):supabase?"Choose a project":"Connect account",ready:supabaseReady},
+    {n:"2",title:"Database",detail:databaseReady?`Schema ${install.schema_version}`:"Initialize Base",ready:databaseReady},
+    {n:"3",title:"Vercel",detail:vercelApiReady?(panelProjectReady?(install.vercel_project_name||"Panel project"):"API ready"):"Connect API",ready:vercelApiReady},
+    {n:"4",title:"Panel",detail:panelReady?`v${install.release_version}`:working?label(install.state):"Not deployed",ready:panelReady}
+  ];
+
+  return <main className="portalOverviewV2">
+    <header className="portalOverviewHero"><div><p className="eyebrow">MY ORBITFS</p><h1>Your OrbitFS deployment</h1><p className="muted">One guided flow for your own Supabase database and your own Vercel Panel.</p></div><Link className="buttonlink secondary" href="/portal/licenses">View licences</Link></header>
+
+    {binding?<>
+      <div className="portalOverviewStats">
+        <div className="portalStatCard"><span className="portalStatIcon">V</span><div><small>INSTALLED</small><strong>{install?.release_version||"Not deployed"}</strong><span>{install?.installation_id||"Setup not started"}</span></div></div>
+        <div className="portalStatCard"><span className="portalStatIcon">D</span><div><small>DATABASE</small><strong>{databaseReady?`Schema ${install.schema_version}`:"Waiting"}</strong><span>{install?.supabase_project_name||"Customer Supabase"}</span></div></div>
+        <div className="portalStatCard"><span className="portalStatIcon">P</span><div><small>PANEL</small><strong>{panelReady?`v${install.release_version}`:working?label(install.state):"Not deployed"}</strong><span>{install?.vercel_project_name||"Customer Vercel"}</span></div></div>
+        <div className="portalStatCard"><span className="portalStatIcon">H</span><div><small>HEALTH</small><strong>{install?.health_status||"Unknown"}</strong><span>{updateAvailable?`Update ${latestUpdate} available`:panelReady?"Current":"Awaiting deployment"}</span></div></div>
+      </div>
+
+      <section className="panel">
+        <div className="panelTitle"><div><p className="eyebrow">DEPLOYMENT FLOW</p><h2>{binding.label||"OrbitFS Base"}</h2><p className="muted">{components.length?components.join(" · "):"OrbitFS Base"}</p></div><span className={`state ${binding.desired_state}`}>{binding.desired_state}</span></div>
+        <div className="portalOverviewStats" style={{marginTop:10}}>{flow.map(step=><div className="portalStatCard" key={step.n} style={{opacity:step.ready?1:.78}}><span className="portalStatIcon">{step.n}</span><div><small>{step.ready?"COMPLETE":"STEP"}</small><strong>{step.title}</strong><span>{step.detail}</span></div></div>)}</div>
+      </section>
+
+      {!install?<section className="panel"><div className="panelTitle"><div><p className="eyebrow">START</p><h2>Deploy OrbitFS</h2><p className="muted">Create one installation identity, then follow the four steps. Everything is deployed into your accounts.</p></div><span className="state waiting">NOT STARTED</span></div><button disabled={!settings.enabled||!settings.customer_deploy_enabled||busy==="start"} onClick={()=>void start()}>{busy==="start"?"Starting…":"Start OrbitFS setup"}</button></section>:<div className="portalOverviewGrid">
+        <div style={sectionGap}>
+          <details className="panel" open={!supabaseReady}>
+            <summary className="panelTitle" style={summaryStyle}><div><p className="eyebrow">STEP 1</p><h2>Your Supabase</h2><p className="muted">Choose or create the project that owns your OrbitFS database.</p></div><span className={`state ${supabaseReady?"ready":supabase?"current":"waiting"}`}>{supabaseReady?"READY":supabase?"CONNECTED":"CONNECT"}</span></summary>
+            {!supabase?<button disabled={!settings.enabled||!settings.supabase_oauth_enabled||busy==="supabase"} onClick={()=>void connectSupabase()}>{busy==="supabase"?"Connecting…":"Connect my Supabase"}</button>:supabaseReady?<div className="listrow"><div><b>{install.supabase_project_name||install.supabase_project_ref}</b><span>{install.supabase_region||"Supabase"} · {install.supabase_project_ref}</span></div><span className="state ready">YOUR PROJECT</span></div>:<>
+              <p className="muted">OrbitFS can only manage resources your Supabase account grants to the OrbitFS OAuth App.</p><button className="secondary" onClick={()=>void loadSupabase()} disabled={busy==="resources"}>{busy==="resources"?"Loading…":resources?"Refresh projects":"Choose project"}</button>
+              {resources&&<div className="form" style={{marginTop:12}}>{settings.allow_create_supabase_project&&<><h3>Create a dedicated OrbitFS project</h3><label>Organization<select value={newProject.organizationSlug} onChange={e=>setNewProject({...newProject,organizationSlug:e.target.value})}><option value="">Choose organization</option>{(resources.organizations||[]).map((o:any)=><option key={o.slug||o.id} value={o.slug||o.id}>{o.name}</option>)}</select></label><label>Project name<input value={newProject.name} onChange={e=>setNewProject({...newProject,name:e.target.value})} placeholder="OrbitFS"/></label><label>Region<input value={newProject.region} onChange={e=>setNewProject({...newProject,region:e.target.value})}/></label><button disabled={!newProject.organizationSlug||busy==="create"} onClick={()=>void supabaseAction("create")}>{busy==="create"?"Creating…":"Create in my Supabase"}</button></>}{settings.allow_existing_supabase_project&&<><h3>Use an existing project</h3><label>Project<select value={selectedProject} onChange={e=>setSelectedProject(e.target.value)}><option value="">Choose project</option>{(resources.projects||[]).map((p:any)=><option key={p.id||p.ref} value={p.id||p.ref}>{p.name} · {p.region||"region"}</option>)}</select></label><button disabled={!selectedProject||busy==="select"} onClick={()=>void supabaseAction("select")}>Use selected project</button></>}</div>}
+            </>}
+          </details>
+
+          <details className="panel" open={supabaseReady&&!databaseReady}>
+            <summary className="panelTitle" style={summaryStyle}><div><p className="eyebrow">STEP 2</p><h2>OrbitFS database</h2><p className="muted">Install the current blank Base schema into the selected project.</p></div><span className={`state ${databaseReady?"ready":supabaseReady?"current":"waiting"}`}>{databaseReady?`SCHEMA ${install.schema_version}`:"WAITING"}</span></summary>
+            {databaseReady?<div className="listrow"><div><b>Database initialized</b><span>The per-installation server secret is generated automatically and kept private.</span></div><span className="state ready">READY</span></div>:<button disabled={!supabaseReady||!settings.enabled||busy==="init"} onClick={()=>void initialize()}>{busy==="init"?"Initializing…":"Initialize OrbitFS database"}</button>}
+          </details>
+
+          <details className="panel" open={databaseReady&&!vercelApiReady}>
+            <summary className="panelTitle" style={summaryStyle}><div><p className="eyebrow">STEP 3</p><h2>Your Vercel</h2><p className="muted">Give OrbitFS API access so it can create and maintain your Panel project.</p></div><span className={`state ${vercelApiReady?"ready":databaseReady?"current":"waiting"}`}>{vercelApiReady?"API READY":"CONNECT"}</span></summary>
+            {vercelApiReady?<><div className="listrow"><div><b>{vercelConnection.provider_account_name||"Your Vercel account"}</b><span>Full API access validated. The token is stored encrypted and is never returned to this page.</span></div><span className="state ready">READY</span></div>{vercelTeams.length>0&&<div className="form" style={{marginTop:10}}><label>Deployment account/team<select value={vercelTeamId} onChange={e=>setVercelTeamId(e.target.value)}><option value="">Personal/default account</option>{vercelTeams.map((t:any)=><option key={t.id} value={t.id}>{t.name||t.slug||t.id}</option>)}</select></label><button className="secondary" disabled={busy==="vercel-team"} onClick={()=>void selectVercelTeam()}>{busy==="vercel-team"?"Saving…":"Use selected account"}</button></div>}</>:<div className="form"><p className="muted">Create a <b>Full Account Access</b> token in Vercel Account Settings → Tokens and paste it once. This is used only to manage your OrbitFS Panel project.</p><a className="buttonlink secondary" href="https://vercel.com/account/tokens" target="_blank" rel="noreferrer">Open Vercel Tokens</a><label>Vercel token<input type="password" autoComplete="off" value={vercelToken} onChange={e=>setVercelToken(e.target.value)} placeholder="Paste token once"/></label><button disabled={!databaseReady||!settings.enabled||!settings.vercel_oauth_enabled||busy==="vercel"||!vercelToken.trim()} onClick={()=>void connectVercelToken()}>{busy==="vercel"?"Validating…":"Save Vercel API access"}</button></div>}
+          </details>
+
+          <details className="panel" open={databaseReady&&vercelApiReady&&!panelReady}>
+            <summary className="panelTitle" style={summaryStyle}><div><p className="eyebrow">STEP 4</p><h2>OrbitFS Panel</h2><p className="muted">Deploy the private Base release into your Vercel account, then receive approved updates.</p></div><span className={`state ${panelReady?"ready":working?"current":"waiting"}`}>{panelReady?"READY":working?label(install.state).toUpperCase():"DEPLOY"}</span></summary>
+            {!install.release_version?<><p className="muted">Base release: <b>{latestBase||"No Base release available"}</b>. OrbitFS will create a fresh Vercel project automatically.</p><button disabled={!databaseReady||!vercelApiReady||!latestBase||!settings.enabled||busy==="deploy"} onClick={()=>void deploy("deploy")}>{busy==="deploy"?"Deploying…":"Deploy OrbitFS"}</button></>:<><div className="listrow"><div><b>Panel {install.release_version}</b><span>{install.vercel_project_name||"Vercel project"}{install.production_url?` · ${install.production_url}`:""}</span></div><span className={`state ${panelReady?"ready":"waiting"}`}>{panelReady?"HEALTHY":"CHECKING"}</span></div><div className="controllerActions">{updateAvailable&&settings.customer_updates_enabled&&<button disabled={busy!==""} onClick={()=>void deploy("update")}>Update to {latestUpdate}</button>}<button className="secondary" disabled={busy!==""} onClick={()=>void deploy("redeploy")}>Redeploy {install.release_version}</button>{settings.customer_rollbacks_enabled&&history.some((x:any)=>x.release_version!==install.release_version)&&<button className="secondary" disabled={busy!==""} onClick={()=>void deploy("rollback")}>Rollback code</button>}<button className="secondary" disabled={busy!==""} onClick={()=>void sync(false)}>Refresh status</button></div>{d.latestUpdate?.customerNotes&&updateAvailable&&<p className="inlineStatus"><b>Update notes:</b> {d.latestUpdate.customerNotes}</p>}</>}
+            {working&&<p className="muted">Deployment status is checked at most once every 20 seconds while this operation is active. Polling stops automatically when it finishes.</p>}
+          </details>
+        </div>
+
+        <aside style={sectionGap}>
+          <section className="panel portalQuickActions"><div><p className="eyebrow">YOUR INFRASTRUCTURE</p><h2>Customer owned</h2></div><div className="listrow"><div><b>Supabase</b><span>{install.supabase_project_name||"Not selected"}</span></div><span>{supabaseReady?"Ready":"Waiting"}</span></div><div className="listrow"><div><b>Vercel</b><span>{install.vercel_project_name||vercelConnection?.provider_account_name||"Not connected"}</span></div><span>{vercelApiReady?"Ready":"Waiting"}</span></div>{install.production_url&&<a href={install.production_url} target="_blank" rel="noreferrer"><b>Open OrbitFS</b><span>Launch your deployed Panel</span></a>}<Link href="/portal/licenses"><b>Licence details</b><span>View your OrbitFS licence</span></Link></section>
+
+          <section className="panel"><div className="panelTitle"><div><p className="eyebrow">MANAGE</p><h2>Installation lifecycle</h2></div></div><p className="muted"><b>Undeploy</b> removes only the Vercel Panel and keeps this registration + Supabase database. <b>Deregister</b> removes the OrbitFS installation record after removing the Panel; your Supabase project/data is still left alone.</p><div className="controllerActions">{install.vercel_project_id&&<button className="secondary" disabled={busy!==""} onClick={()=>void lifecycle("undeploy")}>Undeploy Panel</button>}<button className="secondary" disabled={busy!==""} onClick={()=>void lifecycle("deregister")}>Deregister</button></div></section>
+        </aside>
+      </div>}
+
+      {install&&<div className="portalOverviewBottom">
+        <details className="panel"><summary className="panelTitle" style={summaryStyle}><div><p className="eyebrow">RELEASES</p><h2>Release history</h2></div><span>{history.length}</span></summary>{history.length?history.map((r:any)=><div className="listrow" key={r.id}><div><b>{r.release_version} · {r.action}</b><span>{r.status} · {r.deployment_url||"deployment record"}</span></div><span>{new Date(r.created_at).toLocaleString()}</span></div>):<p className="muted">No Panel deployments yet.</p>}</details>
+        <details className="panel"><summary className="panelTitle" style={summaryStyle}><div><p className="eyebrow">ACTIVITY</p><h2>Setup activity</h2></div><span>{events.length}</span></summary>{events.length?events.slice(0,20).map((e:any)=><div className="listrow" key={e.id}><div><b>{label(e.event_type)}</b><span>{e.message||e.status}</span></div><span>{new Date(e.created_at).toLocaleString()}</span></div>):<p className="muted">No setup activity yet.</p>}</details>
+      </div>}
+    </>:<section className="panel"><div className="panelTitle"><div><p className="eyebrow">MY ORBITFS</p><h2>No OrbitFS Base licence</h2><p className="muted">An active OrbitFS Base licence needs to be attached to this account before deployment is available.</p></div></div><Link className="buttonlink" href="/portal/licenses">View licences</Link></section>}
+
+    {msg&&<p className="inlineStatus">{msg}</p>}
+  </main>;
+}

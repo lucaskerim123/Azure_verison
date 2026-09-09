@@ -1,0 +1,14 @@
+name = "orbitfs-license-web"
+main = "src/index.js"
+account_id = "465e68070a693416eff314f6fbf33551"
+compatibility_date = "2026-07-22"
+
+[vars]
+ENTITLEMENT_AUDIENCE = "orbitfs-runtime"
+ENTITLEMENT_GRACE_SECONDS = "604800"
+ENTITLEMENT_ISSUER = "license.incendiarynetworks.cc"
+ENTITLEMENT_TTL_SECONDS = "10800"
+
+[[d1_databases]]
+binding = "DB"
+database_id = "241ea4a6-5dff-40f2-8ada-05e7d13221af"

@@ -1,0 +1,126 @@
+/* OrbitFS Admin V3 premium dark palette — restrained colour, high contrast, billing-first hierarchy. */
+html[data-admin-theme="v3"] .adminV3Layout{
+  --v3-bg:#0b0d12;
+  --v3-surface:#121620;
+  --v3-surface-2:#181d29;
+  --v3-surface-3:#202635;
+  --v3-border:#2b3242;
+  --v3-border-strong:#3a4356;
+  --v3-text:#f5f7fb;
+  --v3-text-2:#cbd2df;
+  --v3-muted:#9aa5b5;
+  --v3-faint:#758196;
+  --v3-indigo:#7c8cff;
+  --v3-cyan:#55c2e8;
+  --v3-amber:#f2b84b;
+  --v3-rose:#ef7187;
+  --v3-violet:#b08cff;
+  --v3-coral:#f28a72;
+  --v3-success:#69c7a5;
+  --v3-danger:#ef7187;
+  --v3-warning:#f2b84b;
+  --v3-info:#55c2e8;
+  --v3-purple:#b08cff;
+  --v3-teal:#55c2e8;
+  --page-accent:var(--v3-indigo);
+  background:var(--v3-bg)!important;
+}
+html[data-admin-theme="v3"] body,
+html[data-admin-theme="v3"] .adminV3Layout .masterContent{background:var(--v3-bg)!important}
+
+/* No green section identity. Colours identify domains, not decorate everything. */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"]{--page-accent:#7c8cff}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="customers"]{--page-accent:#55c2e8}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"]{--page-accent:#f2b84b}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="licensing"]{--page-accent:#b08cff}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="support"]{--page-accent:#ef7187}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="content"]{--page-accent:#d887c7}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="system"]{--page-accent:#7c8cff}
+
+/* Premium neutral chrome. */
+html[data-admin-theme="v3"] .adminV3Topbar{background:#080a0f!important;border-bottom-color:#242a37!important}
+html[data-admin-theme="v3"] .adminV3BrandMark{background:#1b2130!important;border:1px solid #3b4660!important;color:#dfe5ff!important}
+html[data-admin-theme="v3"] .adminV3Primary a.active{background:color-mix(in srgb,var(--page-accent) 9%,#090b10)!important}
+html[data-admin-theme="v3"] .adminV3Context{background:#0e1118!important;border-bottom-color:#262d3b!important}
+
+/* Cards should separate by depth and edge, not glowing colour bars. */
+html[data-admin-theme="v3"] .adminV3Layout .panel,
+html[data-admin-theme="v3"] .adminV3Layout .v3Section,
+html[data-admin-theme="v3"] .adminV3Layout .settingsSectionV2,
+html[data-admin-theme="v3"] .adminV3Layout .settingsGroupV3,
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaCard{
+  background:linear-gradient(180deg,#151a24 0%,#11151d 100%)!important;
+  border:1px solid #2b3342!important;
+  border-top:1px solid #3a4457!important;
+  box-shadow:0 10px 30px #0000002e!important;
+}
+html[data-admin-theme="v3"] .adminV3Layout .panelTitle,
+html[data-admin-theme="v3"] .adminV3Layout .v3SectionHead,
+html[data-admin-theme="v3"] .adminV3Layout .settingsSectionSummary,
+html[data-admin-theme="v3"] .adminV3Layout .settingsGroupHeadV3{background:#181e29!important;border-color:#2d3545!important}
+html[data-admin-theme="v3"] .adminV3Layout .muted,
+html[data-admin-theme="v3"] .adminV3Layout p.muted,
+html[data-admin-theme="v3"] .adminV3Layout small,
+html[data-admin-theme="v3"] .adminV3Layout .panelTitle p,
+html[data-admin-theme="v3"] .adminV3Layout section p:not(.inlineStatus){color:#aab4c4!important;opacity:1!important}
+
+/* Buttons: indigo is the shared action colour; domain colour remains navigation/state only. */
+html[data-admin-theme="v3"] .adminV3Layout button:not(.secondary):not(.danger):not(.small):not(.plainButton),
+html[data-admin-theme="v3"] .adminV3Layout .buttonlink:not(.secondary),
+html[data-admin-theme="v3"] .adminV3Layout .navcta{background:#5968d9!important;border-color:#7180ec!important;color:#fff!important}
+html[data-admin-theme="v3"] .adminV3Layout button:hover,
+html[data-admin-theme="v3"] .adminV3Layout .buttonlink:hover{filter:brightness(1.08)}
+html[data-admin-theme="v3"] .adminV3Layout button.secondary,
+html[data-admin-theme="v3"] .adminV3Layout .secondary{background:#202635!important;border-color:#394357!important;color:#e8ecf5!important}
+
+/* Billing: operational cards inspired by modern billing dashboards — amount first, context second. */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .stats{gap:7px!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .stats article,
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .v3Metric{
+  position:relative;
+  overflow:hidden;
+  background:#141923!important;
+  border:1px solid #303849!important;
+  border-top:1px solid #3c4659!important;
+  border-radius:9px!important;
+  box-shadow:0 8px 22px #00000026!important;
+}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .stats article::before,
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .v3Metric::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#7c8cff}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .stats article:nth-child(2)::before{background:#f2b84b}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .stats article:nth-child(3)::before{background:#ef7187}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .stats article:nth-child(4)::before{background:#55c2e8}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .stats article strong,
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .v3Metric strong{font-variant-numeric:tabular-nums;color:#fff!important;letter-spacing:-.02em}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .stats article small,
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .v3Metric small{color:#929daf!important;text-transform:uppercase;letter-spacing:.055em}
+
+/* Billing rows feel like ledger records rather than generic boxes. */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .adminItem,
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .listrow,
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .customerRecord{
+  background:#121720!important;
+  border-color:#2a3241!important;
+  border-radius:7px!important;
+}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .adminItem:hover,
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .listrow:hover{background:#191f2b!important;border-color:#3b465b!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .statusBadge{background:#222938!important;border-color:#3a4457!important;color:#d6dce7!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .statusBadge.paid,
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .statusBadge.active{background:#173128!important;border-color:#315c4b!important;color:#8ad7ba!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .statusBadge.overdue,
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .statusBadge.failed{background:#351d25!important;border-color:#6b3542!important;color:#ff9aaa!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .statusBadge.pending,
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"] .statusBadge.partial{background:#342a17!important;border-color:#66522a!important;color:#f5cd78!important}
+
+/* Dashboard: colour means queue/status, never green as the default theme. */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric{background:#151a24!important;border-color:#2e3646!important;box-shadow:inset 0 2px #7c8cff!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.urgent{background:#21171e!important;box-shadow:inset 0 2px #ef7187!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.money{background:#211c14!important;box-shadow:inset 0 2px #f2b84b!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.support{background:#121e26!important;box-shadow:inset 0 2px #55c2e8!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.good{background:#181827!important;box-shadow:inset 0 2px #b08cff!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric:last-child{background:#1d1825!important;box-shadow:inset 0 2px #d887c7!important}
+
+/* Keep success green only where green actually means success. */
+html[data-admin-theme="v3"] .adminV3Layout .statusBadge.new,
+html[data-admin-theme="v3"] .adminV3Layout .customerStatus.active{background:#173128!important;border-color:#315c4b!important;color:#8ad7ba!important}

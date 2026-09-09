@@ -1,0 +1,26 @@
+/* Alert System isolation layer. Loaded after admin-v3-global.css so System's green area accent cannot repaint the alert composer controls. */
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]){color:#f3f6f8!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) button{background:#202731!important;border-color:#3b4653!important;color:#e9eef3!important;box-shadow:none!important;filter:none!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) button:hover{background:#27313c!important;border-color:#536173!important;color:#fff!important;filter:none!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) p,
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) small,
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="typeGrid"] button span{color:#aeb8c4!important;opacity:1!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="typeGrid"] button{background:#181e26!important;border:1px solid #3a4552!important;color:#f5f7f9!important;min-height:74px!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="typeGrid"] button b{color:#fff!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="typeGrid"] button:nth-child(1){border-left:4px solid #54a7d8!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="typeGrid"] button:nth-child(2){border-left:4px solid #9a7de0!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="typeGrid"] button:nth-child(3){border-left:4px solid #e56573!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="typeGrid"] button:nth-child(4){border-left:4px solid #45c48b!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="typeGrid"] button:nth-child(5){border-left:4px solid #e8a83e!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="typeGrid"] button[class*="activeType"]{background:#2a323d!important;border-color:#697789!important;box-shadow:inset 0 0 0 1px #ffffff12!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="typeGrid"] button[class*="activeType"] span{color:#d9e0e6!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="previewButton"]{background:#1c2b35!important;border-color:#42677a!important;color:#bce4f5!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="sendButton"]{background:#19372e!important;border-color:#3f806b!important;color:#9ce6cc!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="conditionsHead"] button{background:#232b35!important;border-color:#3c4856!important;color:#dce3e9!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="recipientList"] button{background:#181e26!important;border-color:#37424f!important;color:#eef3f6!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) [class*="recipientList"] button[class*="selectedRecipient"]{background:#18362d!important;border-color:#43876f!important;color:#b8f0dc!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) input,
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) select,
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) textarea{background:#10151c!important;border-color:#3a4552!important;color:#f2f5f7!important}
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) input::placeholder,
+html[data-admin-theme="v3"] .adminV3Layout main:has(a[href="/admin/settings/alerts"]) textarea::placeholder{color:#778492!important;opacity:1!important}

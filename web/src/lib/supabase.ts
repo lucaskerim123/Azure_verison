@@ -1,0 +1,16 @@
+import { createBrowserClient } from "@supabase/ssr";
+
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://zekejuprrsurjmwgzexw.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || "sb_publishable_eRN8I1CeZ6zHu-mxK0Zc7g_yO47io5c";
+
+export function createClient() {
+  const client=createBrowserClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+  (client.auth as any).resetPasswordForEmail=async(email:string)=>{
+    try{
+      const r=await fetch("/api/auth/password-reset/request",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email})});
+      const j=await r.json().catch(()=>({}));
+      return {data:{},error:r.ok?null:Object.assign(new Error(j.error||"Password reset failed."),{name:"AuthError",status:r.status})};
+    }catch(e:any){return {data:{},error:e}}
+  };
+  return client;
+}

@@ -1,0 +1,63 @@
+/* OrbitFS Admin V3 compact density system. Applies across all V3 admin pages. */
+html[data-admin-theme="v3"] .adminV3Layout{--v3-page-pad:16px;--v3-gap:10px;--v3-control-h:38px;--v3-radius:8px}
+html[data-admin-theme="v3"] .adminV3Topbar{min-height:46px!important;padding:0 10px!important}
+html[data-admin-theme="v3"] .adminV3Brand{min-height:46px!important;gap:7px!important;font-size:12px!important}
+html[data-admin-theme="v3"] .adminV3BrandMark{width:23px!important;height:23px!important;border-radius:6px!important;font-size:10px!important}
+html[data-admin-theme="v3"] .adminV3Brand small{font-size:8px!important}
+html[data-admin-theme="v3"] .adminV3Primary{gap:1px!important;min-height:46px!important}
+html[data-admin-theme="v3"] .adminV3Primary a{min-height:46px!important;padding:0 9px!important;font-size:10px!important}
+html[data-admin-theme="v3"] .adminV3Tools{gap:5px!important}
+html[data-admin-theme="v3"] .adminV3Tool,html[data-admin-theme="v3"] .adminV3Create summary{min-height:32px!important;padding:0 9px!important;border-radius:7px!important;font-size:9px!important}
+html[data-admin-theme="v3"] .adminV3Context{min-height:34px!important;padding:0 12px!important;gap:2px!important}
+html[data-admin-theme="v3"] .adminV3ContextLabel{font-size:8px!important;margin-right:5px!important}
+html[data-admin-theme="v3"] .adminV3Context a{min-height:34px!important;padding:0 9px!important;font-size:9px!important}
+html[data-admin-theme="v3"] .masterContent{min-width:0!important}
+html[data-admin-theme="v3"] .adminShell{max-width:1500px!important;margin:0 auto!important;padding:var(--v3-page-pad)!important;display:grid;gap:var(--v3-gap)!important}
+html[data-admin-theme="v3"] .adminTop,html[data-admin-theme="v3"] .v3PageHeader,html[data-admin-theme="v3"] .settingsEditorHeader{margin:0!important;padding:0 0 10px!important;gap:12px!important;align-items:flex-end!important}
+html[data-admin-theme="v3"] .adminTop h1,html[data-admin-theme="v3"] .v3PageHeader h1,html[data-admin-theme="v3"] .settingsEditorHeader h1{font-size:22px!important;line-height:1.1!important;margin:2px 0 4px!important}
+html[data-admin-theme="v3"] .adminTop p,html[data-admin-theme="v3"] .v3PageHeader p,html[data-admin-theme="v3"] .settingsEditorHeader p{font-size:10px!important;line-height:1.4!important;margin:0!important}
+html[data-admin-theme="v3"] .eyebrow{font-size:8px!important;letter-spacing:.12em!important}
+html[data-admin-theme="v3"] .panel,html[data-admin-theme="v3"] .v3Section,html[data-admin-theme="v3"] .settingsSectionV2,html[data-admin-theme="v3"] .settingsGroupV3,html[data-admin-theme="v3"] .settingsAreaCard{border-radius:var(--v3-radius)!important;margin:0!important;overflow:hidden}
+html[data-admin-theme="v3"] .panel{padding:12px!important}
+html[data-admin-theme="v3"] .panelTitle,html[data-admin-theme="v3"] .v3SectionHead,html[data-admin-theme="v3"] .settingsSectionSummary,html[data-admin-theme="v3"] .settingsGroupHeadV3{min-height:38px!important;padding:8px 10px!important;margin:-12px -12px 10px!important;gap:8px!important}
+html[data-admin-theme="v3"] .panelTitle h2,html[data-admin-theme="v3"] .v3SectionHead h2,html[data-admin-theme="v3"] .settingsGroupHeadV3 h2{font-size:14px!important;margin:0!important}
+html[data-admin-theme="v3"] .panelTitle p,html[data-admin-theme="v3"] .panelTitle span,html[data-admin-theme="v3"] .v3SectionHead p{font-size:9px!important}
+html[data-admin-theme="v3"] .adminGrid{gap:10px!important}
+html[data-admin-theme="v3"] .stats{gap:7px!important;margin:0!important}
+html[data-admin-theme="v3"] .stats article{min-height:58px!important;padding:9px 11px!important;border-radius:8px!important}
+html[data-admin-theme="v3"] .stats article small{font-size:8px!important}
+html[data-admin-theme="v3"] .stats article strong{font-size:18px!important;line-height:1.05!important}
+html[data-admin-theme="v3"] .adminItem,html[data-admin-theme="v3"] .listrow,html[data-admin-theme="v3"] .supportDashRow,html[data-admin-theme="v3"] .customerEmailRow,html[data-admin-theme="v3"] .customerIpRow,html[data-admin-theme="v3"] .customerActivityRow{min-height:42px!important;padding:7px 8px!important;gap:8px!important}
+html[data-admin-theme="v3"] .adminItem b,html[data-admin-theme="v3"] .listrow b{font-size:10.5px!important}
+html[data-admin-theme="v3"] .adminItem span,html[data-admin-theme="v3"] .adminItem small,html[data-admin-theme="v3"] .listrow span,html[data-admin-theme="v3"] .listrow small{font-size:8.5px!important;line-height:1.35!important}
+html[data-admin-theme="v3"] .filterBar{padding:6px!important;gap:6px!important;margin-bottom:7px!important;border-radius:7px!important}
+html[data-admin-theme="v3"] input,html[data-admin-theme="v3"] select,html[data-admin-theme="v3"] textarea{min-height:var(--v3-control-h)!important;border-radius:7px!important;padding:8px 9px!important;font-size:10px!important}
+html[data-admin-theme="v3"] textarea{min-height:92px!important;line-height:1.45!important}
+html[data-admin-theme="v3"] label{font-size:9.5px!important;gap:5px!important}
+html[data-admin-theme="v3"] label small,html[data-admin-theme="v3"] .form small{font-size:8.5px!important}
+html[data-admin-theme="v3"] button,html[data-admin-theme="v3"] .buttonlink,html[data-admin-theme="v3"] .navcta{min-height:34px!important;padding:0 10px!important;border-radius:7px!important;font-size:9px!important}
+html[data-admin-theme="v3"] .inlineActions{gap:5px!important}
+html[data-admin-theme="v3"] .toggle{min-height:34px!important;padding:5px 7px!important;border-radius:7px!important;font-size:9px!important}
+html[data-admin-theme="v3"] .billingRecord{min-height:50px!important;padding:7px 9px!important;gap:8px!important;border-radius:7px!important}
+html[data-admin-theme="v3"] .supportDeskSummary{gap:6px!important;margin-bottom:7px!important}
+html[data-admin-theme="v3"] .supportDeskSummary span{padding:7px 8px!important;border-radius:7px!important;font-size:8.5px!important}
+html[data-admin-theme="v3"] .queueTabs{padding:4px!important;gap:4px!important;margin-bottom:7px!important;border-radius:7px!important}
+html[data-admin-theme="v3"] .queueTabs button{min-height:32px!important;padding:5px 8px!important;font-size:8.5px!important}
+html[data-admin-theme="v3"] table{font-size:9px!important}
+html[data-admin-theme="v3"] th{padding:7px 8px!important;font-size:8px!important;letter-spacing:.04em!important}
+html[data-admin-theme="v3"] td{padding:7px 8px!important}
+html[data-admin-theme="v3"] .settingsHubV2,html[data-admin-theme="v3"] .settingsEditorV3{padding:var(--v3-page-pad)!important;gap:10px!important}
+html[data-admin-theme="v3"] .settingsAreaGrid,html[data-admin-theme="v3"] .settingsSummaryV3{gap:8px!important}
+html[data-admin-theme="v3"] .settingsAreaCard{padding:10px!important;min-height:auto!important}
+html[data-admin-theme="v3"] .settingV3{padding:9px 10px!important;gap:10px!important}
+html[data-admin-theme="v3"] .settingInfoV3 h3{font-size:10.5px!important;margin-bottom:2px!important}
+html[data-admin-theme="v3"] .settingInfoV3 p{font-size:8.5px!important;line-height:1.35!important}
+html[data-admin-theme="v3"] .saveBar{padding:8px 10px!important;border-radius:8px!important;bottom:7px!important}
+html[data-admin-theme="v3"] .saveBar button{min-height:36px!important}
+html[data-admin-theme="v3"] .v3Metric{min-height:62px!important;padding:9px 11px!important;border-radius:8px!important}
+html[data-admin-theme="v3"] .v3Metric strong{font-size:18px!important}
+html[data-admin-theme="v3"] .v3Metric small,html[data-admin-theme="v3"] .v3Metric span{font-size:8.5px!important}
+html[data-admin-theme="v3"] .v3TableHead{min-height:32px!important;padding:6px 8px!important;font-size:8px!important}
+html[data-admin-theme="v3"] .statusBadge,html[data-admin-theme="v3"] .customerStatus,html[data-admin-theme="v3"] .billingState{padding:3px 6px!important;font-size:7.5px!important}
+@media(max-width:900px){html[data-admin-theme="v3"] .adminV3Topbar{overflow-x:auto;scrollbar-width:none}html[data-admin-theme="v3"] .adminV3Topbar::-webkit-scrollbar{display:none}html[data-admin-theme="v3"] .adminV3Brand>span:nth-child(2){display:none}html[data-admin-theme="v3"] .adminV3Primary a{padding:0 8px!important}html[data-admin-theme="v3"] .adminShell{padding:12px!important}html[data-admin-theme="v3"] .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:620px){html[data-admin-theme="v3"] .adminV3Topbar{min-height:44px!important}html[data-admin-theme="v3"] .adminV3Primary a{min-height:44px!important;font-size:9px!important}html[data-admin-theme="v3"] .adminV3Context{overflow-x:auto;scrollbar-width:none}html[data-admin-theme="v3"] .adminV3Context::-webkit-scrollbar{display:none}html[data-admin-theme="v3"] .adminV3ContextLabel{display:none}html[data-admin-theme="v3"] .adminV3Context a{flex:0 0 auto;min-height:38px!important}html[data-admin-theme="v3"] .adminShell{padding:10px!important;gap:8px!important}html[data-admin-theme="v3"] .adminTop h1,html[data-admin-theme="v3"] .v3PageHeader h1{font-size:19px!important}html[data-admin-theme="v3"] .panel{padding:10px!important}html[data-admin-theme="v3"] .panelTitle,html[data-admin-theme="v3"] .v3SectionHead{margin:-10px -10px 8px!important}html[data-admin-theme="v3"] button,html[data-admin-theme="v3"] .buttonlink,html[data-admin-theme="v3"] .navcta{min-height:40px!important}html[data-admin-theme="v3"] input,html[data-admin-theme="v3"] select{min-height:42px!important}html[data-admin-theme="v3"] .stats article{min-height:54px!important}}

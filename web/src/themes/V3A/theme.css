@@ -1,0 +1,25 @@
+/* OrbitFS V3A — Admin theme package entrypoint. */
+@import "../../app/admin/admin-ui.css";
+@import "../../app/admin/admin-v2.css";
+@import "../../app/admin/billing-create.css";
+@import "../../app/admin/customer-history.css";
+@import "../../app/admin/staff-system.css";
+@import "../../app/admin/staff-system-v2-fixes.css";
+@import "../../app/admin/settings-system-v2.css";
+@import "../../app/admin/support-system-v2.css";
+@import "../../app/admin/admin-redesign-system.css";
+@import "../../app/admin/admin-v3.css";
+@import "../../app/admin/settings-accessibility-v3.css";
+@import "../../app/admin/admin-v3-accent.css";
+@import "../../app/admin/admin-v3-color-zones.css";
+@import "../../app/admin/admin-v3-dark.css";
+@import "../../app/admin/admin-v3-pages.css";
+@import "../../app/admin/admin-v3-area-polish.css";
+@import "../../app/admin/admin-v3-global.css";
+@import "../../app/admin/admin-v3-compact-density.css";
+@import "../../app/admin/admin-v3-premium-palette.css";
+@import "../../app/admin/admin-v3-alert-isolation.css";
+@import "./mobile.css";
+@import "../auth.css";
+@import "../auth-fixes.css";
+@import "./auth-admin.css";

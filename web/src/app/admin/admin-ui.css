@@ -1,0 +1,145 @@
+/* Admin control normalization */
+.masterContent input[type="checkbox"],
+.masterContent input[type="radio"]{
+  width:16px!important;
+  height:16px!important;
+  min-width:16px!important;
+  min-height:16px!important;
+  max-width:16px!important;
+  max-height:16px!important;
+  padding:0!important;
+  margin:1px 0 0!important;
+  flex:0 0 16px!important;
+  accent-color:var(--accent);
+}
+.masterContent .toggle{display:flex;align-items:flex-start;gap:9px;padding:7px 0;line-height:1.35;font-size:13px;color:#c8d7e9}
+.masterContent .toggle input{margin-top:1px!important}
+.masterContent button,.masterContent .buttonlink{min-height:34px;padding:8px 12px;border-radius:8px;font-size:13px}
+.masterContent button.small{min-height:28px;padding:5px 9px;font-size:11px}
+.masterContent .form input:not([type="checkbox"]):not([type="radio"]),
+.masterContent .form select,
+.masterContent .form textarea{padding:10px 11px;border-radius:8px;font-size:13px}
+.masterContent .panel{padding:18px}
+.masterContent h2{font-size:20px}
+
+.superadminDeleteBar{margin:16px 28px 0;padding:12px 14px;border:1px solid #6d2d35;border-radius:10px;background:#251116;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.superadminDeleteBar>div{display:grid;gap:3px}.superadminDeleteBar b{font-size:13px}.superadminDeleteBar span{font-size:11px;color:#caa9ad}.superadminDeleteBar .danger{flex:0 0 auto}
+
+/* Product licence API configuration */
+.productApiCard{display:grid;gap:12px;padding:15px;border:1px solid var(--line);border-radius:12px;background:#091626}
+.productApiHead{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.productApiHead>div{display:grid;gap:4px}
+.productApiHead h3{margin:0;font-size:16px}
+.productApiHead p{margin:0;color:var(--muted);font-size:12px;line-height:1.45}
+.productApiStatus{padding:5px 9px;border:1px solid var(--line);border-radius:99px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.productApiStatus.on{border-color:#315f91;background:#102a47;color:#9ec5ff}
+.productApiAdvanced{display:grid;gap:10px;padding-top:12px;border-top:1px solid var(--line)}
+.productApiAdvanced .two{gap:10px}
+.productApiHint{margin:0;font-size:11px;color:var(--muted);line-height:1.5}
+
+/* Licence API control centre */
+.apiAdminPage{display:grid;gap:16px}
+.apiStatusGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.apiStatusCard{display:grid;gap:5px;padding:14px;border:1px solid var(--line);border-radius:11px;background:var(--panel)}
+.apiStatusCard small{font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.apiStatusCard strong{font-size:16px;overflow-wrap:anywhere}
+.apiStatusCard span{font-size:11px;color:var(--muted);line-height:1.4}
+.apiControlGrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:14px;align-items:start}
+.apiControlGrid>.panel{margin:0}
+.apiSectionHead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px}
+.apiSectionHead h2{margin:0 0 4px}
+.apiSectionHead p{margin:0;font-size:12px;color:var(--muted);line-height:1.45}
+.apiModeChoices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.apiModeChoice{display:grid!important;grid-template-columns:auto 1fr;gap:8px!important;align-items:start;padding:11px!important;border:1px solid var(--line);border-radius:10px;background:#091626;color:var(--text)!important;cursor:pointer}
+.apiModeChoice.active{border-color:#467bb6;background:#10253f}
+.apiModeChoice span{display:grid;gap:3px}
+.apiModeChoice b{font-size:12px}.apiModeChoice small{font-size:10px;line-height:1.35}
+.apiEndpointList{display:grid;gap:7px}
+.apiEndpoint{display:grid;grid-template-columns:80px minmax(0,1fr);gap:10px;align-items:center;padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:#091626}
+.apiEndpoint b{font-size:11px}.apiEndpoint code{font-size:11px;overflow-wrap:anywhere;color:#a8c7ff}
+.apiClients{display:grid;gap:8px}
+.apiClientRow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:10px;background:#091626}
+.apiClientInfo{display:grid;gap:4px;min-width:0}.apiClientInfo span{font-size:11px;color:var(--muted)}
+.apiClientActions{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.apiClientKey{font-family:monospace;font-size:11px;color:#9ec5ff}
+.apiDangerNote{padding:12px;border:1px solid #5d4725;border-radius:10px;background:#251b0c;color:#e3c58a;font-size:11px;line-height:1.5}
+
+/* Gateway setup: keep the admin shell desktop-like while the page itself adapts. */
+.gatewaySetupWorkspace{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr)!important;gap:16px!important;align-items:start}
+.setupProviderRail,.setupProviderBody,.setupSection,.secretGrid,.secretField,.webhookCard{min-width:0}
+.setupProviderBody{width:100%;overflow:hidden}
+.secretGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.secretInputRow{display:flex!important;gap:8px;align-items:center;flex-wrap:wrap}
+.secretInputRow input{min-width:180px;flex:1 1 240px}
+.webhookCard{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center}
+.webhookCard code{display:block;max-width:100%;overflow-wrap:anywhere;word-break:break-word;white-space:normal}
+.webhookCard .inlineActions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.setupChecklist{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.setupSection .inlineActions{display:flex;gap:8px;flex-wrap:wrap}
+
+@media(max-width:1200px){
+  .gatewaySetupWorkspace{grid-template-columns:1fr!important}
+  .setupProviderRail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .gatewayRailHead{grid-column:1/-1}
+  .setupProviderRow{min-width:0}
+  .setupProviderBody{overflow:visible}
+  .secretGrid{grid-template-columns:1fr!important}
+  .webhookCard{grid-template-columns:1fr!important}
+  .webhookCard .inlineActions{justify-content:flex-start}
+}
+@media(max-width:900px){
+  .apiStatusGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .apiControlGrid{grid-template-columns:1fr}
+  .setupChecklist{grid-template-columns:1fr!important}
+}
+@media(max-width:600px){
+  .apiStatusGrid{grid-template-columns:1fr 1fr}
+  .apiModeChoices{grid-template-columns:1fr}
+  .apiClientRow{grid-template-columns:1fr}
+  .apiClientActions{justify-content:flex-start}
+  .productApiHead{display:grid}
+  .superadminDeleteBar{margin:12px 14px 0;align-items:stretch;display:grid}.superadminDeleteBar .danger{width:100%}
+  .setupProviderRail{grid-template-columns:1fr}
+  .gatewayRailHead{grid-column:auto}
+}
+
+.orderActionButtons button{padding:7px 10px;min-height:34px;font-size:13px}.orderModalBackdrop{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.48);display:grid;place-items:center;padding:20px}.orderModal{width:min(560px,100%);max-height:90vh;overflow:auto;background:var(--panel,#111827);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px;box-shadow:0 24px 80px rgba(0,0,0,.45)}.orderModal .panelTitle{margin-bottom:14px}.orderModal textarea{resize:vertical}@media(max-width:700px){.orderModalBackdrop{padding:10px}.orderActionButtons{gap:7px}.orderActionButtons button{flex:1 1 calc(50% - 7px)}}
+
+/* Invoice admin workspace */
+.invoiceAdminPage{display:grid;gap:16px}.invoiceTabs{display:flex;gap:6px;flex-wrap:wrap;padding:6px;border:1px solid var(--line);border-radius:12px;background:#091626}.invoiceTabs a{padding:9px 14px;border-radius:8px;color:var(--muted);font-size:12px;font-weight:700}.invoiceTabs a.active{background:#15365f;color:#fff}.invoiceSummaryGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.invoiceSummaryGrid article{display:grid;gap:6px;padding:15px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}.invoiceSummaryGrid small{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.invoiceSummaryGrid strong{font-size:18px;text-transform:capitalize}.invoiceOverviewGrid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.75fr);gap:14px;align-items:start}.invoiceMainColumn,.invoiceSideColumn{display:grid;gap:14px}.invoiceMainColumn>.panel,.invoiceSideColumn>.panel{margin:0}.sectionHead{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}.sectionHead h2{margin:0 0 4px}.sectionHead p{margin:0;font-size:12px}.invoiceLifecycle{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center}.invoiceLifecycle p{grid-column:1/-1;margin:0}.invoiceLineTable{display:grid;border:1px solid var(--line);border-radius:10px;overflow:hidden}.invoiceLineHead,.invoiceLineRow{display:grid;grid-template-columns:minmax(0,1fr) 60px 110px 110px 70px;gap:10px;align-items:center;padding:10px 12px}.invoiceLineHead{background:#091626;color:var(--muted);font-size:10px;text-transform:uppercase}.invoiceLineRow{border-top:1px solid var(--line);font-size:12px}.invoiceLineRow strong{text-align:right}.invoiceActivity,.paymentLedger{display:grid}.activityRow,.paymentRow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.activityRow:last-child,.paymentRow:last-child{border-bottom:0}.activityRow>div,.paymentRow>div{display:grid;gap:3px}.activityRow>div:last-child,.paymentRow>div:last-child{text-align:right}.activityRow span,.paymentRow span{font-size:11px;color:var(--muted)}.customerSummary{display:grid;gap:8px}.customerSummary>span{font-size:12px;color:var(--muted);line-height:1.45}.customerSummary .listrow{margin-top:6px}.invoicePresentationPanel{border-top:3px solid var(--invoice-accent,#3b82f6)!important}.colorField{display:grid;grid-template-columns:48px 1fr;gap:8px}.colorField input[type="color"]{width:48px!important;height:38px!important;padding:3px!important}.invoiceQuickLinks{display:grid;gap:8px}.invoiceQuickLinks h2{margin:0 0 6px}.invoiceQuickLinks a{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}.invoiceQuickLinks a:last-child{border-bottom:0}.invoiceTwoCol{display:grid;grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr);gap:14px;align-items:start}.invoiceContextBar{display:flex;gap:24px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#091626}.invoiceContextBar>div{display:grid;gap:3px}.invoiceContextBar small{color:var(--muted);font-size:10px;text-transform:uppercase}
+@media(max-width:1100px){.invoiceOverviewGrid,.invoiceTwoCol{grid-template-columns:1fr}.invoiceSummaryGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:720px){.invoiceSummaryGrid{grid-template-columns:1fr 1fr}.invoiceLifecycle{grid-template-columns:1fr}.invoiceLineHead{display:none}.invoiceLineRow{grid-template-columns:1fr auto;gap:5px}.invoiceLineRow>span,.invoiceLineRow>strong{font-size:11px}.invoiceLineRow button{grid-column:1/-1}.invoiceContextBar{display:grid;grid-template-columns:1fr 1fr}}
+
+/* Invoice admin refinement */
+.compactInvoiceAdmin{gap:11px}.invoiceAdminHeader{align-items:flex-end}.invoiceTitleRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.invoiceTitleRow h1{margin:0}.invoiceStatusPill{padding:5px 9px;border:1px solid var(--line);border-radius:99px;background:#0d2037;color:#a8c7ff;font-size:10px;font-weight:800;text-transform:capitalize}.invoiceHeaderActions{gap:7px}.invoiceHeaderActions .buttonlink{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:7px 10px;border:1px solid var(--line);background:#102036;color:#d8e6f7}.invoiceTabs{padding:4px}.invoiceTabs a{padding:7px 11px}.invoiceSummaryGrid.slim{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.invoiceSummaryGrid.slim article{padding:10px 12px;border-radius:10px}.invoiceSummaryGrid.slim strong{font-size:16px}.invoiceCustomerPrimary{margin:0!important;padding:14px!important}.customerPrimaryGrid{display:grid;grid-template-columns:1.2fr 1.4fr .7fr .45fr;gap:14px;align-items:start}.customerPrimaryGrid>div{display:grid;gap:4px}.customerPrimaryGrid small,.customerPrimaryGrid span{font-size:11px;color:var(--muted);line-height:1.4}.invoiceStatusBar{margin:0!important;padding:12px 14px!important;display:grid;grid-template-columns:minmax(180px,.6fr) minmax(0,1.4fr);gap:16px;align-items:center}.invoiceStatusBar>div:first-child{display:grid;grid-template-columns:auto auto 1fr;gap:8px 10px;align-items:center}.invoiceStatusBar small{font-size:10px;text-transform:uppercase;color:var(--muted)}.invoiceStatusBar strong{text-transform:capitalize}.invoiceStatusBar span{font-size:11px;color:var(--muted)}.invoiceStatusControl{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.invoiceOverviewGrid.streamlined{grid-template-columns:minmax(0,1.5fr) minmax(260px,.6fr);gap:10px}.invoiceMainColumn,.invoiceSideColumn{gap:10px}.invoiceMainColumn>.panel,.invoiceSideColumn>.panel{padding:14px}.invoiceDetailsForm{gap:9px}.invoiceDetailsForm .two{align-items:start}.invoiceDetailsForm textarea{min-height:66px}.invoiceMoneyEdit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.invoiceSaveButton{justify-self:end;width:auto!important;min-width:160px}.invoiceLineHead,.invoiceLineRow{padding:8px 10px}.invoiceQuickLinks{padding:14px!important}.invoiceQuickLinks a{padding:8px 0}.sectionHead{margin-bottom:10px}.sectionHead h2{font-size:17px!important}.sectionHead p{font-size:11px}.activityRow{padding:9px 0}
+@media(max-width:1100px){.customerPrimaryGrid{grid-template-columns:1fr 1fr}.invoiceOverviewGrid.streamlined{grid-template-columns:1fr}.invoiceStatusBar{grid-template-columns:1fr}.invoiceSummaryGrid.slim{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:720px){.invoiceAdminHeader{align-items:flex-start}.invoiceHeaderActions{width:100%;display:grid;grid-template-columns:1fr 1fr}.invoiceHeaderActions .buttonlink{width:100%}.customerPrimaryGrid{grid-template-columns:1fr 1fr}.invoiceStatusControl{grid-template-columns:1fr}.invoiceMoneyEdit{grid-template-columns:1fr 1fr}.invoiceSaveButton{width:100%!important}.invoiceStatusBar>div:first-child{grid-template-columns:1fr 1fr}.invoiceStatusBar>div:first-child span{grid-column:1/-1}}
+
+/* Staff System */
+.staffSystemPage{display:grid;gap:16px}.staffMemberList{display:grid;gap:9px}.staffMemberCard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:11px;background:#091626}.staffMemberCard>div:first-child{display:grid;gap:4px}.staffMemberCard span,.staffMemberCard small{color:var(--muted);font-size:11px}.staffGroupPicker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:10px;border:1px solid var(--line);border-radius:10px;background:#081423}.staffGroupPicker .toggle{padding:8px!important;border:1px solid transparent;border-radius:8px}.staffGroupPicker .toggle:has(input:checked){border-color:#315f91;background:#102a47}.staffGroupPicker span{display:grid;gap:3px}.staffGroupPicker small{font-size:10px;line-height:1.35}.staffGroupCard>.panelTitle>div{flex:1;display:grid;gap:8px}.staffGroupTitle{display:grid;grid-template-columns:minmax(180px,320px) auto;gap:10px;align-items:center}.staffGroupTitle input{font-size:17px;font-weight:700}.staffGroupTitle span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.staffGroupCard .permissionSection{padding-top:14px;margin-top:14px;border-top:1px solid var(--line)}
+@media(max-width:720px){.staffMemberCard{grid-template-columns:1fr}.staffMemberCard .inlineActions{justify-content:flex-start}.staffGroupPicker{grid-template-columns:1fr}.staffGroupTitle{grid-template-columns:1fr}.staffGroupCard>.panelTitle{display:grid}}
+
+/* Compact Staff Group permission editor */
+.compactStaffGroups{gap:12px}.staffPermissionsWorkspace{display:grid;grid-template-columns:220px minmax(0,1fr);gap:12px;align-items:start}.staffGroupRail{display:grid;gap:6px;position:sticky;top:12px}.staffGroupRailHead{display:flex;align-items:center;justify-content:space-between;padding:0 2px 6px}.staffGroupRailItem{display:flex!important;align-items:center;justify-content:space-between;text-align:left!important;background:#091626!important;border:1px solid var(--line)!important;padding:9px 10px!important;min-height:0!important}.staffGroupRailItem.active{border-color:#3d6fa8!important;background:#10253f!important}.staffGroupRailItem span{display:grid;gap:2px}.staffGroupRailItem b{font-size:12px}.staffGroupRailItem small{font-size:9px;color:var(--muted)}.staffGroupRailItem em{font-style:normal;font-size:8px;font-weight:900;letter-spacing:.08em;color:#9ec5ff}.staffPermissionEditor{margin:0!important;padding:13px!important}.staffPermissionTop{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start}.staffPermissionIdentity{display:grid;grid-template-columns:minmax(180px,280px) minmax(220px,1fr);gap:7px;align-items:center}.staffPermissionIdentity input{padding:8px 9px!important;font-size:12px!important}.staffPermissionIdentity span{grid-column:1/-1;font-size:10px;color:var(--muted)}.permissionSearch{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;margin-top:10px}.permissionSearch input{padding:8px 9px!important;font-size:12px!important}.permissionSearch span{font-size:10px;color:var(--muted)}.compactPermissionSections{display:grid;gap:6px;margin-top:10px}.compactPermissionSection{border:1px solid var(--line);border-radius:9px;background:#091626;overflow:hidden}.compactPermissionSection summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;cursor:pointer;list-style:none}.compactPermissionSection summary::-webkit-details-marker{display:none}.compactPermissionSection summary>span{display:flex;align-items:baseline;gap:8px}.compactPermissionSection summary b{font-size:12px}.compactPermissionSection summary small{font-size:9px;color:var(--muted)}.permissionBulk{display:flex;gap:4px}.permissionBulk button{min-height:24px!important;padding:3px 7px!important;font-size:9px!important}.compactPermissionGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}.compactPermission{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:7px;align-items:center;padding:7px 9px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}.compactPermission:nth-child(2n){border-right:0}.compactPermission.on{background:#0d2037}.compactPermission span{display:grid;gap:1px;min-width:0}.compactPermission b{font-size:10.5px}.compactPermission small{font-size:9px;line-height:1.25;color:var(--muted)}.compactPermission code{font-size:8px;color:#6f8eae;overflow-wrap:anywhere;text-align:right}.superadminFullAccess{margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border:1px solid #315f91;border-radius:9px;background:#102a47}.superadminFullAccess>div{display:grid;gap:3px}.superadminFullAccess b{font-size:12px}.superadminFullAccess span{font-size:10px;color:#abc5e5}.superadminFullAccess strong{font-size:10px;letter-spacing:.08em;color:#9ec5ff}.staffGroupDialog{width:min(440px,calc(100% - 24px));border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text);padding:16px}.staffGroupDialog::backdrop{background:rgba(0,0,0,.55)}
+@media(max-width:900px){.staffPermissionsWorkspace{grid-template-columns:1fr}.staffGroupRail{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}.staffGroupRailHead{grid-column:1/-1}.staffPermissionTop{grid-template-columns:1fr}.staffPermissionIdentity{grid-template-columns:1fr}.compactPermissionGrid{grid-template-columns:1fr}.compactPermission{border-right:0}.compactPermission:nth-child(2n){border-right:0}}
+
+/* Outbound Mail settings */
+.outboundMailPage{display:grid;gap:14px}.outboundTemplateList{display:grid;gap:6px;margin-top:12px}.outboundTemplateRow{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;text-align:left;padding:11px 12px!important;background:#091626!important;border:1px solid var(--line)!important}.outboundTemplateRow>div{display:grid;gap:3px}.outboundTemplateRow b{font-size:13px}.outboundTemplateRow span,.outboundTemplateRow small{font-size:10px;color:var(--muted)}.mailTemplateState{padding:4px 8px;border-radius:99px;border:1px solid var(--line);font-weight:800;text-transform:uppercase;letter-spacing:.06em}.mailTemplateState.on{background:#102a47;border-color:#315f91;color:#9ec5ff!important}.mailTemplateState.off{background:#24161a;border-color:#5e323b;color:#d7a1aa!important}.outboundTemplateModal{width:min(720px,100%)}.outboundVars{padding:10px;border:1px solid var(--line);border-radius:9px;background:#091626;display:grid;gap:4px}.outboundVars b{font-size:11px}.outboundVars span{font-size:10px;color:var(--muted);line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:700px){.outboundTemplateRow{grid-template-columns:1fr}.mailTemplateState{justify-self:start}.outboundMailPage .stats.four{grid-template-columns:1fr 1fr}}
+
+/* Mail automation and customer communications */
+.mailAutomationList{display:grid;gap:7px;margin-top:12px}.mailAutomationRow{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,320px) auto;gap:12px;align-items:center;padding:10px 11px;border:1px solid var(--line);border-radius:9px;background:#091626}.mailAutomationRow.off{opacity:.65}.mailAutomationRow>div{display:grid;gap:2px;min-width:0}.mailAutomationRow b{font-size:12px}.mailAutomationRow span,.mailAutomationRow small{font-size:9.5px;color:var(--muted);line-height:1.35}.mailAutomationRow code{font-size:9px}.mailAutomationRow select{padding:7px 8px!important;font-size:11px!important}.toggle.compact{display:flex!important;align-items:center;gap:5px;white-space:nowrap}.customerQuickMail{margin-top:12px}.customerEmailRow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.customerEmailRow:last-child{border-bottom:0}.customerEmailRow>div{display:grid;gap:3px}.customerEmailRow>div:last-child{text-align:right;justify-items:end}.customerEmailRow b{font-size:12px}.customerEmailRow span,.customerEmailRow small{font-size:9.5px;color:var(--muted)}
+@media(max-width:850px){.mailAutomationRow{grid-template-columns:1fr}.mailAutomationRow select{width:100%}.customerEmailRow{grid-template-columns:1fr}.customerEmailRow>div:last-child{text-align:left;justify-items:start}}
+
+/* Customer identity and activity history */
+.customerHistoryGrid{grid-template-columns:minmax(0,1.45fr) minmax(300px,.85fr)}
+.customerIpRow,.customerActivityRow{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.55fr);gap:18px;padding:14px 0;border-bottom:1px solid var(--border,#e5e7eb)}
+.customerIpRow>div,.customerActivityRow>div{display:flex;flex-direction:column;gap:4px;min-width:0}.customerIpRow span,.customerIpRow small,.customerActivityRow span,.customerActivityRow small{color:var(--muted,#6b7280);overflow-wrap:anywhere}.customerIpRow>div:last-child,.customerActivityRow>div:last-child{text-align:right;align-items:flex-end}
+@media(max-width:900px){.customerHistoryGrid{grid-template-columns:1fr}.customerIpRow,.customerActivityRow{grid-template-columns:1fr}.customerIpRow>div:last-child,.customerActivityRow>div:last-child{text-align:left;align-items:flex-start}}
+
+/* Customer cancellation workflow */
+.cancellationAlertBanner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 18px;margin:0 0 18px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:var(--panel);}
+.cancellationAlertBanner div{display:grid;gap:3px}.cancellationAlertBanner b{font-size:15px}.cancellationAlertBanner span{color:var(--muted);font-size:13px}.cancellationAlertBanner strong{white-space:nowrap}
+.cancellationRequestRow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;padding:18px 0;border-top:1px solid var(--line)}.cancellationRequestRow:first-of-type{border-top:0}
+.cancellationRequestMain{min-width:0}.cancellationRequestMain h3{margin:12px 0 4px}.cancellationRequestMain p{margin:0 0 10px;white-space:pre-wrap}.cancellationRequestMain small{display:block;color:var(--muted);margin-top:8px}
+.cancellationMeta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px;color:var(--muted)}
+.cancellationRequestActions{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:8px;min-width:170px}.cancellationRequestActions a,.cancellationRequestActions button{text-align:center}
+@media(max-width:760px){.cancellationRequestRow{grid-template-columns:1fr}.cancellationRequestActions{display:grid;grid-template-columns:1fr 1fr;min-width:0}.cancellationAlertBanner{align-items:flex-start;flex-direction:column}}

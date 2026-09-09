@@ -1,0 +1,63 @@
+import {randomUUID,scryptSync,timingSafeEqual} from "node:crypto";
+import {createClient} from "@supabase/supabase-js";
+
+const url=process.env.NEXT_PUBLIC_SUPABASE_URL||"https://zekejuprrsurjmwgzexw.supabase.co";
+const serviceKey=process.env.SUPABASE_SERVICE_ROLE_KEY!;
+const service=()=>createClient(url,serviceKey,{auth:{persistSession:false}});
+
+export type OrbitCustomerIdentity={customerId:string;userId:string;email:string;name:string};
+
+export function hashCustomerPassword(password:string){
+ const salt=randomUUID().replaceAll("-","");
+ const digest=scryptSync(password,salt,64).toString("hex");
+ return `scrypt$${salt}$${digest}`;
+}
+
+export function verifyCustomerPassword(password:string,encoded:string){
+ try{
+  const [scheme,salt,expectedHex]=String(encoded||"").split("$");
+  if(scheme!=="scrypt"||!salt||!expectedHex)return false;
+  const actual=scryptSync(password,salt,64),expected=Buffer.from(expectedHex,"hex");
+  return actual.length===expected.length&&timingSafeEqual(actual,expected);
+ }catch{return false}
+}
+
+export async function resolveCustomerIdentity(userOrCustomerId:string):Promise<OrbitCustomerIdentity|null>{
+ const db=service();
+ let {data:customer,error}=await db.from("customers").select("id,auth_user_id,email,name,display_name,first_name").eq("auth_user_id",userOrCustomerId).maybeSingle();
+ if(error)return null;
+ if(!customer){
+  const byId=await db.from("customers").select("id,auth_user_id,email,name,display_name,first_name").eq("id",userOrCustomerId).maybeSingle();
+  if(byId.error)return null;
+  customer=byId.data;
+ }
+ if(!customer)return null;
+ let userId=String(customer.auth_user_id||"");
+ if(!userId){
+  userId=randomUUID();
+  const {error:updateError}=await db.from("customers").update({auth_user_id:userId,updated_at:new Date().toISOString()}).eq("id",customer.id);
+  if(updateError)throw updateError;
+ }
+ return {customerId:String(customer.id),userId,email:String(customer.email||""),name:String(customer.name||customer.display_name||customer.first_name||"Customer")};
+}
+
+export async function setCustomerCredentialPassword(userOrCustomerId:string,password:string){
+ const db=service(),identity=await resolveCustomerIdentity(userOrCustomerId);
+ if(!identity)return {ok:false as const,error:"Customer account not found."};
+ const now=new Date().toISOString(),passwordHash=hashCustomerPassword(password);
+ const {error}=await db.from("customer_credentials").upsert({user_id:identity.userId,password_hash:passwordHash,password_changed_at:now,updated_at:now},{onConflict:"user_id"});
+ if(error)return {ok:false as const,error:error.message};
+ await db.from("customer_sessions").update({revoked_at:now}).eq("user_id",identity.userId).is("revoked_at",null);
+ return {ok:true as const,...identity};
+}
+
+export async function verifyCustomerCredential(email:string,password:string){
+ const db=service(),normalized=email.trim().toLowerCase();
+ const {data:customer}=await db.from("customers").select("id,auth_user_id,email,name,display_name,first_name,status,email_verified_at").ilike("email",normalized).maybeSingle();
+ if(!customer)return null;
+ const identity=await resolveCustomerIdentity(String(customer.auth_user_id||customer.id));
+ if(!identity)return null;
+ const {data:credential}=await db.from("customer_credentials").select("password_hash").eq("user_id",identity.userId).maybeSingle();
+ if(!credential?.password_hash||!verifyCustomerPassword(password,String(credential.password_hash)))return null;
+ return {...identity,status:String(customer.status||"active"),emailVerifiedAt:customer.email_verified_at||null};
+}

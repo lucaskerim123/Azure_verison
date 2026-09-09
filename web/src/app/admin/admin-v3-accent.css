@@ -1,0 +1,6 @@
+/* Softer OrbitFS V3 accent: reduce the blue-heavy appearance without changing layout or behaviour. */
+html[data-admin-theme="v3"]{--v3-blue:#21664d;--v3-blue-soft:#eaf5f0}
+html[data-admin-theme="v3"] .adminV3BrandMark{background:#21664d}
+html[data-admin-theme="v3"] .adminV3Primary>a.active{border-bottom-color:#6aa58e}
+html[data-admin-theme="v3"] .adminV3Primary>a:hover{background:#ffffff0b}
+html[data-admin-theme="v3"] .adminV3Tool:hover,html[data-admin-theme="v3"] .adminV3Create>summary:hover{border-color:#5d6a63}

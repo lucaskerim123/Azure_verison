@@ -1,0 +1,62 @@
+html[data-customer-theme="V3C"] .portalOverviewV2,html[data-customer-theme="V3C"] .accountSettingsV2{gap:12px!important}
+html[data-customer-theme="V3C"] .portalOverviewHero,html[data-customer-theme="V3C"] .accountSettingsHero{padding:2px 0 4px!important;align-items:center!important}.portalOverviewHero h1,.accountSettingsHero h1{font-size:24px!important;margin:2px 0 4px!important}.portalOverviewHero p,.accountSettingsHero p{font-size:10px!important;line-height:1.45!important;max-width:760px}
+html[data-customer-theme="V3C"] .portalOverviewGrid{grid-template-columns:minmax(0,1.55fr) minmax(260px,.45fr)!important;gap:10px!important}.portalOverviewBottom{gap:10px!important}
+html[data-customer-theme="V3C"] .settingsSectionHead{margin-bottom:10px!important}.settingsSectionHead h2,.settingsSectionHead h3{margin:2px 0 3px!important;font-size:14px!important}.settingsSectionHead p{font-size:9px!important}
+html[data-customer-theme="V3C"] .settingsPreferenceGrid{gap:10px!important}.settingsToggles{gap:6px!important}.settingsSaveBar{bottom:7px!important;padding:9px 10px!important;border-radius:8px!important;border-color:#444b80!important;background:#111625f2!important}.settingsSaveBar span{font-size:9px!important}
+html[data-customer-theme="V3C"] .walletSettingsCard{background:#141a24!important;border-color:#343f50!important}.walletBalanceBadge{padding:9px 11px!important;border-radius:8px!important;border-color:#484d82!important;background:#171a2e!important}.walletBalanceBadge strong{font-size:18px!important}.walletSettingsActions{gap:9px!important}.walletActionBox{gap:8px!important;padding:11px!important;border-radius:8px!important;background:#10161e!important;border-color:#2d3744!important}.walletActionBox p{font-size:9px!important}.walletActivity{margin-top:12px!important;padding-top:10px!important}.walletActivityRow{padding:8px 0!important}.walletActivityRow span{font-size:9px!important}
+html[data-customer-theme="V3C"] .portalLayout table{width:100%;border-collapse:separate;border-spacing:0;background:#121821;border:1px solid #2b3543;border-radius:9px;overflow:hidden}.portalLayout th{padding:8px 9px!important;background:#171e28!important;color:#98a5b3!important;border-color:#2b3543!important;font-size:8px!important;text-transform:uppercase;letter-spacing:.07em}.portalLayout td{padding:9px!important;border-color:#293340!important;color:#dce3e9!important;font-size:9.5px!important}.portalLayout tr:hover td{background:#171f29!important}
+html[data-customer-theme="V3C"] .recordCard,html[data-customer-theme="V3C"] .orderCard,html[data-customer-theme="V3C"] .invoiceCard,html[data-customer-theme="V3C"] .licenseCard,html[data-customer-theme="V3C"] .downloadCard,html[data-customer-theme="V3C"] .supportCard{background:#141b24!important;border:1px solid #2d3744!important;border-radius:9px!important;box-shadow:none!important}.recordCard:hover,.orderCard:hover,.invoiceCard:hover,.licenseCard:hover,.downloadCard:hover,.supportCard:hover{background:#19222d!important;border-color:#435064!important}
+html[data-customer-theme="V3C"] .invoiceCard,html[data-customer-theme="V3C"] .orderCard{box-shadow:inset 3px 0 #6670e5!important}.invoiceCard.overdue,.orderCard.overdue{box-shadow:inset 3px 0 #ef788b!important;background:#21171d!important}.invoiceCard.paid,.orderCard.active{box-shadow:inset 3px 0 #4fc79a!important}.invoiceCard.pending,.orderCard.pending{box-shadow:inset 3px 0 #f0b24b!important}
+html[data-customer-theme="V3C"] .recordMeta,html[data-customer-theme="V3C"] .invoiceMeta,html[data-customer-theme="V3C"] .orderMeta{color:#8f9caa!important;font-size:8.5px!important}.recordAmount,.invoiceAmount,.orderAmount{font-variant-numeric:tabular-nums;font-size:15px!important;font-weight:850!important;color:#fff!important}
+html[data-customer-theme="V3C"] .portalLayout .listrow{padding:8px 0!important;border-bottom-color:#293340!important}.portalLayout .listrow:last-child{border-bottom:0!important}.portalLayout .listrow span,.portalLayout .listrow small{font-size:9px!important;color:#8f9caa!important}
+
+
+/* White invoice document is intentionally isolated from the V3C dark text palette. */
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument{
+  background:#fff!important;
+  color:#18212f!important;
+}
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument h1,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument h2,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument h3,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument strong,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument b,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocItemRow,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocItemRow div,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocItemRow span,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocItemRow strong,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocItemRow b,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocTotals strong{
+  color:#18212f!important;
+  opacity:1!important;
+}
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocBusiness span,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocMeta span,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocBillTo span,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocPaymentDetails span,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocFooter span,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocTotals span{
+  color:#4b5563!important;
+  opacity:1!important;
+}
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocItemHead,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocItemHead span{
+  background:#eef2f6!important;
+  color:#3f4a59!important;
+  opacity:1!important;
+}
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocMeta span b,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocBillTo span b,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocPaymentDetails strong{
+  color:#253144!important;
+}
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocLabel{
+  color:var(--invoice-accent)!important;
+}
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocTotalMain span,
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocTotalMain strong{
+  color:#111827!important;
+}
+html[data-customer-theme="V3C"] .portalLayout .invoiceDocument .invoiceDocFooter{
+  background:#f8fafc!important;
+}

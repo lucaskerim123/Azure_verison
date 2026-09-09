@@ -1,0 +1,209 @@
+/* OrbitFS Admin V3 page-level polish. Loaded last. Dark-only, higher contrast, area-aware. */
+html[data-admin-theme="v3"] .adminV3Layout{--page-accent:var(--v3-zone,#2dd4bf);--page-accent-soft:color-mix(in srgb,var(--page-accent) 16%,#171b22);--page-line:#333b47;--page-text:#f2f5f7;--page-muted:#aeb8c4;--page-faint:#84909d;--page-panel:#1b2028;--page-panel-2:#202630;--page-panel-3:#262d38}
+html[data-admin-theme="v3"] .adminV3Layout .masterContent{background:#11151b!important;color:var(--page-text)!important}
+html[data-admin-theme="v3"] .adminV3Layout .adminShell{color:var(--page-text)!important}
+html[data-admin-theme="v3"] .adminV3Layout h1,html[data-admin-theme="v3"] .adminV3Layout h2,html[data-admin-theme="v3"] .adminV3Layout h3,html[data-admin-theme="v3"] .adminV3Layout h4,html[data-admin-theme="v3"] .adminV3Layout b,html[data-admin-theme="v3"] .adminV3Layout strong{color:var(--page-text)}
+html[data-admin-theme="v3"] .adminV3Layout .muted,html[data-admin-theme="v3"] .adminV3Layout p.muted,html[data-admin-theme="v3"] .adminV3Layout .panelTitle p,html[data-admin-theme="v3"] .adminV3Layout .adminItem span,html[data-admin-theme="v3"] .adminV3Layout .listrow span,html[data-admin-theme="v3"] .adminV3Layout small{color:var(--page-muted)!important;opacity:1!important}
+html[data-admin-theme="v3"] .adminV3Layout .eyebrow{color:color-mix(in srgb,var(--page-accent) 82%,#fff)!important}
+html[data-admin-theme="v3"] .adminV3Layout a{color:color-mix(in srgb,var(--page-accent) 78%,#fff)}
+
+/* Panels are distinct, but not giant glowing cards. */
+html[data-admin-theme="v3"] .adminV3Layout .panel,html[data-admin-theme="v3"] .adminV3Layout .v3Section{background:var(--page-panel)!important;border:1px solid var(--page-line)!important;border-top:3px solid var(--page-accent)!important;box-shadow:0 8px 24px #0003!important}
+html[data-admin-theme="v3"] .adminV3Layout .panelTitle,html[data-admin-theme="v3"] .adminV3Layout .v3SectionHead{border-bottom-color:#323945!important}
+html[data-admin-theme="v3"] .adminV3Layout .v3SectionHead{background:var(--page-panel-2)!important;box-shadow:inset 4px 0 var(--page-accent)!important}
+html[data-admin-theme="v3"] .adminV3Layout .adminItem,html[data-admin-theme="v3"] .adminV3Layout .listrow,html[data-admin-theme="v3"] .adminV3Layout .supportDashRow,html[data-admin-theme="v3"] .adminV3Layout .customerEmailRow,html[data-admin-theme="v3"] .adminV3Layout .customerIpRow,html[data-admin-theme="v3"] .adminV3Layout .customerActivityRow{border-bottom-color:#303742!important;color:var(--page-text)!important}
+html[data-admin-theme="v3"] .adminV3Layout .adminItem:hover,html[data-admin-theme="v3"] .adminV3Layout .listrow:hover,html[data-admin-theme="v3"] .adminV3Layout .supportDashRow:hover{background:var(--page-panel-2)!important}
+
+/* Inputs/buttons: readable and consistent on every page. */
+html[data-admin-theme="v3"] .adminV3Layout input,html[data-admin-theme="v3"] .adminV3Layout select,html[data-admin-theme="v3"] .adminV3Layout textarea{background:#11161d!important;border:1px solid #3b4552!important;color:#f3f6f8!important;box-shadow:none!important}
+html[data-admin-theme="v3"] .adminV3Layout input::placeholder,html[data-admin-theme="v3"] .adminV3Layout textarea::placeholder{color:#778492!important;opacity:1}
+html[data-admin-theme="v3"] .adminV3Layout input:focus,html[data-admin-theme="v3"] .adminV3Layout select:focus,html[data-admin-theme="v3"] .adminV3Layout textarea:focus{border-color:var(--page-accent)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--page-accent) 17%,transparent)!important;outline:none}
+html[data-admin-theme="v3"] .adminV3Layout button,html[data-admin-theme="v3"] .adminV3Layout .buttonlink,html[data-admin-theme="v3"] .adminV3Layout .navcta{background:color-mix(in srgb,var(--page-accent) 74%,#111820)!important;border-color:color-mix(in srgb,var(--page-accent) 82%,#111820)!important;color:#fff!important}
+html[data-admin-theme="v3"] .adminV3Layout button.secondary,html[data-admin-theme="v3"] .adminV3Layout .secondary{background:#252c36!important;border-color:#424c59!important;color:#e8edf2!important}
+html[data-admin-theme="v3"] .adminV3Layout button.danger,html[data-admin-theme="v3"] .adminV3Layout .danger{background:#4b2029!important;border-color:#8c3d4a!important;color:#ffdce1!important}
+html[data-admin-theme="v3"] .adminV3Layout button:hover,html[data-admin-theme="v3"] .adminV3Layout .buttonlink:hover{filter:brightness(1.12)}
+
+/* Stats/summary blocks: no invisible grey copy. */
+html[data-admin-theme="v3"] .adminV3Layout .stats{gap:8px}
+html[data-admin-theme="v3"] .adminV3Layout .stats article{background:var(--page-panel)!important;border:1px solid #343c48!important;border-top:3px solid var(--page-accent)!important;color:var(--page-text)!important;box-shadow:0 4px 16px #0002}
+html[data-admin-theme="v3"] .adminV3Layout .stats article small{color:#9da9b6!important}
+html[data-admin-theme="v3"] .adminV3Layout .stats article strong{color:#fff!important}
+html[data-admin-theme="v3"] .adminV3Layout .stats article:nth-child(2){border-top-color:#2dd4bf!important}
+html[data-admin-theme="v3"] .adminV3Layout .stats article:nth-child(3){border-top-color:#f59e0b!important}
+html[data-admin-theme="v3"] .adminV3Layout .stats article:nth-child(4){border-top-color:#a78bfa!important}
+
+/* Record pages: compact horizontal tabs with proper contrast. */
+html[data-admin-theme="v3"] .adminV3Layout .recordTabs{display:flex;gap:5px;overflow-x:auto;padding:7px;margin:0 0 12px;background:#171c23;border:1px solid #303845;border-radius:9px;scrollbar-width:none}
+html[data-admin-theme="v3"] .adminV3Layout .recordTabs::-webkit-scrollbar{display:none}
+html[data-admin-theme="v3"] .adminV3Layout .recordTabs button{flex:0 0 auto;min-height:36px;padding:7px 11px!important;background:transparent!important;border:1px solid transparent!important;color:#aab5c1!important;font-size:10.5px!important}
+html[data-admin-theme="v3"] .adminV3Layout .recordTabs button:hover{background:#242b35!important;color:#fff!important}
+html[data-admin-theme="v3"] .adminV3Layout .recordTabs button.active{background:var(--page-accent-soft)!important;border-color:color-mix(in srgb,var(--page-accent) 45%,#303845)!important;color:#fff!important;box-shadow:inset 0 -2px var(--page-accent)!important}
+
+/* Customer list/workspace. */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="customers"]{--page-accent:#5fb3e6}
+html[data-admin-theme="v3"] .customerWorkspaceHead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:end;margin-bottom:10px}
+html[data-admin-theme="v3"] .customerWorkspaceMeta{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}
+html[data-admin-theme="v3"] .customerWorkspaceMeta span{padding:4px 7px;border:1px solid #3a4552;border-radius:999px;background:#1a2028;color:#bdc7d2;font-size:9px;font-weight:700}
+html[data-admin-theme="v3"] .customerQuickActions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+html[data-admin-theme="v3"] .customerQuickActions a,html[data-admin-theme="v3"] .customerQuickActions button{min-height:36px;padding:7px 10px;border-radius:7px;font-size:10px;font-weight:750}
+html[data-admin-theme="v3"] .customerControlBar{display:grid;grid-template-columns:minmax(220px,1fr) auto auto;gap:8px;align-items:center;margin:0 0 10px;padding:9px;background:#171c23;border:1px solid #303845;border-radius:9px}
+html[data-admin-theme="v3"] .customerControlBar select,html[data-admin-theme="v3"] .customerControlBar input{min-height:38px}
+html[data-admin-theme="v3"] .customerRecordList{display:grid;gap:5px}
+html[data-admin-theme="v3"] .customerRecord{display:grid;grid-template-columns:minmax(210px,1.4fr) minmax(160px,.8fr) minmax(130px,.65fr) auto;gap:12px;align-items:center;min-height:58px;padding:9px 11px;background:#191f27;border:1px solid #303844;border-radius:8px;color:var(--page-text)}
+html[data-admin-theme="v3"] .customerRecord:hover{background:#202732;border-color:#465362}
+html[data-admin-theme="v3"] .customerRecordMain b{display:block;font-size:11.5px;color:#fff}
+html[data-admin-theme="v3"] .customerRecordMain span,html[data-admin-theme="v3"] .customerRecordSub{display:block;margin-top:2px;color:#9eabb8;font-size:9.5px}
+html[data-admin-theme="v3"] .customerRecordMetric{display:grid;gap:2px}
+html[data-admin-theme="v3"] .customerRecordMetric small{font-size:8px;color:#7f8b98!important;text-transform:uppercase;letter-spacing:.07em}
+html[data-admin-theme="v3"] .customerRecordMetric strong{font-size:11px}
+html[data-admin-theme="v3"] .customerStatus{display:inline-flex;width:max-content;align-items:center;padding:3px 7px;border-radius:999px;font-size:8.5px;font-weight:850;text-transform:uppercase;letter-spacing:.05em;background:#29323d;color:#c7d1db}
+html[data-admin-theme="v3"] .customerStatus.active{background:#143b32;color:#70e0bd}
+html[data-admin-theme="v3"] .customerStatus.suspended{background:#4a3617;color:#ffd37a}
+html[data-admin-theme="v3"] .customerStatus.banned{background:#4b2029;color:#ff9dab}
+html[data-admin-theme="v3"] .customerDetailSummary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:0 0 12px}
+html[data-admin-theme="v3"] .customerDetailSummary article{padding:10px 11px;border:1px solid #343d49;border-radius:8px;background:#1a2028}
+html[data-admin-theme="v3"] .customerDetailSummary article:nth-child(1){border-left:3px solid #5fb3e6}
+html[data-admin-theme="v3"] .customerDetailSummary article:nth-child(2){border-left:3px solid #f59e0b}
+html[data-admin-theme="v3"] .customerDetailSummary article:nth-child(3){border-left:3px solid #f87171}
+html[data-admin-theme="v3"] .customerDetailSummary article:nth-child(4){border-left:3px solid #2dd4bf}
+html[data-admin-theme="v3"] .customerDetailSummary article:nth-child(5){border-left:3px solid #a78bfa}
+html[data-admin-theme="v3"] .customerDetailSummary small{display:block;color:#8e9aa7!important;font-size:8px;text-transform:uppercase;letter-spacing:.07em}
+html[data-admin-theme="v3"] .customerDetailSummary strong{display:block;margin-top:3px;font-size:14px}
+html[data-admin-theme="v3"] .customerQuickMail,html[data-admin-theme="v3"] .customerHistoryGrid .panel{border-top-color:#5fb3e6!important}
+
+/* Each area keeps a recognizable dark accent without tinting the whole page. */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"]{--page-accent:#f59e0b}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="licensing"]{--page-accent:#a78bfa}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="support"]{--page-accent:#fb7185}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="content"]{--page-accent:#e879b2}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="system"]{--page-accent:#4ade80}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"]{--page-accent:#2dd4bf}
+
+/* Dashboard is intentionally multicolour. */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric{background:#1a2028!important;border-right-color:#343c47!important;box-shadow:inset 0 3px #5fb3e6}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.urgent{box-shadow:inset 0 3px #fb7185;background:#241b22!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.money{box-shadow:inset 0 3px #f59e0b;background:#251f18!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.support{box-shadow:inset 0 3px #22d3ee;background:#182329!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.good{box-shadow:inset 0 3px #4ade80;background:#19251f!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric:last-child{box-shadow:inset 0 3px #a78bfa;background:#211d29!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric small{color:#9ca8b5!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric strong{color:#fff!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Section#attention{border-top-color:#fb7185!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3DashboardColumns .v3Stream:first-child{border-top-color:#f59e0b!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3DashboardColumns .v3Stream:nth-child(2){border-top-color:#22d3ee!important}
+
+/* Settings CSS previously had light hard-codes; this wins. */
+html[data-admin-theme="v3"] .settingsHubV2,html[data-admin-theme="v3"] .settingsEditorV3,html[data-admin-theme="v3"] .settingsHubHeader h1,html[data-admin-theme="v3"] .settingsEditorHeader h1{color:#f2f5f7!important}
+html[data-admin-theme="v3"] .settingsHubIntro,html[data-admin-theme="v3"] .settingsEditorHeader p,html[data-admin-theme="v3"] .settingsAreaCopy p,html[data-admin-theme="v3"] .settingsGroupHeadV3 p,html[data-admin-theme="v3"] .settingInfoV3 p{color:#aeb8c4!important}
+html[data-admin-theme="v3"] .settingsSectionV2,html[data-admin-theme="v3"] .settingsAreaCard,html[data-admin-theme="v3"] .settingsGroupV3,html[data-admin-theme="v3"] .settingV3,html[data-admin-theme="v3"] .settingsSummaryV3 article,html[data-admin-theme="v3"] .settingsToolsV3{background:#1b2028!important;border-color:#353e4a!important;color:#f2f5f7!important}
+html[data-admin-theme="v3"] .settingsSectionSummary,html[data-admin-theme="v3"] .settingsGroupHeadV3{background:#232a34!important;color:#f2f5f7!important}
+html[data-admin-theme="v3"] .settingsAreaGrid{background:#151a21!important}
+html[data-admin-theme="v3"] .settingsAreaTitle b,html[data-admin-theme="v3"] .settingTitleV3 b,html[data-admin-theme="v3"] .settingsSummaryV3 strong{color:#f2f5f7!important}
+html[data-admin-theme="v3"] .settingsAreaBadge,html[data-admin-theme="v3"] .settingsAreaTags span,html[data-admin-theme="v3"] .settingTypeBadge{background:#29313c!important;border-color:#414b58!important;color:#b9c4cf!important}
+html[data-admin-theme="v3"] .settingsSaveV3{background:#171c23f5!important;border-color:#39434f!important}
+
+@media(max-width:900px){html[data-admin-theme="v3"] .customerRecord{grid-template-columns:minmax(0,1fr) 100px auto}.customerRecord .customerRecordMetric:nth-of-type(2){display:none}html[data-admin-theme="v3"] .customerDetailSummary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){html[data-admin-theme="v3"] .customerWorkspaceHead{grid-template-columns:1fr}.customerQuickActions{justify-content:flex-start}.customerControlBar{grid-template-columns:1fr 1fr}.customerControlBar input{grid-column:1/-1}.customerRecord{grid-template-columns:minmax(0,1fr) auto;gap:8px}.customerRecordMetric{display:none}.customerDetailSummary{grid-template-columns:1fr 1fr}.recordTabs button{min-height:42px!important}}
+
+
+/* Dashboard narrow-desktop containment: prevent right-edge clipping in desktop-mode browsers. */
+html[data-admin-theme="v3"] .v3Dashboard{
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  overflow-x:hidden!important;
+  box-sizing:border-box!important;
+}
+html[data-admin-theme="v3"] .v3Dashboard>*{
+  min-width:0!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+html[data-admin-theme="v3"] .v3MetricStrip{
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  grid-template-columns:repeat(auto-fit,minmax(138px,1fr))!important;
+  overflow:hidden!important;
+}
+html[data-admin-theme="v3"] .v3Metric{
+  min-width:0!important;
+  overflow:hidden!important;
+}
+html[data-admin-theme="v3"] .v3Metric small,
+html[data-admin-theme="v3"] .v3Metric strong,
+html[data-admin-theme="v3"] .v3Metric span{
+  min-width:0!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+html[data-admin-theme="v3"] .v3Section,
+html[data-admin-theme="v3"] .v3Stream,
+html[data-admin-theme="v3"] .v3DashboardColumns{
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  box-sizing:border-box!important;
+}
+html[data-admin-theme="v3"] .v3DashboardColumns>*{
+  min-width:0!important;
+}
+html[data-admin-theme="v3"] .v3SectionHead{
+  min-width:0!important;
+  overflow:hidden!important;
+}
+html[data-admin-theme="v3"] .v3SectionHead>div{
+  min-width:0!important;
+}
+html[data-admin-theme="v3"] .v3SectionHead h2,
+html[data-admin-theme="v3"] .v3SectionHead p{
+  min-width:0!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+html[data-admin-theme="v3"] .v3SectionHead>a{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+  margin-left:8px!important;
+  padding-right:2px!important;
+}
+html[data-admin-theme="v3"] .v3StreamRow{
+  min-width:0!important;
+  max-width:100%!important;
+  overflow:hidden!important;
+}
+html[data-admin-theme="v3"] .v3StreamRow>span{
+  min-width:0!important;
+}
+html[data-admin-theme="v3"] .v3StreamRow b,
+html[data-admin-theme="v3"] .v3StreamRow small{
+  display:block!important;
+  min-width:0!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+html[data-admin-theme="v3"] .v3StreamRow>strong{
+  flex:0 0 auto!important;
+  max-width:38%!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+html[data-admin-theme="v3"] .v3TableHead,
+html[data-admin-theme="v3"] .v3AttentionRow{
+  min-width:0!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+@media(max-width:1050px){
+  html[data-admin-theme="v3"] .v3MetricStrip{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  html[data-admin-theme="v3"] .v3DashboardColumns{grid-template-columns:1fr!important}
+  html[data-admin-theme="v3"] .v3TableHead,
+  html[data-admin-theme="v3"] .v3AttentionRow{
+    grid-template-columns:62px minmax(120px,1.2fr) minmax(105px,.9fr) minmax(100px,.9fr) 82px 62px!important;
+    gap:6px!important;
+  }
+}
+@media(max-width:780px){
+  html[data-admin-theme="v3"] .v3MetricStrip{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}

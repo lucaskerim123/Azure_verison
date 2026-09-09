@@ -1,0 +1,104 @@
+/* OrbitFS Admin V3 settings readability + mobile usability overrides. */
+html[data-admin-theme="v3"] .settingsCompact{font-size:14px}
+html[data-admin-theme="v3"] .settingsHubV2,html[data-admin-theme="v3"] .settingsEditorV3{color:#20262d}
+html[data-admin-theme="v3"] .settingsHubHeader h1,html[data-admin-theme="v3"] .settingsEditorHeader h1{font-size:25px;color:#20262d}
+html[data-admin-theme="v3"] .settingsHubIntro,html[data-admin-theme="v3"] .settingsEditorHeader p{font-size:12px;color:#606a74}
+html[data-admin-theme="v3"] .settingsLiveNote{min-width:220px;padding:11px 13px;border:1px solid #3c4249;border-radius:10px;background:#272c31;color:#fff;box-shadow:0 2px 8px #1112}
+html[data-admin-theme="v3"] .settingsLiveNote b{font-size:11px;color:#fff}
+html[data-admin-theme="v3"] .settingsLiveNote span{font-size:10px;line-height:1.4;color:#d4d8dc}
+
+html[data-admin-theme="v3"] .settingsAccordion{gap:10px}
+html[data-admin-theme="v3"] .settingsSectionV2{border:1px solid #d8dde2;border-radius:11px;background:#fff;box-shadow:0 1px 2px #18202a0d;overflow:hidden}
+html[data-admin-theme="v3"] .settingsSectionSummary{min-height:54px;padding:12px 14px;background:#f2f3f4;color:#20262d;grid-template-columns:30px minmax(0,1fr) auto 22px;gap:10px}
+html[data-admin-theme="v3"] .settingsSectionSummary:hover{background:#e9ebed}
+html[data-admin-theme="v3"] .settingsSectionIndex{font-size:9px;color:#78818a}
+html[data-admin-theme="v3"] .settingsSectionSummary h2{font-size:14px;color:#20262d}
+html[data-admin-theme="v3"] .settingsSectionSummary p{font-size:10.5px;color:#66707a}
+html[data-admin-theme="v3"] .settingsSectionCount{min-width:28px;height:27px;border-color:#c7cdd3;background:#fff;color:#59636d;font-size:9px}
+html[data-admin-theme="v3"] .settingsChevron{font-size:15px;color:#5c6670}
+html[data-admin-theme="v3"] .settingsAreaGrid{gap:8px;padding:9px;border-top:1px solid #dfe3e7;background:#f8f9fa}
+html[data-admin-theme="v3"] .settingsAreaCard{min-height:74px;padding:12px 13px;border:1px solid #d7dce1;border-radius:9px;background:#fff;color:#20262d;box-shadow:0 1px 2px #18202a0b}
+html[data-admin-theme="v3"] .settingsAreaCard:hover{border-color:#aeb6be;background:#fbfbfa;box-shadow:0 2px 8px #18202a12}
+html[data-admin-theme="v3"] .settingsAreaTitle b{font-size:12px;color:#20262d}
+html[data-admin-theme="v3"] .settingsAreaBadge{padding:3px 6px;border-color:#d3d7db;background:#f1f2f3;color:#626b74;font-size:7px}
+html[data-admin-theme="v3"] .settingsAreaCopy p{font-size:10.5px;line-height:1.45;color:#66707a}
+html[data-admin-theme="v3"] .settingsAreaTags span{padding:2px 5px;border-color:#ddd;background:#f5f5f3;color:#6a7076;font-size:7.5px}
+html[data-admin-theme="v3"] .settingsAreaGo{font-size:10px;font-weight:800;color:#176347}
+
+html[data-admin-theme="v3"] .settingsEditorBreadcrumbs{font-size:10px;color:#68717a}
+html[data-admin-theme="v3"] .settingsEditorBreadcrumbs a{color:#176347;font-weight:750}
+html[data-admin-theme="v3"] .settingsSummaryV3{gap:7px}
+html[data-admin-theme="v3"] .settingsSummaryV3 article{min-height:48px;padding:8px 10px;border-color:#d8dde2;background:#fff}
+html[data-admin-theme="v3"] .settingsSummaryV3 small{font-size:8px;color:#737c85}
+html[data-admin-theme="v3"] .settingsSummaryV3 strong{font-size:14px;color:#20262d}
+html[data-admin-theme="v3"] .settingsToolsV3{padding:7px;border-color:#d8dde2;background:#fff}
+html[data-admin-theme="v3"] .settingsToolsV3 input{height:40px;padding:9px 11px;border-color:#cfd5da;background:#fff;color:#20262d;font-size:12px}
+html[data-admin-theme="v3"] .settingsToolsV3 input:focus{border-color:#5d7267;box-shadow:0 0 0 2px #17634718}
+html[data-admin-theme="v3"] .settingsToolsV3 span{font-size:10px;color:#68717a}
+
+html[data-admin-theme="v3"] .settingsGroupStack{gap:10px}
+html[data-admin-theme="v3"] .settingsGroupV3{border-color:#d8dde2;border-radius:10px;background:#fff}
+html[data-admin-theme="v3"] .settingsGroupHeadV3{min-height:50px;padding:11px 13px;background:#f2f3f4;color:#20262d}
+html[data-admin-theme="v3"] .settingsGroupHeadV3:hover{background:#e9ebed}
+html[data-admin-theme="v3"] .settingsGroupHeadV3 h2{font-size:13px;color:#20262d}
+html[data-admin-theme="v3"] .settingsGroupHeadV3 p{font-size:10px;color:#68717a}
+html[data-admin-theme="v3"] .settingsGroupHeadV3>span,html[data-admin-theme="v3"] .settingsGroupHeadV3 i{font-size:10px;color:#68717a}
+html[data-admin-theme="v3"] .settingsListV3{border-top-color:#dfe3e7}
+html[data-admin-theme="v3"] .settingV3{padding:11px 13px;gap:14px;border-bottom-color:#e5e8eb;background:#fff;color:#20262d}
+html[data-admin-theme="v3"] .settingV3:hover{background:#fbfbfa}
+html[data-admin-theme="v3"] .settingV3.danger{box-shadow:inset 3px 0 #bf5963;background:#fffafa}
+html[data-admin-theme="v3"] .settingTitleV3 b{font-size:11.5px;color:#20262d}
+html[data-admin-theme="v3"] .settingTypeBadge{border-color:#d4d8dc;background:#f1f2f3;color:#616a73}
+html[data-admin-theme="v3"] .settingDangerBadge{border-color:#e4b8bd;background:#fff0f1;color:#9f3743}
+html[data-admin-theme="v3"] .settingInfoV3 p{font-size:10px;color:#68717a}
+html[data-admin-theme="v3"] .settingKeyV3 code{font-size:8px;color:#747d86}
+html[data-admin-theme="v3"] .settingVisibilityState{font-size:8px;color:#68717a}
+html[data-admin-theme="v3"] .settingControlV3 input:not([type=checkbox]):not([type=color]),html[data-admin-theme="v3"] .settingControlV3 select,html[data-admin-theme="v3"] .settingControlV3 textarea{min-height:42px;padding:9px 10px;border-color:#cfd5da;background:#fff;color:#20262d;font-size:12px}
+html[data-admin-theme="v3"] .settingControlV3 input:focus,html[data-admin-theme="v3"] .settingControlV3 select:focus,html[data-admin-theme="v3"] .settingControlV3 textarea:focus{border-color:#5d7267;box-shadow:0 0 0 2px #17634718}
+html[data-admin-theme="v3"] .settingUnitRow span{border-color:#cfd5da;background:#f2f3f4;color:#5f6871;font-size:9px}
+html[data-admin-theme="v3"] .settingBooleanV3{padding:4px;border-color:#cfd5da;background:#f1f2f3}
+html[data-admin-theme="v3"] .settingBooleanV3 button{min-height:38px!important;padding:7px 9px!important;color:#5f6871!important;font-size:10.5px!important}
+html[data-admin-theme="v3"] .settingBooleanV3 button.active{background:#21664d!important;color:#fff!important;box-shadow:none!important}
+html[data-admin-theme="v3"] .settingColorV3{grid-template-columns:46px minmax(0,1fr);gap:7px}
+html[data-admin-theme="v3"] .settingColorV3 input[type=color]{width:46px;height:42px;border-color:#cfd5da;background:#fff}
+html[data-admin-theme="v3"] .settingVisibilityV3{min-height:28px}
+html[data-admin-theme="v3"] .settingVisibilityV3 label{font-size:9.5px;color:#626b74}
+html[data-admin-theme="v3"] .settingVisibilityV3 input{width:18px!important;height:18px!important;min-width:18px!important}
+html[data-admin-theme="v3"] .settingVisibilityV3 span{font-size:8.5px;color:#737c85}
+html[data-admin-theme="v3"] .settingsNoResults{padding:18px;border-color:#d8dde2;background:#fff;color:#66707a;font-size:11px}
+html[data-admin-theme="v3"] .settingsSaveV3{bottom:8px;padding:10px 12px;border-color:#c9cfd5;background:#fffffff5;box-shadow:0 8px 24px #18202a20}
+html[data-admin-theme="v3"] .settingsSaveV3 b{font-size:10.5px;color:#20262d}
+html[data-admin-theme="v3"] .settingsSaveV3 span{font-size:9px;color:#68717a}
+html[data-admin-theme="v3"] .settingsSaveV3 button{min-width:140px;min-height:42px!important;padding:8px 13px!important;background:#21664d!important;border-color:#19523e!important;font-size:11px!important}
+html[data-admin-theme="v3"] .settingsSaveV3 button:disabled{background:#d8ddda!important;border-color:#d0d5d2!important;color:#7a827d!important;cursor:not-allowed}
+
+@media(max-width:760px){
+ html[data-admin-theme="v3"] .adminV3Topbar{height:58px;padding:0 10px;gap:8px}
+ html[data-admin-theme="v3"] .adminV3Brand{font-size:11px;gap:6px}
+ html[data-admin-theme="v3"] .adminV3BrandMark{width:30px;height:30px}
+ html[data-admin-theme="v3"] .adminV3Primary>a{min-height:44px;padding:0 12px;font-size:11px}
+ html[data-admin-theme="v3"] .adminV3Tools{gap:5px;padding-right:36px}
+ html[data-admin-theme="v3"] .adminV3Tool,html[data-admin-theme="v3"] .adminV3Create>summary{min-height:40px;padding:7px 10px;font-size:10.5px}
+ html[data-admin-theme="v3"] .adminV3Context{top:58px;min-height:44px;padding:0 10px;overflow-x:auto;scrollbar-width:none}
+ html[data-admin-theme="v3"] .adminV3Context::-webkit-scrollbar{display:none}
+ html[data-admin-theme="v3"] .adminV3Context a{min-height:44px;padding:0 12px;font-size:11px}
+ html[data-admin-theme="v3"] .adminV3ContextLabel{font-size:9px}
+ html[data-admin-theme="v3"] .adminShell{padding:18px 14px 62px}
+ html[data-admin-theme="v3"] .settingsHubHeader h1,html[data-admin-theme="v3"] .settingsEditorHeader h1{font-size:24px}
+ html[data-admin-theme="v3"] .settingsHubIntro,html[data-admin-theme="v3"] .settingsEditorHeader p{font-size:11px}
+ html[data-admin-theme="v3"] .settingsSectionSummary{min-height:58px;padding:12px 11px;grid-template-columns:26px minmax(0,1fr) auto 20px}
+ html[data-admin-theme="v3"] .settingsSectionSummary h2{font-size:13px}
+ html[data-admin-theme="v3"] .settingsAreaGrid{padding:7px;gap:7px}
+ html[data-admin-theme="v3"] .settingsAreaCard{min-height:66px;padding:11px 12px}
+ html[data-admin-theme="v3"] .settingsAreaCopy p{font-size:10px}
+ html[data-admin-theme="v3"] .settingsSummaryV3{grid-template-columns:1fr 1fr;gap:6px}
+ html[data-admin-theme="v3"] .settingsToolsV3{grid-template-columns:1fr auto}
+ html[data-admin-theme="v3"] .settingsGroupHeadV3{min-height:54px;padding:11px 12px}
+ html[data-admin-theme="v3"] .settingV3{padding:11px 12px;gap:9px}
+ html[data-admin-theme="v3"] .settingInfoV3 p{font-size:10px}
+ html[data-admin-theme="v3"] .settingControlV3 input:not([type=checkbox]):not([type=color]),html[data-admin-theme="v3"] .settingControlV3 select,html[data-admin-theme="v3"] .settingControlV3 textarea{min-height:46px;font-size:13px}
+ html[data-admin-theme="v3"] .settingBooleanV3 button{min-height:44px!important;font-size:11px!important}
+ html[data-admin-theme="v3"] .settingColorV3 input[type=color]{height:46px}
+ html[data-admin-theme="v3"] .settingsSaveV3{padding:9px 10px}
+ html[data-admin-theme="v3"] .settingsSaveV3 button{min-width:126px;min-height:44px!important;font-size:11px!important}
+}

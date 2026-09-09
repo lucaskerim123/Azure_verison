@@ -1,0 +1,24 @@
+.walletRechargeHistory{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.walletRechargeEntry{border-bottom:1px solid var(--line)}
+.walletRechargeEntry:last-child{border-bottom:0}
+.walletRechargeRow{display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:12px;align-items:center;padding:12px 0}
+.walletRechargeMain{display:grid;gap:3px;min-width:0}
+.walletRechargeMain b{font-size:13px}
+.walletRechargeMain span{font-size:11px;color:var(--muted);overflow-wrap:anywhere}
+.walletRechargeStatus{display:inline-flex;align-items:center;justify-content:center;min-height:26px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.walletRechargeStatus.status-succeeded{border-color:#397b5c;color:#a9e7c2;background:#0d2a1d}
+.walletRechargeStatus.status-processing,.walletRechargeStatus.status-action_required,.walletRechargeStatus.status-pending{border-color:#4a6f9e;color:#b9d4f5;background:#10233a}
+.walletRechargeStatus.status-failed,.walletRechargeStatus.status-cancelled,.walletRechargeStatus.status-expired{border-color:#854d57;color:#f3b6b6;background:#2b1217}
+.walletRechargeStatus.status-refunded{border-color:#746392;color:#d6c9ee;background:#211a31}
+.walletMiniReceipt{display:grid;gap:14px;margin:0 0 14px;padding:16px;border:1px solid #365f8a;border-radius:12px;background:#07111f}
+.walletReceiptHead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;padding-bottom:12px;border-bottom:1px dashed #34506f}
+.walletReceiptHead small{font-size:9px;letter-spacing:.1em;color:#8ea4bd}
+.walletReceiptHead h3{margin:4px 0 0;font-size:16px}
+.walletReceiptHead>b{font-size:12px;color:#dfeaf7}
+.walletReceiptGrid{display:grid;grid-template-columns:minmax(120px,.5fr) minmax(0,1fr);gap:8px 18px;align-items:start}
+.walletReceiptGrid>span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.walletReceiptGrid>b{font-size:12px;text-align:right;overflow-wrap:anywhere}
+.receiptReference{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px!important}
+.walletActionBox select:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:760px){.walletRechargeRow{grid-template-columns:minmax(0,1fr) auto}.walletRechargeRow>strong{grid-column:1}.walletRechargeRow>button{grid-column:2}.walletReceiptGrid{grid-template-columns:1fr}.walletReceiptGrid>b{text-align:left}.walletReceiptHead{flex-direction:column}}
+@media(max-width:430px){.walletRechargeRow{grid-template-columns:1fr}.walletRechargeRow>strong,.walletRechargeRow>button{grid-column:1}.walletRechargeRow>button{width:100%}.walletRechargeStatus{justify-self:start}}

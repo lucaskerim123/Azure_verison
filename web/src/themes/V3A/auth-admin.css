@@ -1,0 +1,13 @@
+/* V3A admin authentication treatment. Shared structure comes from ../auth.css. */
+.orbitAuthAdmin{--auth-cyan:#8d79ff;--auth-blue:#6677ff;--auth-purple:#b044ff;background:radial-gradient(circle at 10% 72%,rgba(76,71,255,.24),transparent 34%),radial-gradient(circle at 82% 15%,rgba(165,57,255,.25),transparent 31%),radial-gradient(circle at 57% 78%,rgba(76,114,255,.10),transparent 26%),linear-gradient(135deg,#080b14 0%,#101125 43%,#0a0d19 68%,#05070d 100%)}
+.orbitAuthAdmin .orbitAuthMark{border-color:#9a83ff;box-shadow:0 0 24px rgba(145,111,255,.25)}
+.orbitAuthAdmin .orbitAuthMark::after{box-shadow:0 0 13px #ac69ff}
+.orbitAuthAdmin .orbitAuthEyebrow{color:#aa8dff}.orbitAuthAdmin .orbitAuthStory h2 span{color:#b56dff}.orbitAuthAdmin .orbitAuthStoryFoot{color:#9c8dff}
+.orbitAuthAdmin .orbitAuthField input:focus{border-color:rgba(167,117,255,.74);box-shadow:0 0 0 3px rgba(137,91,255,.10),0 0 22px rgba(139,94,255,.09)}
+.orbitAuthAdmin .orbitAuthSubmit{color:#fff;background:linear-gradient(90deg,#6658f5,#884aff 52%,#a542ef);box-shadow:0 14px 30px rgba(115,70,255,.24),0 0 24px rgba(157,78,255,.11)}
+.orbitAuthAdmin .orbitAuthSubmit:hover{box-shadow:0 17px 35px rgba(115,70,255,.30)}
+.orbitAuthAdmin .orbitAuthFormMeta>a,.orbitAuthAdmin .orbitAuthSwitch a{color:#b99cff}
+.orbitAuthAdmin .orbitAuthCard::before{background:linear-gradient(145deg,rgba(114,106,255,.20),transparent 34%,transparent 70%,rgba(183,66,255,.20))}
+.orbitAuthAdmin .orbitAuthTile{border-color:rgba(148,126,255,.58);color:#ddd5ff}.orbitAuthAdmin .orbitAuthTileTwo{border-color:rgba(187,70,255,.65);color:#f0d3ff}.orbitAuthAdmin .orbitAuthTileThree{border-color:rgba(91,112,255,.62);color:#d8deff}
+.orbitAuthAdminBadge{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid rgba(164,118,255,.28);border-radius:999px;background:rgba(91,57,153,.15);color:#cdbbff;font-size:10px;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+.orbitAuthAdminNotice{margin:16px 0 0;padding:10px 12px;border:1px solid rgba(154,126,255,.20);border-radius:9px;background:rgba(55,43,95,.18);color:#9fabc0;font-size:10px;line-height:1.5;text-align:center}

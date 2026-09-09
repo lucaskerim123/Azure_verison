@@ -1,0 +1,1524 @@
+/* OrbitFS V3A mobile authority layer.
+   Loaded last. All rules are phone/tablet-only so desktop presentation remains unchanged. */
+
+.adminV3MobileMenuButton,
+.adminV3MobileMenu{display:none}
+
+@media(max-width:760px){
+  html[data-admin-theme="v3"],
+  html[data-admin-theme="v3"] body{
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  html[data-admin-theme="v3"] .adminV3Layout,
+  html[data-admin-theme="v3"] .masterContent,
+  html[data-admin-theme="v3"] .adminShell{
+    min-width:0!important;
+    max-width:100%!important;
+  }
+
+  html[data-admin-theme="v3"] .adminV3Layout *,
+  html[data-admin-theme="v3"] .adminV3Layout *::before,
+  html[data-admin-theme="v3"] .adminV3Layout *::after{
+    box-sizing:border-box;
+  }
+
+  /* Compact single-row mobile shell. Desktop nav/context disappear behind Menu. */
+  html[data-admin-theme="v3"] .adminV3Topbar{
+    position:sticky!important;
+    top:0!important;
+    z-index:80!important;
+    min-height:48px!important;
+    height:auto!important;
+    display:grid!important;
+    grid-template-columns:auto minmax(0,1fr) auto!important;
+    grid-template-areas:"brand spacer menu"!important;
+    align-items:center!important;
+    gap:7px!important;
+    padding:calc(5px + env(safe-area-inset-top)) 8px 5px!important;
+    overflow:visible!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Brand{
+    grid-area:brand!important;
+    min-width:0!important;
+    gap:6px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Brand>span:nth-child(2){
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Brand small{
+    font-size:7px!important;
+    padding:2px 5px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Primary,
+  html[data-admin-theme="v3"] .adminV3Context{
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Tools{
+    position:absolute!important;
+    right:72px!important;
+    top:calc(5px + env(safe-area-inset-top))!important;
+    z-index:82!important;
+    margin:0!important;
+    padding:0!important;
+    gap:4px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Tools .adminV3Create,
+  html[data-admin-theme="v3"] .adminV3Tools .adminV3Tool{
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] [data-surface="admin"]>button{
+    width:38px!important;
+    min-width:38px!important;
+    height:38px!important;
+    min-height:38px!important;
+    border-radius:8px!important;
+  }
+
+  html[data-admin-theme="v3"] .adminV3MobileMenuButton{
+    grid-area:menu!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    justify-self:end!important;
+    width:auto!important;
+    min-width:58px!important;
+    min-height:38px!important;
+    padding:0 10px!important;
+    border:1px solid #364353!important;
+    border-radius:8px!important;
+    background:#18212c!important;
+    color:#f1f5f8!important;
+    font-size:9px!important;
+    font-weight:800!important;
+    z-index:84!important;
+  }
+
+  /* Accessible grouped menu with submenus. */
+  html[data-admin-theme="v3"] .adminV3MobileMenu{
+    position:fixed!important;
+    z-index:79!important;
+    top:calc(52px + env(safe-area-inset-top))!important;
+    left:7px!important;
+    right:7px!important;
+    display:none!important;
+    max-height:calc(100dvh - 64px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important;
+    overflow:auto!important;
+    padding:7px!important;
+    border:1px solid #303c4b!important;
+    border-radius:11px!important;
+    background:#0f151d!important;
+    box-shadow:0 18px 48px #000b!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileMenu.open{
+    display:grid!important;
+    gap:6px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileDashboard,
+  html[data-admin-theme="v3"] .adminV3MobileUtility>a{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    min-height:40px!important;
+    padding:8px 10px!important;
+    border:1px solid #2c3745!important;
+    border-radius:7px!important;
+    background:#151c25!important;
+    color:#e8edf2!important;
+    font-size:10px!important;
+    font-weight:750!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileDashboard.active{
+    border-color:var(--page-accent)!important;
+    background:color-mix(in srgb,var(--page-accent) 12%,#151c25)!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileGroup{
+    border:1px solid #2b3644!important;
+    border-radius:8px!important;
+    background:#121922!important;
+    overflow:hidden!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileGroup>summary{
+    min-height:40px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:8px!important;
+    padding:8px 10px!important;
+    list-style:none!important;
+    cursor:pointer!important;
+    color:#edf2f6!important;
+    font-size:10px!important;
+    font-weight:800!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileGroup>summary::-webkit-details-marker{display:none!important}
+  html[data-admin-theme="v3"] .adminV3MobileGroup>summary small{
+    min-width:22px!important;
+    height:22px!important;
+    display:grid!important;
+    place-items:center!important;
+    border:1px solid #39485a!important;
+    border-radius:99px!important;
+    color:#a9b6c4!important;
+    font-size:8px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileGroup>div{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:5px!important;
+    padding:0 6px 6px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileGroup a{
+    min-width:0!important;
+    min-height:36px!important;
+    display:flex!important;
+    align-items:center!important;
+    padding:7px 8px!important;
+    border:1px solid #283442!important;
+    border-radius:6px!important;
+    background:#171f29!important;
+    color:#bbc6d1!important;
+    font-size:8.5px!important;
+    line-height:1.2!important;
+    overflow-wrap:anywhere!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileGroup a.active{
+    border-color:var(--page-accent)!important;
+    background:color-mix(in srgb,var(--page-accent) 12%,#171f29)!important;
+    color:#fff!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileUtility{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:5px!important;
+    padding-top:2px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileUtility>a{
+    justify-content:center!important;
+    text-align:center!important;
+    min-width:0!important;
+    font-size:8.5px!important;
+  }
+
+  /* Main canvas: compact, no desktop-sized side padding. */
+  html[data-admin-theme="v3"] .masterContent{
+    min-height:calc(100dvh - 48px)!important;
+  }
+  html[data-admin-theme="v3"] .adminShell{
+    width:100%!important;
+    padding:9px 7px calc(30px + env(safe-area-inset-bottom))!important;
+  }
+  html[data-admin-theme="v3"] .adminTop{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:7px!important;
+    margin-bottom:8px!important;
+    align-items:start!important;
+  }
+  html[data-admin-theme="v3"] .adminTop h1{
+    font-size:19px!important;
+    margin-bottom:2px!important;
+  }
+  html[data-admin-theme="v3"] .adminTop .muted,
+  html[data-admin-theme="v3"] .muted{
+    font-size:8.5px!important;
+    line-height:1.35!important;
+  }
+
+  /* Generic density across admin pages. */
+  html[data-admin-theme="v3"] .panel{
+    margin:7px 0!important;
+    padding:9px!important;
+    border-radius:8px!important;
+  }
+  html[data-admin-theme="v3"] .panelTitle,
+  html[data-admin-theme="v3"] .sectionHead,
+  html[data-admin-theme="v3"] .apiSectionHead{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:5px!important;
+    margin-bottom:7px!important;
+  }
+  html[data-admin-theme="v3"] .panelTitle h2,
+  html[data-admin-theme="v3"] .sectionHead h2,
+  html[data-admin-theme="v3"] .apiSectionHead h2{
+    font-size:12px!important;
+    margin:0!important;
+  }
+  html[data-admin-theme="v3"] .panelTitle p,
+  html[data-admin-theme="v3"] .sectionHead p,
+  html[data-admin-theme="v3"] .apiSectionHead p{
+    font-size:8px!important;
+    line-height:1.3!important;
+  }
+
+  html[data-admin-theme="v3"] .masterContent input,
+  html[data-admin-theme="v3"] .masterContent select,
+  html[data-admin-theme="v3"] .masterContent textarea{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    font-size:16px!important;
+  }
+  html[data-admin-theme="v3"] .masterContent input,
+  html[data-admin-theme="v3"] .masterContent select{
+    min-height:38px!important;
+  }
+  html[data-admin-theme="v3"] .masterContent button,
+  html[data-admin-theme="v3"] .masterContent .buttonlink,
+  html[data-admin-theme="v3"] .masterContent .navcta{
+    min-height:36px!important;
+    max-width:100%!important;
+    padding:6px 9px!important;
+    font-size:9px!important;
+  }
+
+  html[data-admin-theme="v3"] .inlineActions,
+  html[data-admin-theme="v3"] .v3QuickActions,
+  html[data-admin-theme="v3"] .apiClientActions,
+  html[data-admin-theme="v3"] .invoiceHeaderActions{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:5px!important;
+    width:100%!important;
+  }
+  html[data-admin-theme="v3"] .inlineActions>*,
+  html[data-admin-theme="v3"] .v3QuickActions>*{
+    flex:1 1 120px!important;
+    min-width:0!important;
+  }
+
+  /* Dashboard: one dense metric strip and compact sections. */
+  html[data-admin-theme="v3"] .v3Dashboard{
+    gap:8px!important;
+  }
+  html[data-admin-theme="v3"] .v3MetricStrip{
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    gap:0!important;
+    border-radius:8px!important;
+  }
+  html[data-admin-theme="v3"] .v3Metric{
+    min-height:54px!important;
+    padding:6px 5px!important;
+    border-right:1px solid var(--v3-border)!important;
+    border-bottom:0!important;
+    text-align:center!important;
+    align-content:center!important;
+  }
+  html[data-admin-theme="v3"] .v3Metric:last-child{border-right:0!important}
+  html[data-admin-theme="v3"] .v3Metric small{
+    font-size:6px!important;
+    letter-spacing:.04em!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  html[data-admin-theme="v3"] .v3Metric strong{
+    font-size:12px!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  html[data-admin-theme="v3"] .v3Metric span{
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] .v3SectionHead{
+    padding:8px 9px!important;
+    gap:5px!important;
+    align-items:start!important;
+  }
+  html[data-admin-theme="v3"] .v3SectionHead h2{font-size:11px!important}
+  html[data-admin-theme="v3"] .v3SectionHead p{font-size:7.5px!important}
+  html[data-admin-theme="v3"] .v3AttentionRow{
+    grid-template-columns:62px minmax(0,1fr) auto!important;
+    min-height:36px!important;
+    padding:6px 8px!important;
+    gap:5px!important;
+    font-size:8px!important;
+  }
+  html[data-admin-theme="v3"] .v3StreamRow{
+    min-height:36px!important;
+    padding:6px 8px!important;
+  }
+
+  /* Auto-collapse common multi-column admin workspaces. */
+  html[data-admin-theme="v3"] .apiStatusGrid,
+  html[data-admin-theme="v3"] .invoiceSummaryGrid,
+  html[data-admin-theme="v3"] .invoiceSummaryGrid.slim,
+  html[data-admin-theme="v3"] .stats.four,
+  html[data-admin-theme="v3"] .stats{
+    grid-template-columns:repeat(auto-fit,minmax(min(125px,100%),1fr))!important;
+    gap:6px!important;
+  }
+  html[data-admin-theme="v3"] .apiControlGrid,
+  html[data-admin-theme="v3"] .invoiceOverviewGrid,
+  html[data-admin-theme="v3"] .invoiceOverviewGrid.streamlined,
+  html[data-admin-theme="v3"] .invoiceTwoCol,
+  html[data-admin-theme="v3"] .gatewaySetupWorkspace,
+  html[data-admin-theme="v3"] .staffPermissionsWorkspace,
+  html[data-admin-theme="v3"] .customerPrimaryGrid,
+  html[data-admin-theme="v3"] .two{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-admin-theme="v3"] .apiModeChoices,
+  html[data-admin-theme="v3"] .invoiceMoneyEdit,
+  html[data-admin-theme="v3"] .setupChecklist{
+    grid-template-columns:repeat(auto-fit,minmax(min(140px,100%),1fr))!important;
+  }
+
+  /* Wide record/table structures scroll only when stacking would destroy meaning. */
+  html[data-admin-theme="v3"] .masterContent table,
+  html[data-admin-theme="v3"] .invoiceLineTable{
+    max-width:100%!important;
+    overflow-x:auto!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+  html[data-admin-theme="v3"] .invoiceLineHead{display:none!important}
+  html[data-admin-theme="v3"] .invoiceLineRow{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:4px!important;
+    padding:7px!important;
+  }
+
+  /* Staff/permission editor stays manageable rather than one enormous slab. */
+  html[data-admin-theme="v3"] .staffGroupRail{
+    position:static!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html[data-admin-theme="v3"] .compactPermissionGrid{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-admin-theme="v3"] .compactPermission{
+    padding:6px 7px!important;
+  }
+  html[data-admin-theme="v3"] .compactPermission b{font-size:9px!important}
+  html[data-admin-theme="v3"] .compactPermission small{font-size:7.5px!important}
+
+  /* Modals become bottom sheets and never exceed viewport. */
+  html[data-admin-theme="v3"] .orderModalBackdrop{
+    padding:6px!important;
+    align-items:end!important;
+  }
+  html[data-admin-theme="v3"] .orderModal{
+    width:100%!important;
+    max-width:100%!important;
+    max-height:calc(100dvh - 12px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important;
+    border-radius:12px 12px 7px 7px!important;
+    overflow:auto!important;
+  }
+
+  html[data-admin-theme="v3"] .adminV3Layout p,
+  html[data-admin-theme="v3"] .adminV3Layout span,
+  html[data-admin-theme="v3"] .adminV3Layout small,
+  html[data-admin-theme="v3"] .adminV3Layout b,
+  html[data-admin-theme="v3"] .adminV3Layout strong,
+  html[data-admin-theme="v3"] .adminV3Layout code{
+    overflow-wrap:anywhere;
+  }
+}
+
+@media(max-width:420px){
+  html[data-admin-theme="v3"] .adminShell{
+    padding-left:5px!important;
+    padding-right:5px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileMenu{
+    left:5px!important;
+    right:5px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileGroup>div{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileUtility{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-admin-theme="v3"] .v3MetricStrip{
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  }
+  html[data-admin-theme="v3"] .v3Metric{
+    min-height:50px!important;
+    padding:5px 3px!important;
+  }
+  html[data-admin-theme="v3"] .v3Metric small{font-size:5.5px!important}
+  html[data-admin-theme="v3"] .v3Metric strong{font-size:10.5px!important}
+  html[data-admin-theme="v3"] .inlineActions{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html[data-admin-theme="v3"] .inlineActions>*{
+    width:100%!important;
+  }
+}
+
+
+/* V3A mobile dashboard refinement — reduce noise and vertical bulk. */
+.v3MobileCreate{display:none}
+
+@media(max-width:760px){
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop{
+    position:relative!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:end!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop>div:first-child{
+    min-width:0!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop .v3QuickActions{
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] .v3MobileCreate{
+    display:block!important;
+    position:relative!important;
+    justify-self:end!important;
+  }
+  html[data-admin-theme="v3"] .v3MobileCreate>summary{
+    list-style:none!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-width:70px!important;
+    min-height:34px!important;
+    padding:6px 9px!important;
+    border:1px solid #3a4656!important;
+    border-radius:7px!important;
+    background:#18212c!important;
+    color:#eef2f6!important;
+    font-size:9px!important;
+    font-weight:800!important;
+    cursor:pointer!important;
+  }
+  html[data-admin-theme="v3"] .v3MobileCreate>summary::-webkit-details-marker{display:none!important}
+  html[data-admin-theme="v3"] .v3MobileCreate>div{
+    position:absolute!important;
+    z-index:40!important;
+    top:calc(100% + 5px)!important;
+    right:0!important;
+    width:150px!important;
+    padding:5px!important;
+    display:grid!important;
+    gap:4px!important;
+    border:1px solid #334050!important;
+    border-radius:8px!important;
+    background:#121923!important;
+    box-shadow:0 12px 30px #0009!important;
+  }
+  html[data-admin-theme="v3"] .v3MobileCreate a{
+    min-height:34px!important;
+    display:flex!important;
+    align-items:center!important;
+    padding:6px 8px!important;
+    border:1px solid #293544!important;
+    border-radius:6px!important;
+    background:#171f29!important;
+    color:#dce4eb!important;
+    font-size:8.5px!important;
+    font-weight:700!important;
+  }
+
+  /* Force all dashboard KPIs into one single compact strip. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3MetricStrip{
+    display:grid!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    width:100%!important;
+    gap:0!important;
+    overflow:hidden!important;
+    border-radius:8px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric{
+    min-width:0!important;
+    min-height:48px!important;
+    padding:5px 3px!important;
+    border-right:1px solid #2b3645!important;
+    border-bottom:0!important;
+    justify-items:center!important;
+    text-align:center!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:last-child{border-right:0!important}
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric small{
+    max-width:100%!important;
+    font-size:5.5px!important;
+    line-height:1.05!important;
+    letter-spacing:.03em!important;
+    white-space:normal!important;
+    text-align:center!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric strong{
+    font-size:10.5px!important;
+    line-height:1!important;
+  }
+
+  /* Section shells become thin operational bands. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3Section,
+  html[data-admin-theme="v3"] .v3Dashboard .v3Stream{
+    border-radius:8px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:center!important;
+    padding:7px 8px!important;
+    min-height:38px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead h2{
+    font-size:10.5px!important;
+    line-height:1.1!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead p{
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead a{
+    font-size:8px!important;
+    white-space:nowrap!important;
+  }
+
+  /* Needs attention: keep type, record, money and age. Hide duplicated context columns. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3AttentionRow{
+    grid-template-columns:54px minmax(0,1fr) auto auto!important;
+    min-height:40px!important;
+    padding:6px 8px!important;
+    gap:6px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3AttentionCustomer,
+  html[data-admin-theme="v3"] .v3Dashboard .v3AttentionState{
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3AttentionRow>span:nth-child(2) b{
+    font-size:9px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3AttentionRow>span:nth-child(2) small{
+    font-size:7.5px!important;
+    margin-top:1px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Type{
+    padding:3px 5px!important;
+    font-size:6.5px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Amount,
+  html[data-admin-theme="v3"] .v3Dashboard .v3Age{
+    font-size:8px!important;
+    white-space:nowrap!important;
+  }
+
+  /* Receivables / support / customers: one clean compact line per record. */
+  html[data-admin-theme="v3"] .v3DashboardColumns{
+    gap:7px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3StreamRow{
+    min-height:36px!important;
+    padding:6px 8px!important;
+    gap:6px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3StreamRow b{
+    font-size:9px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3StreamRow small{
+    font-size:7.5px!important;
+    line-height:1.15!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3StreamRow strong{
+    font-size:8.5px!important;
+    max-width:78px!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Empty{
+    padding:10px 8px!important;
+    font-size:8px!important;
+  }
+
+  /* Remove leftover excess space in dashboard flow. */
+  html[data-admin-theme="v3"] .v3Dashboard{
+    gap:7px!important;
+  }
+}
+
+@media(max-width:420px){
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop{
+    grid-template-columns:minmax(0,1fr) auto!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric small{
+    font-size:5px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric strong{
+    font-size:9.5px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3AttentionRow{
+    grid-template-columns:48px minmax(0,1fr) auto!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Age{
+    display:none!important;
+  }
+}
+
+
+/* V3A mobile shell correction — compact header, fixed KPI placement, no clipped sections. */
+@media(max-width:760px){
+  /* Real 3-part header: brand | menu | notifications. */
+  html[data-admin-theme="v3"] .adminV3Topbar{
+    grid-template-columns:40px minmax(0,1fr) 40px!important;
+    grid-template-areas:"brand menu tools"!important;
+    min-height:46px!important;
+    padding:calc(4px + env(safe-area-inset-top)) 7px 4px!important;
+    gap:6px!important;
+    align-items:center!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Brand{
+    grid-area:brand!important;
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
+    justify-content:flex-start!important;
+    overflow:hidden!important;
+  }
+  html[data-admin-theme="v3"] .adminV3BrandMark{
+    width:30px!important;
+    min-width:30px!important;
+    height:30px!important;
+    border-radius:8px!important;
+    font-size:9px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Brand small,
+  html[data-admin-theme="v3"] .adminV3Brand>span:nth-child(2){
+    display:none!important;
+  }
+
+  html[data-admin-theme="v3"] .adminV3MobileMenuButton{
+    grid-area:menu!important;
+    justify-self:center!important;
+    min-width:78px!important;
+    min-height:36px!important;
+    padding:0 13px!important;
+  }
+
+  html[data-admin-theme="v3"] .adminV3Tools{
+    grid-area:tools!important;
+    position:static!important;
+    inset:auto!important;
+    width:40px!important;
+    min-width:40px!important;
+    height:40px!important;
+    margin:0!important;
+    padding:0!important;
+    justify-self:end!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Tools>[data-surface="admin"]{
+    margin:0!important;
+    padding:0!important;
+  }
+  html[data-admin-theme="v3"] [data-surface="admin"]>button{
+    width:36px!important;
+    min-width:36px!important;
+    height:36px!important;
+    min-height:36px!important;
+    padding:0!important;
+    border-radius:8px!important;
+  }
+
+  /* Dropdown sits directly below the compact header. */
+  html[data-admin-theme="v3"] .adminV3MobileMenu{
+    top:calc(50px + env(safe-area-inset-top))!important;
+  }
+
+  /* Dashboard heading has clean side breathing room. */
+  html[data-admin-theme="v3"] .v3Dashboard{
+    width:100%!important;
+    max-width:100%!important;
+    padding-inline:1px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop{
+    padding:0 3px!important;
+    margin:0!important;
+  }
+
+  /* Five KPIs in one row, with Cancellations intentionally narrower. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3MetricStrip{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) minmax(64px,.68fr)!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    gap:4px!important;
+    overflow:visible!important;
+    border:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric{
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    min-height:52px!important;
+    margin:0!important;
+    padding:5px 3px!important;
+    border:1px solid var(--v3-border)!important;
+    border-top:2px solid currentColor!important;
+    border-radius:8px!important;
+    background:#151b24!important;
+    box-shadow:none!important;
+    align-content:center!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5){
+    min-height:44px!important;
+    align-self:center!important;
+    padding:4px 2px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5) small{
+    font-size:4.8px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5) strong{
+    font-size:9px!important;
+  }
+
+  /* Operational sections: compact, inset, no giant coloured header slabs. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3Section,
+  html[data-admin-theme="v3"] .v3Dashboard .v3Stream{
+    width:calc(100% - 2px)!important;
+    max-width:calc(100% - 2px)!important;
+    margin-inline:1px!important;
+    overflow:hidden!important;
+    border:1px solid #2b3645!important;
+    border-top:2px solid var(--page-accent)!important;
+    border-radius:8px!important;
+    background:#141a22!important;
+    box-shadow:none!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead{
+    min-height:34px!important;
+    padding:6px 8px!important;
+    margin:0!important;
+    border-bottom:1px solid #2a3442!important;
+    background:#171e27!important;
+    align-items:center!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead>div{
+    min-width:0!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead h2{
+    font-size:10px!important;
+    line-height:1.05!important;
+    margin:0!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead a{
+    justify-self:end!important;
+    max-width:92px!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    font-size:7.5px!important;
+  }
+
+  html[data-admin-theme="v3"] .v3DashboardColumns{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:6px!important;
+    width:100%!important;
+    min-width:0!important;
+  }
+
+  /* Dense content rows with safe inner gutters. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3AttentionRow,
+  html[data-admin-theme="v3"] .v3Dashboard .v3StreamRow{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    padding-left:9px!important;
+    padding-right:9px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3AttentionRow{
+    min-height:38px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3StreamRow{
+    min-height:34px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Empty{
+    min-height:52px!important;
+    display:flex!important;
+    align-items:center!important;
+    padding:8px 9px!important;
+  }
+
+  /* Recent customers remains distinct but equally compact. */
+  html[data-admin-theme="v3"] .v3Dashboard>section.v3Stream{
+    margin-top:0!important;
+  }
+}
+
+@media(max-width:420px){
+  html[data-admin-theme="v3"] .v3Dashboard .v3MetricStrip{
+    grid-template-columns:repeat(4,minmax(0,1fr)) minmax(56px,.62fr)!important;
+    gap:3px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric{
+    min-height:48px!important;
+    padding-inline:2px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric small{
+    font-size:4.8px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric strong{
+    font-size:9px!important;
+  }
+}
+
+
+/* Final mobile admin header/KPI correction. */
+.adminV3MobileHome{display:none}
+
+@media(max-width:760px){
+  html[data-admin-theme="v3"] .adminV3Topbar{
+    grid-template-columns:auto minmax(0,1fr) auto auto!important;
+    grid-template-areas:"home spacer menu tools"!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Brand{
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileHome{
+    grid-area:home!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-width:58px!important;
+    min-height:36px!important;
+    padding:0 9px!important;
+    border:1px solid #344151!important;
+    border-radius:8px!important;
+    background:#161f29!important;
+    color:#e9eef3!important;
+    font-size:9px!important;
+    font-weight:800!important;
+    white-space:nowrap!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileMenuButton{
+    grid-area:menu!important;
+    justify-self:center!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Tools{
+    grid-area:tools!important;
+    justify-self:end!important;
+  }
+
+  /* Keep every KPI on the same row. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3MetricStrip{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    gap:4px!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric{
+    flex:1 1 0!important;
+    width:0!important;
+    min-width:0!important;
+    max-width:none!important;
+    margin:0!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5){
+    flex:.72 1 0!important;
+    width:0!important;
+    min-width:0!important;
+    align-self:stretch!important;
+    min-height:48px!important;
+  }
+}
+
+@media(max-width:420px){
+  html[data-admin-theme="v3"] .adminV3Topbar{
+    grid-template-columns:auto minmax(0,1fr) auto auto!important;
+    gap:5px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileHome{
+    min-width:50px!important;
+    padding-inline:7px!important;
+    font-size:8px!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileMenuButton{
+    min-width:68px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3MetricStrip{
+    gap:3px!important;
+  }
+}
+
+
+/* FINAL V3A PHONE OVERRIDE — single authority after all earlier mobile experiments. */
+@media(max-width:760px){
+  /* Header: fixed compact height, no dead vertical area. */
+  html[data-admin-theme="v3"] .adminV3Topbar{
+    position:sticky!important;
+    top:0!important;
+    z-index:3000!important;
+    display:grid!important;
+    grid-template-columns:40px minmax(0,1fr) 40px!important;
+    grid-template-areas:"home menu tools"!important;
+    align-items:center!important;
+    width:100%!important;
+    height:46px!important;
+    min-height:46px!important;
+    max-height:46px!important;
+    padding:4px 7px!important;
+    margin:0!important;
+    gap:6px!important;
+    overflow:visible!important;
+    background:#090d12!important;
+    border-bottom:1px solid #26303d!important;
+  }
+
+  html[data-admin-theme="v3"] .adminV3Brand,
+  html[data-admin-theme="v3"] .adminV3Primary,
+  html[data-admin-theme="v3"] .adminV3Context{
+    display:none!important;
+  }
+
+  html[data-admin-theme="v3"] .adminV3MobileHome{
+    grid-area:home!important;
+    display:grid!important;
+    place-items:center!important;
+    width:36px!important;
+    min-width:36px!important;
+    max-width:36px!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
+    padding:0!important;
+    margin:0!important;
+    border:1px solid #344151!important;
+    border-radius:8px!important;
+    background:#161e28!important;
+    color:#dfe6ed!important;
+    font-size:0!important;
+    line-height:0!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileHome::before{
+    content:"A"!important;
+    font-size:10px!important;
+    line-height:1!important;
+    font-weight:900!important;
+    color:#f2f5f7!important;
+  }
+
+  html[data-admin-theme="v3"] .adminV3MobileMenuButton{
+    grid-area:menu!important;
+    justify-self:center!important;
+    align-self:center!important;
+    width:auto!important;
+    min-width:70px!important;
+    max-width:92px!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
+    margin:0!important;
+    padding:0 12px!important;
+    border:1px solid #394657!important;
+    border-radius:8px!important;
+    background:#1a2430!important;
+    color:#f2f5f7!important;
+    font-size:9px!important;
+    line-height:1!important;
+    font-weight:800!important;
+  }
+
+  html[data-admin-theme="v3"] .adminV3Tools{
+    grid-area:tools!important;
+    position:static!important;
+    inset:auto!important;
+    display:grid!important;
+    place-items:center!important;
+    justify-self:end!important;
+    width:36px!important;
+    min-width:36px!important;
+    max-width:36px!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Tools>.adminV3Create,
+  html[data-admin-theme="v3"] .adminV3Tools>.adminV3Tool{
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Tools>[data-surface="admin"]{
+    width:36px!important;
+    height:36px!important;
+    margin:0!important;
+    padding:0!important;
+  }
+  html[data-admin-theme="v3"] [data-surface="admin"]>button{
+    width:36px!important;
+    min-width:36px!important;
+    max-width:36px!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
+    margin:0!important;
+    padding:0!important;
+    border-radius:8px!important;
+    box-shadow:none!important;
+  }
+
+  html[data-admin-theme="v3"] .adminV3MobileMenu{
+    top:50px!important;
+    left:6px!important;
+    right:6px!important;
+    width:auto!important;
+    max-width:none!important;
+    max-height:calc(100dvh - 58px - env(safe-area-inset-bottom))!important;
+  }
+
+  /* Remove any inherited gap between shell header and page. */
+  html[data-admin-theme="v3"] .masterContent{
+    margin:0!important;
+    padding:0!important;
+    min-height:calc(100dvh - 46px)!important;
+  }
+  html[data-admin-theme="v3"] .adminShell{
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+    padding:8px 8px calc(24px + env(safe-area-inset-bottom))!important;
+    overflow:hidden!important;
+  }
+
+  /* Dashboard header is compact and aligned. */
+  html[data-admin-theme="v3"] .v3Dashboard{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    gap:6px!important;
+    padding:0!important;
+    margin:0!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:end!important;
+    gap:8px!important;
+    width:100%!important;
+    margin:0 0 2px!important;
+    padding:0!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop h1{
+    font-size:20px!important;
+    line-height:1.05!important;
+    margin:1px 0 2px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop .eyebrow{
+    font-size:7px!important;
+    margin:0 0 2px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop .muted{
+    max-width:480px!important;
+    font-size:8px!important;
+    line-height:1.25!important;
+    margin:0!important;
+  }
+  html[data-admin-theme="v3"] .v3MobileCreate>summary{
+    min-width:68px!important;
+    height:34px!important;
+    min-height:34px!important;
+    max-height:34px!important;
+    padding:0 9px!important;
+  }
+
+  /* 4 main KPIs + a smaller cancellation tile in the spare right slot. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3MetricStrip{
+    display:grid!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    width:100%!important;
+    max-width:100%!important;
+    gap:4px!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+    border:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric{
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    min-height:50px!important;
+    height:50px!important;
+    max-height:50px!important;
+    margin:0!important;
+    padding:5px 3px!important;
+    border:1px solid #334050!important;
+    border-radius:8px!important;
+    background:#151b24!important;
+    display:grid!important;
+    place-content:center!important;
+    gap:2px!important;
+    text-align:center!important;
+    overflow:hidden!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5){
+    width:72%!important;
+    min-width:0!important;
+    max-width:72%!important;
+    height:38px!important;
+    min-height:38px!important;
+    max-height:38px!important;
+    align-self:end!important;
+    justify-self:end!important;
+    padding:3px 2px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric small{
+    font-size:5.2px!important;
+    line-height:1.05!important;
+    white-space:normal!important;
+    overflow:hidden!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric strong{
+    font-size:10px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5) small{
+    font-size:4.7px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5) strong{
+    font-size:8.5px!important;
+  }
+
+  /* Every dashboard section sits inside the viewport with a consistent 1px inset. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3Section,
+  html[data-admin-theme="v3"] .v3Dashboard .v3Stream,
+  html[data-admin-theme="v3"] .v3DashboardColumns{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Section,
+  html[data-admin-theme="v3"] .v3Dashboard .v3Stream{
+    overflow:hidden!important;
+    border:1px solid #334050!important;
+    border-radius:8px!important;
+    background:#141a22!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:center!important;
+    min-height:32px!important;
+    padding:5px 8px!important;
+    margin:0!important;
+    border-bottom:1px solid #2c3744!important;
+    background:#171e27!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead h2{
+    margin:0!important;
+    font-size:10px!important;
+    line-height:1.1!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead p{
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead a{
+    max-width:104px!important;
+    font-size:7.5px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+
+  html[data-admin-theme="v3"] .v3DashboardColumns{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:6px!important;
+  }
+
+  html[data-admin-theme="v3"] .v3Dashboard .v3AttentionRow{
+    grid-template-columns:52px minmax(0,1fr) auto!important;
+    min-height:38px!important;
+    width:100%!important;
+    max-width:100%!important;
+    padding:6px 8px!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Age{
+    display:none!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3StreamRow{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-height:34px!important;
+    padding:6px 8px!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3StreamRow>span{
+    min-width:0!important;
+    overflow:hidden!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3StreamRow strong{
+    max-width:86px!important;
+    min-width:0!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    text-align:right!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Empty{
+    min-height:44px!important;
+    padding:8px!important;
+    font-size:8px!important;
+  }
+}
+
+@media(max-width:420px){
+  html[data-admin-theme="v3"] .adminShell{
+    padding-left:6px!important;
+    padding-right:6px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3MetricStrip{
+    gap:3px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric{
+    height:46px!important;
+    min-height:46px!important;
+    max-height:46px!important;
+    padding-inline:2px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric small{
+    font-size:4.6px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric strong{
+    font-size:9px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5){
+    width:76%!important;
+    max-width:76%!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
+  }
+}
+
+
+/* Mobile admin screenshot correction: shell bounds + true 4+1 KPI row.
+   This is the final mobile-only authority; desktop remains untouched. */
+@media(max-width:760px){
+  html[data-admin-theme="v3"] .adminV3Layout{
+    width:100%!important;
+    max-width:100vw!important;
+    min-width:0!important;
+    overflow-x:clip!important;
+  }
+
+  /* Absolutely prevent any legacy wrapped header height/dead band. */
+  html[data-admin-theme="v3"] .adminV3Topbar{
+    display:grid!important;
+    grid-template-columns:36px minmax(0,1fr) 36px!important;
+    grid-template-areas:"home menu tools"!important;
+    align-items:center!important;
+    height:46px!important;
+    min-height:46px!important;
+    max-height:46px!important;
+    padding:5px 8px!important;
+    gap:6px!important;
+    overflow:visible!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileHome,
+  html[data-admin-theme="v3"] .adminV3MobileMenuButton,
+  html[data-admin-theme="v3"] .adminV3Tools,
+  html[data-admin-theme="v3"] [data-surface="admin"],
+  html[data-admin-theme="v3"] [data-surface="admin"]>button{
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
+    margin:0!important;
+  }
+  html[data-admin-theme="v3"] .adminV3MobileMenuButton{
+    justify-self:center!important;
+    align-self:center!important;
+  }
+  html[data-admin-theme="v3"] .adminV3Tools{
+    position:static!important;
+    justify-self:end!important;
+    padding:0!important;
+  }
+
+  /* Page canvas gets a real inner gutter; do not clip its own cards/borders. */
+  html[data-admin-theme="v3"] .masterContent{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  html[data-admin-theme="v3"] .adminShell{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:9px 10px calc(24px + env(safe-area-inset-bottom))!important;
+    overflow:visible!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+
+  /* Dashboard heading/create: compact and balanced. */
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop{
+    width:100%!important;
+    min-width:0!important;
+    margin:0 0 5px!important;
+    padding:0!important;
+    gap:7px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .adminTop h1{
+    font-size:19px!important;
+  }
+  html[data-admin-theme="v3"] .v3MobileCreate>summary{
+    min-width:66px!important;
+    height:32px!important;
+    min-height:32px!important;
+    max-height:32px!important;
+    padding-inline:8px!important;
+  }
+
+  /* Four primary KPIs + compact cancellation tile in the spare right slot. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3MetricStrip{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) minmax(48px,60px)!important;
+    align-items:end!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    gap:4px!important;
+    margin:0 0 2px!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    height:48px!important;
+    min-height:48px!important;
+    max-height:48px!important;
+    padding:4px 3px!important;
+    border-radius:7px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5){
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
+    align-self:end!important;
+    justify-self:stretch!important;
+    padding:3px 2px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric small{
+    font-size:5px!important;
+    line-height:1.02!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric strong{
+    font-size:9.5px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5) small{
+    font-size:4.2px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5) strong{
+    font-size:8px!important;
+  }
+
+  /* Operational sections stay fully inside the gutter and stop looking like huge bands. */
+  html[data-admin-theme="v3"] .v3Dashboard .v3Section,
+  html[data-admin-theme="v3"] .v3Dashboard .v3Stream,
+  html[data-admin-theme="v3"] .v3DashboardColumns{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Section,
+  html[data-admin-theme="v3"] .v3Dashboard .v3Stream{
+    border-width:1px!important;
+    border-radius:7px!important;
+    overflow:hidden!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead{
+    min-height:29px!important;
+    padding:4px 7px!important;
+    border-bottom:1px solid #2b3542!important;
+    background:#161d26!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead h2{
+    font-size:9.5px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3SectionHead a{
+    max-width:96px!important;
+    font-size:7px!important;
+  }
+
+  html[data-admin-theme="v3"] .v3DashboardColumns{
+    gap:5px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3AttentionRow{
+    min-height:36px!important;
+    padding:5px 8px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3StreamRow{
+    min-height:32px!important;
+    padding:5px 8px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Empty{
+    min-height:38px!important;
+    padding:7px 8px!important;
+  }
+
+  /* Notification panel anchors below the 46px header and never drifts off-screen. */
+  html[data-admin-theme="v3"] [data-surface="admin"]>section{
+    position:fixed!important;
+    top:50px!important;
+    right:6px!important;
+    left:auto!important;
+    width:min(360px,calc(100vw - 12px))!important;
+    max-width:calc(100vw - 12px)!important;
+    max-height:calc(100dvh - 58px)!important;
+    margin:0!important;
+  }
+}
+
+@media(max-width:420px){
+  html[data-admin-theme="v3"] .adminShell{
+    padding-left:8px!important;
+    padding-right:8px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3MetricStrip{
+    grid-template-columns:repeat(4,minmax(0,1fr)) minmax(44px,52px)!important;
+    gap:3px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric{
+    height:45px!important;
+    min-height:45px!important;
+    max-height:45px!important;
+  }
+  html[data-admin-theme="v3"] .v3Dashboard .v3Metric:nth-child(5){
+    height:34px!important;
+    min-height:34px!important;
+    max-height:34px!important;
+  }
+}

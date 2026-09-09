@@ -1,0 +1,171 @@
+/* OrbitFS Admin V3 global visual system. Loaded last so every admin page follows one coherent dark palette. */
+html[data-admin-theme="v3"] .adminV3Layout{
+  --v3-bg:#0d1117;
+  --v3-surface:#131923;
+  --v3-surface-2:#18202b;
+  --v3-surface-3:#202936;
+  --v3-border:#2b3645;
+  --v3-border-strong:#3a485a;
+  --v3-text:#f3f6f8;
+  --v3-text-2:#c7d0da;
+  --v3-muted:#98a5b4;
+  --v3-faint:#748292;
+  --v3-success:#45c48b;
+  --v3-warning:#e8a83e;
+  --v3-danger:#e56573;
+  --v3-info:#54a7d8;
+  --v3-purple:#9a7de0;
+  --v3-teal:#40b8ad;
+  --page-accent:var(--v3-teal);
+  --page-panel:var(--v3-surface);
+  --page-panel-2:var(--v3-surface-2);
+  --page-panel-3:var(--v3-surface-3);
+  --page-line:var(--v3-border);
+  --page-text:var(--v3-text);
+  --page-muted:var(--v3-muted);
+  background:var(--v3-bg)!important;
+  color:var(--v3-text)!important;
+}
+html[data-admin-theme="v3"] body{background:var(--v3-bg)!important;color:var(--v3-text)!important}
+html[data-admin-theme="v3"] .adminV3Layout .masterContent{background:var(--v3-bg)!important;color:var(--v3-text)!important}
+html[data-admin-theme="v3"] .adminV3Layout .adminShell{color:var(--v3-text)!important}
+
+/* Area accents are navigation/identity cues only; surfaces stay consistent. */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"]{--page-accent:var(--v3-teal)}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="customers"]{--page-accent:var(--v3-info)}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="billing"]{--page-accent:var(--v3-warning)}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="licensing"]{--page-accent:var(--v3-purple)}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="support"]{--page-accent:var(--v3-danger)}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="content"]{--page-accent:#d379ad}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="system"]{--page-accent:var(--v3-success)}
+
+/* Header/navigation */
+html[data-admin-theme="v3"] .adminV3Topbar{background:#090d12!important;border-bottom:1px solid #202936!important}
+html[data-admin-theme="v3"] .adminV3BrandMark{background:var(--page-accent)!important;color:#07100e!important}
+html[data-admin-theme="v3"] .adminV3Primary a{color:#aab5c1!important}
+html[data-admin-theme="v3"] .adminV3Primary a:hover{color:#fff!important;background:#131923!important}
+html[data-admin-theme="v3"] .adminV3Primary a.active{color:#fff!important;border-bottom-color:var(--page-accent)!important;background:color-mix(in srgb,var(--page-accent) 8%,#090d12)!important}
+html[data-admin-theme="v3"] .adminV3Context{background:#10151c!important;border-bottom:1px solid #283241!important}
+html[data-admin-theme="v3"] .adminV3ContextLabel{color:color-mix(in srgb,var(--page-accent) 78%,#fff)!important}
+html[data-admin-theme="v3"] .adminV3Context a{color:#98a5b4!important}
+html[data-admin-theme="v3"] .adminV3Context a:hover{color:#fff!important;background:#171e27!important}
+html[data-admin-theme="v3"] .adminV3Context a.active{color:#fff!important;border-bottom-color:var(--page-accent)!important}
+html[data-admin-theme="v3"] .adminV3Tool,html[data-admin-theme="v3"] .adminV3Create summary{background:#171e27!important;border-color:#303c4b!important;color:#e9eef3!important}
+html[data-admin-theme="v3"] .adminV3Tool:hover,html[data-admin-theme="v3"] .adminV3Create summary:hover{border-color:#48586b!important;background:#202936!important}
+html[data-admin-theme="v3"] .adminV3CreateMenu{background:#151b23!important;border-color:#344151!important;box-shadow:0 16px 40px #0008!important}
+html[data-admin-theme="v3"] .adminV3CreateMenu a{color:#dce3ea!important;background:transparent!important}
+html[data-admin-theme="v3"] .adminV3CreateMenu a:hover{background:#202936!important;color:#fff!important}
+
+/* Text hierarchy — prevent descriptions disappearing. */
+html[data-admin-theme="v3"] .adminV3Layout h1,html[data-admin-theme="v3"] .adminV3Layout h2,html[data-admin-theme="v3"] .adminV3Layout h3,html[data-admin-theme="v3"] .adminV3Layout h4,html[data-admin-theme="v3"] .adminV3Layout b,html[data-admin-theme="v3"] .adminV3Layout strong{color:var(--v3-text)!important}
+html[data-admin-theme="v3"] .adminV3Layout .muted,
+html[data-admin-theme="v3"] .adminV3Layout p.muted,
+html[data-admin-theme="v3"] .adminV3Layout .panelTitle p,
+html[data-admin-theme="v3"] .adminV3Layout .adminItem span,
+html[data-admin-theme="v3"] .adminV3Layout .adminItem small,
+html[data-admin-theme="v3"] .adminV3Layout .listrow span,
+html[data-admin-theme="v3"] .adminV3Layout .listrow small,
+html[data-admin-theme="v3"] .adminV3Layout .form small,
+html[data-admin-theme="v3"] .adminV3Layout label small,
+html[data-admin-theme="v3"] .adminV3Layout section p:not(.inlineStatus),
+html[data-admin-theme="v3"] .adminV3Layout article span{color:var(--v3-muted)!important;opacity:1!important}
+html[data-admin-theme="v3"] .adminV3Layout .eyebrow{color:color-mix(in srgb,var(--page-accent) 76%,#fff)!important}
+html[data-admin-theme="v3"] .adminV3Layout code{color:#d9e3ec!important;background:#1c2430!important;border:1px solid #334052!important;border-radius:5px;padding:1px 4px}
+
+/* Surfaces and sections */
+html[data-admin-theme="v3"] .adminV3Layout .panel,
+html[data-admin-theme="v3"] .adminV3Layout .v3Section,
+html[data-admin-theme="v3"] .adminV3Layout .settingsSectionV2,
+html[data-admin-theme="v3"] .adminV3Layout .settingsGroupV3,
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaCard,
+html[data-admin-theme="v3"] .adminV3Layout .settingsSummaryV3 article{background:var(--v3-surface)!important;border:1px solid var(--v3-border)!important;color:var(--v3-text)!important;box-shadow:0 8px 24px #0003!important}
+html[data-admin-theme="v3"] .adminV3Layout .panel{border-top:2px solid color-mix(in srgb,var(--page-accent) 72%,var(--v3-border))!important}
+html[data-admin-theme="v3"] .adminV3Layout .panelTitle,
+html[data-admin-theme="v3"] .adminV3Layout .v3SectionHead,
+html[data-admin-theme="v3"] .adminV3Layout .settingsSectionSummary,
+html[data-admin-theme="v3"] .adminV3Layout .settingsGroupHeadV3{background:var(--v3-surface-2)!important;border-color:var(--v3-border)!important;color:var(--v3-text)!important}
+html[data-admin-theme="v3"] .adminV3Layout .adminItem,
+html[data-admin-theme="v3"] .adminV3Layout .listrow,
+html[data-admin-theme="v3"] .adminV3Layout .supportDashRow,
+html[data-admin-theme="v3"] .adminV3Layout .customerEmailRow,
+html[data-admin-theme="v3"] .adminV3Layout .customerIpRow,
+html[data-admin-theme="v3"] .adminV3Layout .customerActivityRow{background:transparent!important;border-bottom-color:var(--v3-border)!important;color:var(--v3-text)!important}
+html[data-admin-theme="v3"] .adminV3Layout .adminItem:hover,
+html[data-admin-theme="v3"] .adminV3Layout .listrow:hover,
+html[data-admin-theme="v3"] .adminV3Layout .supportDashRow:hover{background:var(--v3-surface-2)!important}
+
+/* Forms */
+html[data-admin-theme="v3"] .adminV3Layout input,
+html[data-admin-theme="v3"] .adminV3Layout select,
+html[data-admin-theme="v3"] .adminV3Layout textarea{background:#0f141b!important;border:1px solid #344153!important;color:#eef3f7!important;box-shadow:none!important}
+html[data-admin-theme="v3"] .adminV3Layout input::placeholder,
+html[data-admin-theme="v3"] .adminV3Layout textarea::placeholder{color:#6f7d8c!important;opacity:1!important}
+html[data-admin-theme="v3"] .adminV3Layout input:focus,
+html[data-admin-theme="v3"] .adminV3Layout select:focus,
+html[data-admin-theme="v3"] .adminV3Layout textarea:focus{border-color:color-mix(in srgb,var(--page-accent) 75%,#fff)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--page-accent) 16%,transparent)!important;outline:none!important}
+html[data-admin-theme="v3"] .adminV3Layout label{color:#d7dfe7!important}
+
+/* Buttons: globally neutral by default. Accent only for primary actions. */
+html[data-admin-theme="v3"] .adminV3Layout button,
+html[data-admin-theme="v3"] .adminV3Layout .buttonlink,
+html[data-admin-theme="v3"] .adminV3Layout .navcta{background:#222b37!important;border:1px solid #3a4757!important;color:#edf2f6!important;box-shadow:none!important}
+html[data-admin-theme="v3"] .adminV3Layout button:hover,
+html[data-admin-theme="v3"] .adminV3Layout .buttonlink:hover,
+html[data-admin-theme="v3"] .adminV3Layout .navcta:hover{background:#2a3543!important;border-color:#526174!important;filter:none!important}
+html[data-admin-theme="v3"] .adminV3Layout button:not(.secondary):not(.danger):not(.small):not(.plainButton),
+html[data-admin-theme="v3"] .adminV3Layout .buttonlink:not(.secondary),
+html[data-admin-theme="v3"] .adminV3Layout .navcta{background:color-mix(in srgb,var(--page-accent) 58%,#18202a)!important;border-color:color-mix(in srgb,var(--page-accent) 70%,#25303e)!important;color:#fff!important}
+html[data-admin-theme="v3"] .adminV3Layout button.secondary,
+html[data-admin-theme="v3"] .adminV3Layout .secondary{background:#202833!important;border-color:#394656!important;color:#e6edf3!important}
+html[data-admin-theme="v3"] .adminV3Layout button.danger,
+html[data-admin-theme="v3"] .adminV3Layout .danger{background:#402028!important;border-color:#83404c!important;color:#ffdce1!important}
+html[data-admin-theme="v3"] .adminV3Layout button:disabled{opacity:.48!important;color:#9aa5b2!important;cursor:not-allowed!important}
+
+/* Metrics */
+html[data-admin-theme="v3"] .adminV3Layout .stats article{background:var(--v3-surface)!important;border:1px solid var(--v3-border)!important;color:var(--v3-text)!important;box-shadow:none!important}
+html[data-admin-theme="v3"] .adminV3Layout .stats article small{color:#8e9baa!important}
+html[data-admin-theme="v3"] .adminV3Layout .stats article strong{color:#fff!important}
+
+/* Dashboard uses semantic colours, not one area accent. */
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric{background:#171e27!important;border-color:#303a47!important;box-shadow:inset 0 3px var(--v3-info)!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.urgent{background:#21191d!important;box-shadow:inset 0 3px var(--v3-danger)!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.money{background:#211d16!important;box-shadow:inset 0 3px var(--v3-warning)!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.support{background:#152025!important;box-shadow:inset 0 3px #46bfd0!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric.good{background:#17221d!important;box-shadow:inset 0 3px var(--v3-success)!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric:last-child{background:#1d1925!important;box-shadow:inset 0 3px var(--v3-purple)!important}
+html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric small,html[data-admin-theme="v3"] .adminV3Layout[data-admin-area="dashboard"] .v3Metric span{color:#98a5b4!important}
+
+/* Tables / badges / queue states */
+html[data-admin-theme="v3"] .adminV3Layout .v3TableHead{background:#161d26!important;border-color:#2c3644!important;color:#a7b3c0!important}
+html[data-admin-theme="v3"] .adminV3Layout .statusBadge,html[data-admin-theme="v3"] .adminV3Layout .customerStatus{border:1px solid #3a4655!important;background:#232c37!important;color:#cbd4dd!important}
+html[data-admin-theme="v3"] .adminV3Layout .statusBadge.new,html[data-admin-theme="v3"] .adminV3Layout .customerStatus.active{background:#17352b!important;border-color:#2e6a54!important;color:#70dfb1!important}
+html[data-admin-theme="v3"] .adminV3Layout .statusBadge.claimRequired,html[data-admin-theme="v3"] .adminV3Layout .customerStatus.suspended{background:#3a2c16!important;border-color:#745a2a!important;color:#f4cb72!important}
+html[data-admin-theme="v3"] .adminV3Layout .customerStatus.banned{background:#3e2027!important;border-color:#7f3d49!important;color:#ff98a5!important}
+
+/* Settings: eradicate leftover light hard-codes. */
+html[data-admin-theme="v3"] .adminV3Layout .settingsHubV2,
+html[data-admin-theme="v3"] .adminV3Layout .settingsEditorV3,
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaGrid,
+html[data-admin-theme="v3"] .adminV3Layout .settingV3{background:transparent!important;color:var(--v3-text)!important}
+html[data-admin-theme="v3"] .adminV3Layout .settingsHubIntro,
+html[data-admin-theme="v3"] .adminV3Layout .settingsEditorHeader p,
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaCopy p,
+html[data-admin-theme="v3"] .adminV3Layout .settingsGroupHeadV3 p,
+html[data-admin-theme="v3"] .adminV3Layout .settingInfoV3 p{color:var(--v3-muted)!important;opacity:1!important}
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaBadge,
+html[data-admin-theme="v3"] .adminV3Layout .settingsAreaTags span{background:#202936!important;border-color:#354253!important;color:#b9c4cf!important}
+
+/* Alerts page has a CSS module; override generic global button leakage without making its selections fluorescent. */
+html[data-admin-theme="v3"] .adminV3Layout button[class*="activeType"]{background:#25303c!important;border-color:#516174!important;color:#fff!important}
+html[data-admin-theme="v3"] .adminV3Layout button[class*="activeType"] span{color:#c1cbd5!important}
+html[data-admin-theme="v3"] .adminV3Layout a[href="/admin/settings/alerts"]{background:#222b37!important;border-color:#405064!important;color:#e8eef4!important}
+html[data-admin-theme="v3"] .adminV3Layout button[class*="previewButton"]{background:#202833!important;border-color:#425064!important;color:#e9eef4!important}
+html[data-admin-theme="v3"] .adminV3Layout button[class*="sendButton"]{background:#244d3b!important;border-color:#39765b!important;color:#e8fff4!important}
+
+/* Mobile: keep everything readable and tappable. */
+@media(max-width:760px){
+  html[data-admin-theme="v3"] .adminV3Topbar{min-height:48px}
+  html[data-admin-theme="v3"] .adminV3Primary a,html[data-admin-theme="v3"] .adminV3Context a,html[data-admin-theme="v3"] .adminV3Tool,html[data-admin-theme="v3"] .adminV3Create summary{min-height:42px;display:inline-flex;align-items:center}
+  html[data-admin-theme="v3"] .adminV3Layout button,html[data-admin-theme="v3"] .adminV3Layout input,html[data-admin-theme="v3"] .adminV3Layout select{min-height:42px}
+  html[data-admin-theme="v3"] .adminV3Layout textarea{min-height:100px}
+}

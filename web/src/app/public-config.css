@@ -1,0 +1,3 @@
+:root{--public-content-width:1240px;--public-card-radius:14px}
+.sitebar,.hero,.section,.productHero{max-width:var(--public-content-width)}
+.heroPanel,.productCard,.newsCard,.featureBand{border-radius:var(--public-card-radius)}

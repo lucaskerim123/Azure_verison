@@ -1,4 +1,5 @@
 import {createClient} from "@supabase/supabase-js";
+import {hashCustomerPassword} from "@/lib/customer-auth-server";
 
 const url=(process.env.ORBITFS_SUPABASE_URL||process.env.NEXT_PUBLIC_SUPABASE_URL||"https://adutmcvusqeqonpvfcps.supabase.co").trim();
 const serviceKey=process.env.SUPABASE_SERVICE_ROLE_KEY||"";
@@ -35,9 +36,12 @@ export async function POST(req:Request){
     if(staffError)throw staffError;
     const {error:membershipError}=await db.from("staff_member_groups").insert({user_id:userId,group_id:group.id,is_primary:true});
     if(membershipError)throw membershipError;
-    const {error:customerError}=await db.from("customers").insert({auth_user_id:userId,email,name:username,username,display_name:username,status:"active",email_verified_at:new Date().toISOString(),metadata:{registration_source:"first_user_setup"},updated_at:new Date().toISOString()});
+    const verifiedAt=new Date().toISOString();
+    const {error:customerError}=await db.from("customers").insert({auth_user_id:userId,email,name:username,username,display_name:username,status:"active",email_verified_at:verifiedAt,metadata:{registration_source:"first_user_setup"},updated_at:verifiedAt});
     if(customerError)throw customerError;
-    return Response.json({ok:true,message:"First Store owner created. You can now sign in to the Master Admin."});
+    const {error:credentialError}=await db.from("customer_credentials").insert({user_id:userId,password_hash:hashCustomerPassword(password),password_changed_at:verifiedAt,created_at:verifiedAt,updated_at:verifiedAt});
+    if(credentialError)throw credentialError;
+    return Response.json({ok:true,message:"First Store owner created, verified and granted full admin access. You can now sign in to the Master Admin."});
   }catch(error:any){
     try{await db.auth.admin.deleteUser(userId)}catch{}
     return Response.json({error:error?.message||"First-user setup failed."},{status:500});

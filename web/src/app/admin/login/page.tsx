@@ -35,7 +35,9 @@ export default function AdminLoginPage(){
   const {error}=await sb.auth.signInWithPassword({email:String(f.get("email")||""),password:String(f.get("password")||"")});
   if(error){setMessage(error.message);setBusy(false);return;}
   const {data,error:accessError}=await sb.rpc("get_my_staff_access");
-  if(accessError||!hasAdminAccess(data)){await sb.auth.signOut();setMessage("This account does not have admin access.");setBusy(false);return;}
+  const access=Array.isArray(data)?data[0]:data;
+  if(accessError||!hasAdminAccess(access)){await sb.auth.signOut();setMessage("This account does not have admin access.");setBusy(false);return;}
+  if(access?.email_verified!==true){await sb.auth.signOut();setMessage("This account is not verified in the OrbitFS customer account table.");setBusy(false);return;}
   router.replace("/admin");router.refresh();
  }
  return <main className="orbitAuthPage orbitAuthAdmin">

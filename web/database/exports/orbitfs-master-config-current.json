@@ -1,0 +1,30 @@
+{
+  "export_type": "OrbitFS Master configuration export",
+  "source_database": "zekejuprrsurjmwgzexw",
+  "exported": "2026-09-10",
+  "secrets": "redacted",
+  "staff_groups": [
+    {"slug":"superadmin","name":"Superadmin","system":true,"sort":1,"description":"System owner authority. Final support escalation level with unrestricted OrbitFS access.","permissions":"all"},
+    {"slug":"admin","name":"Administrator","system":true,"sort":10,"description":"Administrative manager. Manages departments, settings, escalated support and broader OrbitFS operations.","permissions":"current database permission set"},
+    {"slug":"senior-support","name":"Senior Support","system":true,"sort":15,"description":"Support supervisor. Oversees workers, assignments, escalations, routing and support knowledge.","permissions":"current database permission set"},
+    {"slug":"support","name":"Support","system":true,"sort":20,"description":"Front-line support worker. Handles assigned department queues, customer replies, ticket triage and escalation.","permissions":"current database permission set"}
+  ],
+  "departments": [
+    {"slug":"general-support","name":"General Support","email":"support@orbitfs.cc","sort":10,"min_rank":1,"direct_create":true,"escalates_to":"advanced-general-support"},
+    {"slug":"advanced-general-support","name":"Advanced General Support","email":"support@orbitfs.cc","sort":20,"min_rank":2,"direct_create":false},
+    {"slug":"sales-enquiries","name":"Sales Enquiries","email":"billing@orbitfs.cc","sort":30,"min_rank":1,"direct_create":true},
+    {"slug":"billing-enquiries","name":"Billing Enquiries","email":"billing@orbitfs.cc","sort":40,"min_rank":1,"direct_create":true},
+    {"slug":"technical-support","name":"Technical Support","email":"admin@orbitfs.cc","sort":50,"min_rank":1,"direct_create":true,"escalates_to":"advanced-technical-support"},
+    {"slug":"advanced-technical-support","name":"Advanced Technical Support","email":"admin@orbitfs.cc","sort":60,"min_rank":2,"direct_create":false}
+  ],
+  "role_definitions": {"user":{"rank":10,"permissions":["account.self","orders.self","licenses.self","support.self"]},"support":{"rank":50,"permissions":["support.manage","customers.read","orders.read","licenses.read"]},"admin":{"rank":80,"permissions":["support.manage","customers.manage","orders.manage","licenses.manage","credit.manage","catalog.manage","settings.read"]},"superadmin":{"rank":100,"permissions":["*"]}},
+  "option_sets": {"account_status":["active","suspended","closed"],"order_status":["pending","processing","completed","cancelled"],"ticket_priority":["low","normal","high","urgent"]},
+  "enforcement": {"enabled":true,"integration_enabled":false,"auto_suspend_overdue":true,"overdue_grace_days":0,"auto_restore_paid":true,"ban_blocks_licenses":true,"suspension_blocks_licenses":true},
+  "license_api": {"name":"OrbitFS Licence API","base_url":"/api/license/v1","mode":"active","enabled":true,"issuer":"orbitfs-website","audience":"orbitfs-runtime","entitlement_ttl_seconds":1800,"grace_seconds":0,"allow_offline_grace":false},
+  "mail": {"provider":"resend","accounts":["admin@orbitfs.cc","billing@orbitfs.cc","noreply@orbitfs.cc","support@orbitfs.cc"],"inbound_domain":"orbitfs.cc","inbound_enabled":true,"default_from":"noreply@orbitfs.cc","customer_sender":"support@orbitfs.cc","reply_to":"admin@orbitfs.cc"},
+  "payment_gateways": [{"code":"account_credit","enabled":true,"sort":10},{"code":"stripe","enabled":true,"sort":20},{"code":"paypal","enabled":true,"sort":30},{"code":"manual_bank","enabled":false,"sort":50}],
+  "themes": [{"id":"V3A","surface":"admin","builtin":true},{"id":"V3C","surface":"customer","builtin":true}],
+  "release_system": {"enabled":true,"customer_deploy_enabled":true,"customer_updates_enabled":true,"customer_rollbacks_enabled":true,"allow_existing_supabase_project":true,"allow_create_supabase_project":true,"supabase_oauth_enabled":true,"vercel_oauth_enabled":true,"default_supabase_region":"ap-southeast-2","panel_project_prefix":"orbitfs-panel","schema_version":"1","schema_bucket":"orbitfs-installer-assets","schema_path":"base/schema.sql","health_path":"/api/health","release_channel":"latest"},
+  "staff_memberships": "excluded from defaults; memberships are installation-specific",
+  "secrets": "passwords, hashes, tokens, private keys, OAuth credentials and provider secrets excluded"
+}
